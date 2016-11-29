@@ -1,0 +1,9 @@
+####### IGNORE LIST START #######
+
+# remote-ftp settings (atom package)
+.ftpconfig
+
+# remote-sync settings (atom package)
+.remote-sync.json
+
+####### IGNORE LIST END #######
