@@ -6,4 +6,7 @@
 # remote-sync settings (atom package)
 .remote-sync.json
 
+# .htaccess
+.htaccess
+
 ####### IGNORE LIST END #######
