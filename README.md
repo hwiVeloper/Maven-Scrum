@@ -22,7 +22,7 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
     * Testing : Up to Dec 28th, 2016
     * Maintenance : Up to Dec 31th, 2016
   * Contributor
-    * @[devhwi](https://www.github.com/devhwi)
+    * @[devhwi](https://www.github.com/devhwi) (MAVEN Leader)
 
 ## Screen Information
   ```
