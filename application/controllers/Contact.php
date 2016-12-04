@@ -54,7 +54,7 @@
       else // if validation successed
       {
         $success_params = array('message' => 'Your message has been sent');
-        $this->load->view('contactsucess', $success_params);
+        $this->load->view('contactsuccess', $success_params);
       }
     }
   }
