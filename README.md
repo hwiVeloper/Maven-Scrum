@@ -30,7 +30,6 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
     - Upper case -> Screen name
     - other -> description
   ```
-
   * INDEX
     * logo, login form, button(ADD ACCOUNT)
   * ADD ACCOUNT
