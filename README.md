@@ -18,9 +18,9 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
   * Development Period
     * Analysis : Up to Nov 30th, 2016
     * Design : Up to Dec 4th, 2016
-    * Development : Up to Dec 23th, 2016
+    * Development : Up to Dec 26th, 2016 (changed to improve dev. skill of CI)
     * Testing : Up to Dec 28th, 2016
-    * Maintenance : Up to Dec 31th, 2016
+    * Maintenance : Up to Dec 31st, 2016
   * Contributor
     * @[devhwi](https://www.github.com/devhwi) (MAVEN Leader)
 
