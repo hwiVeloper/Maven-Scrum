@@ -38,13 +38,13 @@
       $this->email->attach($attachment_path1);
       $this->email->attach($attachment_path2);
 
-      if($this->email->send()) {
-        //성공!
-        echo "Your email was sent!";
-      }else {
-        //에러!
-        echo $this->email->print_debugger();
-      }
+      // if($this->email->send()) {
+      //   //성공!
+      //   echo "Your email was sent!";
+      // }else {
+      //   //에러!
+      //   echo $this->email->print_debugger();
+      // }
     }
     function doc_root_path() {
       return $doc_root = $_SERVER["DOCUMENT_ROOT"];
