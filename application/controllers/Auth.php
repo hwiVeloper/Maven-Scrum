@@ -20,12 +20,12 @@
         $msg = $stat['msg'];
         if($stat['result'] == 'ok') {
           // Login success
-          if($this->session->userdata('role') == '5') {
+          if($this->session->userdata('user_level') == '5') {
             // Go Admin Menu
             redirect('Auth/admin_main_menu');
           }else {
             // Go User Menu
-            redirect('Auth/user_main_menu');
+            redirect('Auth/user_main_menu', 'refresh');
           }
           return;
         }
@@ -55,9 +55,9 @@
       if($user_record) {
         // Pass check process
         // And make session
-        $this->session->set_userdata('user_id', $user_record->id);
-        $this->session->set_userdata('user_name', $user_record->name);
-        $this->session->set_userdata('user_level', $user_record->level);
+        $this->session->set_userdata('user_id', $user_record->user_id);
+        $this->session->set_userdata('user_name', $user_record->user_name);
+        $this->session->set_userdata('user_level', $user_record->user_level);
         $ret['result'] = 'ok'; $ret ['msg'] = 'Logged-in!';
       }else {
         // Login failed!
@@ -80,7 +80,7 @@
       $view_setup['user_id'] = $this->session->userdata('user_id');
       $view_setup['user_name'] = $this->session->userdata('user_name');
       $view_setup['user_level'] = $this->session->userdata('user_level');
-      $this->load->view('logged_in_view', $view_setup);
+      $this->load->view('login_in_view.php', $view_setup);
     }
 
     function user_main_menu() {
@@ -88,8 +88,7 @@
       $view_setup['user_id'] = $this->session->userdata('user_id');
       $view_setup['user_name'] = $this->session->userdata('user_name');
       $view_setup['user_level'] = $this->session->userdata('user_level');
-      $this->load->view('logged_in_view', $view_setup);
-
+      $this->load->view('login_in_view.php', $view_setup);
     }
   }
 ?>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="Content-type" content="text/html" charset="utf-8">
+    <title>login in view</title>
   </head>
   <body>
     <h1>Welcome <?=$user_name?> !</h1>

@@ -10,10 +10,10 @@ class Users_model extends CI_Model {
     // to be able to get helper, library everywhere.
 
     //not use md5 this time
-    $md5_pass = md5($pass);
+    $md5_pass = $pass;
 
     // Make query
-    $sql = "SELECT * FROM scrum_users WHERE user_name = '$user'
+    $sql = "SELECT * FROM scrum_user WHERE user_name = '$user'
             AND user_password = '$md5_pass'";
     $query = $this->db->query($sql);
 

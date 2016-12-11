@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <title></title>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"/>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   </head>
   <body>
     <h1>Log-in Here</h1>
@@ -17,9 +17,9 @@
 
     // <input> tag attributes
     echo form_label("User Name");
-    echo "<td></td>";
+    echo "</td><td>";
     echo form_input(array('name' => 'user_name', 'value' => ''));
-    echo "<td></td>";
+    echo "</td><td>";
 
     // Error message (hidden)
     echo "<label id='user_name_err' style='color:red; display:none;'>
