@@ -43,13 +43,16 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
       * WRITE REPLY
       * EDIT REPLY
       * DELETE REPLY
+      * If a plan is your's, you can
+        * EDIT PLAN
+        * DELETE PLAN
     * WRITE PLANS(TODAY'S)
       * We can write today's plans
-    * ATTENDANCE BOOK
-      * Check user's attendance by month(calendar library)
     * MY TODAY
       * Check user's plan(success/fail)
       * Can write notice to let others to know good or bad news
       * Can edit or delete notice that have to be updated or is needless
     * ACCOUNT
       * We can see or edit user's account information.
+    * ATTENDANCE BOOK
+      * Check user's attendance by month(calendar library)
