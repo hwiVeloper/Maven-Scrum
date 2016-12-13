@@ -26,11 +26,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     padding: auto;
   }
   .container {
-    background: red;
+    width:100%;
+    height: 100%;
+  }
+  .img-fluid {
+    max-width: 70%;
   }
 </style>
 <div class="centered">
-  <!-- <h1 align="center">MAVEN DAILY SCRUM</h1> -->
+  <div class="" align="center">
+    <img class="img-fluid" src="<?php echo base_url('assets/img/logo.gif');?>" align="middle">
+  </div>
+  <h5 align="center">DAILY SCRUM</h5>
   <!-- Form Start -->
   <form class="" action="" method="post" style="margin-top:1.5em;" onsubmit="<?php echo base_url('Main') ?>">
     <!-- I D -->
