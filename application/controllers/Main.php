@@ -29,9 +29,11 @@ class Main extends CI_Controller {
 				$status = $this->check_login();
 				$msg = $status['msg'];
         if($status['result'] == TRUE) {
-					echo "<script>alert(".$msg.")</script>";
+					echo "<script>alert('$msg')</script>";
           redirect('Main', 'refresh');
-        }
+        }else{
+					echo "<script>alert('$msg')</script>";
+				}
 			}
       $this->load->view('header');
       $this->load->view('main');

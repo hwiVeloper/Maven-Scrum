@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <!-- Meta Informations -->
@@ -10,6 +11,8 @@
 
   <!-- CSS Libraries -->
   <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
+
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
