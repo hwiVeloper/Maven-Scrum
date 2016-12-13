@@ -31,8 +31,8 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
     - other -> description
   ```
   * INDEX
-    * logo, login form, button(ADD ACCOUNT)
-  * ADD ACCOUNT
+    * logo, login form, button(Sign up)
+  * SIGN UP
   * MAIN(AFTER LOGIN)
     * Looks like today's dashboard
     * We can see other members daily plan
