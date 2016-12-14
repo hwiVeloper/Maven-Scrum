@@ -15,7 +15,7 @@ class MMain extends CI_Model {
     // Make query
     $sql = "SELECT *
             FROM scrum_user
-            WHERE user_name = '$user'
+            WHERE user_id = '$user'
             AND user_password = '$md5_pass'";
     $query = $this->db->query($sql);
 
