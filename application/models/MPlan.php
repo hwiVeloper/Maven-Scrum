@@ -9,5 +9,11 @@ class MPlan extends CI_Model {
 
     return 1;
   }
+
+  function add_plan_info($data) {
+    $query = $this->db->insert('scrum_plan_info', $data);
+
+    return;
+  }
 }
 ?>

@@ -65,7 +65,7 @@
       $seq = $this->input->post('plan_detail_seq');
       $content = $this->input->post('plan_content');
 
-      // Insert dataset
+      // Insert dataset (Plan)
       $data = array();
       for($i = 0; $i < sizeof($seq); $i++){
         $data = array(
@@ -77,6 +77,14 @@
         );
         $plan_count += $this->MPlan->add_plan($data);
       }
+
+      // Insert dataset (Plan info)
+      $data = array(
+          'plan_date' => $this->input->post('plan_date'),
+          'plan_comment' => $this->input->post('plan_comment'),
+          'user_id' => $this->session->userdata('user_id')
+      );
+      $this->MPlan->add_plan_info($data);
 
       if($plan_count > 0){
         $ret['msg'] = $plan_count."건이 등록되었습니다.";
