@@ -13,15 +13,7 @@ class Main extends CI_Controller {
 	public function index() {
     if($this->session->userdata('user_id')){
       $this->load->view('header');
-      echo "<h3>There is a session here</h3>";
-			echo "<h3>Welcome ".$this->session->userdata('user_name')."!</h3>";
-	    echo "<h6>You are logged in!</h6>";
-	    echo "<hr/>";
-	    echo "<h3>Your User ID is: ".$_SESSION['user_id']."</h3>";
-	    echo "<h3>Your System Role is: ".$_SESSION['user_level']."</h3>";
-			echo "<h3>Your email is:".$_SESSION['user_email']."</h3>";
-			echo "<h3>Your field is:".$_SESSION['user_field']."</h3>";
-			echo anchor('Main/logout', 'LOGOUT');
+  		$this->load->view('login_success');
       $this->load->view('footer');
     }else{
 			if($this->input->post('user_id')
@@ -48,7 +40,7 @@ class Main extends CI_Controller {
 		// Initialize array to return
 		$ret = array();
 
-		// Usie Users_model to check login information
+		// Use Users_model to check login information
 		$user_data = $this->MMain->check_login($id, $password);
 		if($user_data) {
 			// Pass check process

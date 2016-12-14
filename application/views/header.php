@@ -9,10 +9,46 @@
   <!-- Title -->
   <title>MAVEN DAILY SCRUM</title>
 
-  <!-- CSS Libraries -->
-  <link href="<?php echo base_url('assets/css/bootstrap.min.css') ?>" rel="stylesheet">
-  <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
+  <!-- Javascript Libraries -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
 
+  <!-- CSS Libraries -->
+  <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid">
+
+<!-- NAVBAR (FIXED-TOP) -->
+<div class="container-fluid">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+      <a class="navbar-brand" href="#">
+        <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="80px" height="38px"/>
+      </a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://scrum.mismaven.kr">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="container-fluid" style="margin-top:4rem">
+  <div style="margin-top:4.5em"></div>
