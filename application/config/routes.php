@@ -60,4 +60,6 @@ $route['translate_uri_dashes'] = FALSE;
 */
 
 /* Controller - Plan */
-// $route['Plan/(:any)'] = 'Plan';
+$route['Plan/view/(:any)'] = 'Plan/view';
+$route['Plan/modify/(:any)'] = 'Plan/modify';
+$route['Plan/remove/(:any)'] = 'Plan/remove';

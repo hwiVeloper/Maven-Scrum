@@ -6707,4 +6707,29 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   transform: translate(-50%, -50%);
   padding: auto;
 }
+
+/* Responsive table on mobile */
+@media( max-width: 640px ) {
+  #mobileTables,
+  #mobileTables thead,
+  #mobileTables tbody,
+  #mobileTables tr,
+  #mobileTables th,
+  #mobileTables td {
+    display: block;
+    width: 100%!important;
+  }
+
+  #mobileTables tr {
+    border-bottom: 1px solid #ddd;
+    width: 100%!important;
+  }
+
+  #mobileTables th,
+  #mobileTables td {
+    border-top: none;
+    border-bottom: none;
+    width: 100%!important;
+  }
+}
 /*# sourceMappingURL=bootstrap.css.map */
