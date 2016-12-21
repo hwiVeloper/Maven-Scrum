@@ -25,7 +25,7 @@
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="http://scrum.mismaven.kr">
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
       </a>
       <ul class="nav navbar-nav">
@@ -33,17 +33,18 @@
           <a class="nav-link" href="http://scrum.mismaven.kr">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Lorem ipsum</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan</a>
           <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Calendar</a>
+            <a class="dropdown-item" href="#">Today Plan</a>
+            <a class="dropdown-item" href="#">Write Plan</a>
           </div>
         </li>
       </ul>
