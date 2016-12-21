@@ -46,6 +46,7 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
       * If a plan is your's, you can
         * EDIT PLAN
         * DELETE PLAN
+        * ADD PLAN (Additional)
     * WRITE PLANS(TODAY'S)
       * We can write today's plans
     * MY TODAY
