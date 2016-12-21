@@ -92,6 +92,7 @@
           redirect('Plan/view/'.$date, 'refresh');
         }
       }else{
+        echo "<script>alert('올바르지 않은 요청입니다.')</script>";
         // view form
         $this->load->view('header');
         $this->load->view('main');
@@ -228,13 +229,12 @@
       if($plan_count == 1){
         $ret['msg'] = "삭제되었습니다.";
         $ret['result'] = TRUE;
+        // Update other plans (detail_seq)
         $this->MPlan->update_seq($data);
       }else{
         $ret['msg'] = "삭제 중 오류가 발생하였습니다.";
         $this->db->trans_rollback();
       }
-
-      // Update other plans (detail_seq)
 
       return $ret;
     }
