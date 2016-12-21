@@ -92,14 +92,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript">
 
   /* Checkbox change Event (each row color change) */
-  $('.custom-select').change(function() {
-    if($(this).find('option:selected').attr('value') == '1') {
-      $(this).closest('tr').addClass('bg-success');
-    }else{
-      $(this).closest('tr').removeClass('bg-success');
-    }
+  $(function() {
+    $('.custom-select').change(function() {
+      if($(this).find('option:selected').attr('value') == '1') {
+        $(this).closest('tr').addClass('bg-success');
+      }else{
+        $(this).closest('tr').removeClass('bg-success');
+      }
+    });
   });
-
   /* Confirm delete button */
   function confirm_delete(date, seq) {
     if(confirm("Are U sure to delete?")){

@@ -22,11 +22,11 @@
 
 <!-- NAVBAR (FIXED-TOP) -->
 <div class="container-fluid">
-  <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
       <a class="navbar-brand" href="#">
-        <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="80px" height="38px"/>
+        <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
       </a>
       <ul class="nav navbar-nav">
         <li class="nav-item active">

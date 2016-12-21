@@ -11,7 +11,7 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
 
 ## Development Information
   * Language : HTML, CSS, Javascript, PHP(7.0)
-  * Framework : CodeIgniter
+  * Framework : CodeIgniter(3.x)
   * Database : MariaDB(10.0.x)
 
 ## Project information
@@ -20,6 +20,8 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
     * Design : Up to Dec 4th, 2016
     * Development : Up to Dec 26th, 2016 (changed to improve dev. skill of CI)
     * Testing : Up to Dec 28th, 2016
+    * Register default users : Up to Dec 29th, 2016 (Manual)
+    * Data Cleansing : Up to Dec 30th, 2016
     * Maintenance : Up to Dec 31st, 2016
   * Contributor
     * @[devhwi](https://www.github.com/devhwi) (MAVEN Leader)

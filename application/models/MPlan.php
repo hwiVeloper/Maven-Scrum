@@ -50,7 +50,6 @@ class MPlan extends CI_Model {
     $this->db->where('user_id', $data['user_id']);
     $this->db->where('plan_detail_seq', $data['plan_detail_seq']);
     $query = $this->db->update('scrum_plan', $data);
-
     return 1;
   }
 
@@ -58,14 +57,18 @@ class MPlan extends CI_Model {
     $this->db->where('plan_date', $data['plan_date']);
     $this->db->where('user_id', $data['user_id']);
     $query = $this->db->update('scrum_plan_info', $data);
-
     return;
   }
 
   function remove_plan($data) {
     $query = $this->db->delete('scrum_plan', $data);
-
     return 1;
+  }
+
+  function remove_plan_info($date, $user) {
+    $this->db->where('plan_date', $date);
+    $this->db->where('user_id', $user);
+    $this->db->delete('scrum_plan_info');
   }
 
   function update_seq($data) {
@@ -86,7 +89,6 @@ class MPlan extends CI_Model {
             WHERE user_id = '$user'
             AND plan_date = '$date'";
     $query = $this->db->query($sql);
-
     return $query->num_rows();
   }
 
@@ -96,7 +98,6 @@ class MPlan extends CI_Model {
     $this->db->select_max('plan_detail_seq', 'max_seq');
     $query = $this->db->get('scrum_plan');
     $row = $query->row();
-
     return $row->max_seq;
   }
 }

@@ -22,31 +22,33 @@
 
     /* Plan index (default) */
     function index() {
-
+      //nothing
     }
 
-    /* View Plan */
-    function view() {
+    /* View myPlan */
+    function myPlan() {
       $ret = array();
 
-      // GET value of Plan/view
+      // GET value of Plan/myPlan
       if($this->uri->segment(3)){
         $get_date = $this->uri->segment(3);
+      }else{
+        $get_date = date("Y-m-d");
+      }
 
-        // Plan count check (validation)
-        $valid_plan = $this->MPlan->check_valid_plan($get_date, $this->sUser);
+      // Plan count check (validation)
+      $valid_plan = $this->MPlan->check_valid_plan($get_date, $this->sUser);
 
-        if($valid_plan != 0){ // not empty
-          $view_params['plans'] = $this->MPlan->view_plan($get_date, $this->sUser);
-          $view_params['comment'] = $this->MPlan->view_comment($get_date, $this->sUser);
-          //echo $view_params['plans'][0]['plan_date'];
-          $this->load->view('header');
-          $this->load->view('viewPlan', $view_params);
-          $this->load->view('footer');
-        }else {
-          echo "<script>alert('아직 일정을 등록하지 않았습니다.')</script>";
-          redirect('Plan/add', 'refresh');
-        }
+      if($valid_plan != 0){ // not empty
+        $view_params['plans'] = $this->MPlan->view_plan($get_date, $this->sUser);
+        $view_params['comment'] = $this->MPlan->view_comment($get_date, $this->sUser);
+
+        $this->load->view('header');
+        $this->load->view('viewPlan', $view_params);
+        $this->load->view('footer');
+      }else {
+        echo "<script>alert('아직 일정을 등록하지 않았습니다.')</script>";
+        redirect('Plan/add', 'refresh');
       }
     }
 
@@ -67,7 +69,7 @@
 
         if($valid_plan > 0) {
           echo "<script>alert('등록된 일정이 있습니다.')</script>";
-          redirect('Plan/view/'.date("Y-m-d"), 'refresh');
+          redirect('Plan/myPlan/'.date("Y-m-d"), 'refresh');
         }
 
         // view form
@@ -82,17 +84,17 @@
       if($this->input->post()) {
         // redirect address info
         $date = $this->input->post('plan_date');
-
         $info = $this->check_modify();
         $result = $info['result'];
         $msg = $info['msg'];
 
         if($result == TRUE){
           echo "<script>alert('".$msg."')</script>";
-          redirect('Plan/view/'.$date, 'refresh');
+          redirect('Plan/myPlan/'.$date, 'refresh');
         }
       }else{
         echo "<script>alert('올바르지 않은 요청입니다.')</script>";
+
         // view form
         $this->load->view('header');
         $this->load->view('main');
@@ -102,37 +104,40 @@
 
     /* Delete Plan */
     function remove() {
-      // GET value of Plan/view
+      // GET value of Plan/myPlan
       if(null != $this->uri->segment(3) && null != $this->uri->segment(4)){
         $get_date = $this->uri->segment(3); //date
         $get_seq  = $this->uri->segment(4); //seq
 
         $info = $this->check_remove($get_date, $get_seq);
+
         $result = $info['result'];
         $msg = $info['msg'];
 
         if($result == TRUE){
           echo "<script>alert('".$msg."')</script>";
-          redirect('Plan/view/'.$get_date, 'refresh');
+          redirect('Plan/myPlan/'.$get_date, 'refresh');
         }
       }else {
         echo "<script>alert('올바르지 않은 요청입니다.')</script>";
         redirect('Main', 'refresh');
       }
     }
+
     /* Check add */
     function check_add() {
       $plan_count = 0;
+
       // Initialize array to return
       $ret = array();
       $ret['msg'] = 0;
       $ret['result'] = FALSE;
-
       $seq = $this->input->post('plan_detail_seq');
       $content = $this->input->post('plan_content');
 
       // Insert dataset (Plan)
       $data = array();
+
       for($i = 0; $i < sizeof($seq); $i++){
         $data = array(
             'plan_date' => $this->input->post('plan_date'),
@@ -150,6 +155,7 @@
           'plan_comment' => $this->input->post('plan_comment'),
           'user_id' => $this->session->userdata('user_id')
       );
+
       $this->MPlan->add_plan_info($data);
 
       if($plan_count > 0){
@@ -163,6 +169,7 @@
     /* Check modify */
     function check_modify() {
       $plan_count = 0;
+
       $ret = array();
       $ret['msg'] = '';
       $ret['result'] = FALSE;
@@ -174,6 +181,7 @@
 
       // Modify dataset (Plan)
       $data = array();
+
       for($i = 0; $i < sizeof($seq); $i++) {
         if($row_status[$i] == "R") {
           $data = array(
@@ -190,7 +198,7 @@
               'plan_detail_seq' => $this->MPlan->get_max_seq($this->input->post('plan_date'), $this->session->userdata('user_id'))+1,
               'plan_content' => $content[$i],
               'user_id' => $this->session->userdata('user_id'),
-              'plan_status' => 0
+              'plan_status' => isset($status[$i]) ? $status[$i] : 0
           );
           $plan_count += $this->MPlan->additional_plan($data2);
         }
@@ -202,13 +210,13 @@
           'user_id' => $this->session->userdata('user_id'),
           'plan_comment' => $this->input->post('plan_comment')
       );
+
       $this->MPlan->modify_plan_info($data);
 
       if($plan_count > 0){
         $ret['msg'] = "저장되었습니다.";
         $ret['result'] = TRUE;
       }
-
       return $ret;
     }
 
@@ -224,18 +232,25 @@
           'plan_detail_seq' => $seq,
           'user_id' => $this->session->userdata('user_id')
       );
+
       $plan_count = $this->MPlan->remove_plan($data);
+
+      // Remove plan info (if there is no plan)
+      if($this->MPlan->check_valid_plan($date, $this->sUser) == 0) {
+        $this->MPlan->remove_plan_info($date, $this->sUser);
+        redirect('Main', 'refresh');
+      }
 
       if($plan_count == 1){
         $ret['msg'] = "삭제되었습니다.";
         $ret['result'] = TRUE;
+
         // Update other plans (detail_seq)
         $this->MPlan->update_seq($data);
       }else{
         $ret['msg'] = "삭제 중 오류가 발생하였습니다.";
         $this->db->trans_rollback();
       }
-
       return $ret;
     }
   }
