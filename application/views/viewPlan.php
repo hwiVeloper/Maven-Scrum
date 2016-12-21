@@ -2,10 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
-  .completed_plan {
-    border-color: #5CB85C!important;
-    border-width: 1px!important;
-  }
   th {
     width: 10%;
   }
@@ -75,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <tr>
       <th>코멘트</th>
       <td>
-        <textarea class="form-control" name="plan_comment" rows="8"><?php echo $comment[0]['plan_comment']?></textarea>
+        <textarea class="form-control" name="plan_comment" rows="8"><?php echo $comment ?></textarea>
       </td>
       <td colspan="2"></td>
     </tr>

@@ -3,7 +3,9 @@ class MPlan extends CI_Model {
   function __construct() {
     parent::__construct();
   }
-
+  /**
+   * PRIMARY FUNCTIONS
+   */
   function view_plan($date, $user) {
     $sql = "SELECT *
             FROM scrum_plan
@@ -20,7 +22,12 @@ class MPlan extends CI_Model {
             WHERE user_id = '$user'
             AND plan_date = '$date'";
     $query = $this->db->query($sql);
-    return $query->result_array();
+    $row = $query->row();
+    if($row) {
+      return $row->plan_comment;
+    }else {
+      return "";
+    }
   }
 
   function add_plan($data) {
@@ -70,6 +77,9 @@ class MPlan extends CI_Model {
     return;
   }
 
+  /**
+   * PLAN CHECK FUNCTIONS
+   */
   function check_valid_plan($date, $user) {
     $sql = "SELECT *
             FROM scrum_plan

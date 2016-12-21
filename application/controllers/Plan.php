@@ -62,6 +62,14 @@
           redirect('Main', 'refresh');
         }
       }else{
+        // Plan count check (validation)
+        $valid_plan = $this->MPlan->check_valid_plan(date("Y-m-d"), $this->sUser);
+
+        if($valid_plan > 0) {
+          echo "<script>alert('등록된 일정이 있습니다.')</script>";
+          redirect('Plan/view/'.date("Y-m-d"), 'refresh');
+        }
+
         // view form
         $this->load->view('header');
         $this->load->view('addPlan');
