@@ -46,12 +46,13 @@ class Main extends CI_Controller {
 		if($user_data) {
 			// Pass check process
 			// And make session
-			$this->session->set_userdata('user_id', $user_data->user_id);
-			$this->session->set_userdata('user_name', $user_data->user_name);
+			$this->session->set_userdata('user_id'   , $user_data->user_id   );
+			$this->session->set_userdata('user_name' , $user_data->user_name );
 			$this->session->set_userdata('user_level', $user_data->user_level);
 			$this->session->set_userdata('user_birth', $user_data->user_birth);
 			$this->session->set_userdata('user_email', $user_data->user_email);
 			$this->session->set_userdata('user_field', $user_data->user_field);
+			$this->session->set_userdata('user_img'  , $user_data->user_img  );
 			$ret['result'] = TRUE;
 			$ret['msg'] = '안녕하세요, '.$this->session->userdata('user_name').' 님.';
 		}else {

@@ -67,7 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- S button -->
         <div class="form-group">
           <button type="submit" class="col-md-6 col-xs-12 btn btn-primary" tabindex="8">Register</button>
-          <button type="submit" class="col-md-6 col-xs-12 btn btn-danger" tabindex="9">Cancel</button>
+          <button type="submit" class="col-md-6 col-xs-12 btn btn-danger" tabindex="9"
+            onclick="location.href='<?php echo base_url();?>'">Cancel</button>
         </div>
       </form>
       <!-- End Form -->
