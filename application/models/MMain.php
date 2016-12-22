@@ -10,7 +10,7 @@ class MMain extends CI_Model {
     // to be able to get helper, library everywhere.
 
     // md5 encryption
-    $md5_pass = $pass;
+    $md5_pass = md5($pass);
 
     // Make query
     $sql = "SELECT *

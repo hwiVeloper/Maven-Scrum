@@ -48,10 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <button type="submit" class="btn btn-primary" style="width:100%;" tabindex="5">Sign in</button>
       </div>
       <!-- S button -->
-      <div class="form-group">
+      <!-- <div class="form-group">
         <button type="button" class="btn btn-secondary" style="width:100%;"
           onclick="location.href='<?php echo base_url("Signup");?>'" tabindex="6">Sign up</button>
-      </div>
+      </div> -->
     </form>
     <!-- End Form -->
   </div>
