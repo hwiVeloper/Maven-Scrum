@@ -11,6 +11,7 @@ class Main extends CI_Controller {
 
   // Main index
 	public function index() {
+		// if session isset
     if($this->session->userdata('user_id')){
       $this->load->view('header');
   		$this->load->view('login_success');
@@ -52,7 +53,7 @@ class Main extends CI_Controller {
 			$this->session->set_userdata('user_email', $user_data->user_email);
 			$this->session->set_userdata('user_field', $user_data->user_field);
 			$ret['result'] = TRUE;
-			$ret['msg'] = '안녕하세요, '.$_SESSION['user_name'].' 님.';
+			$ret['msg'] = '안녕하세요, '.$this->session->userdata('user_name').' 님.';
 		}else {
 			// Login failed!
 			$ret['result'] = FALSE;

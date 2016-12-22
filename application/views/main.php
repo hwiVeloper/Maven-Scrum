@@ -2,14 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
-  .container {
-    width:100%;
-    height: 100%;
-  }
   .img-fluid {
     max-width: 70%;
   }
 </style>
+<div class="row">
 <div class="centered">
   <div class="" align="center">
     <!-- <img class="img-fluid" src="<?php echo base_url('assets/img/logo.gif');?>" align="middle"> -->
@@ -36,8 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- S button -->
     <div class="form-group">
       <button type="button" class="btn btn-secondary" style="width:100%;"
-        onclick="" tabindex="4">Sign up</button>
+        onclick="location.href='<?php echo base_url("Signup");?>'" tabindex="4">Sign up</button>
     </div>
   </form>
   <!-- End Form -->
+</div>
 </div>
