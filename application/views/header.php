@@ -22,8 +22,11 @@
 
 <!-- NAVBAR (FIXED-TOP) -->
 <div class="container-fluid">
-  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <a class="navbar-brand-mobile" href="http://scrum.mismaven.kr">
+      <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
+    </a>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
       <a class="navbar-brand" href="http://scrum.mismaven.kr">
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
@@ -36,7 +39,7 @@
           <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Lorem ipsum</a>
+          <a class="nav-link" href="htttp://naver.com">Lorem ipsum</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"

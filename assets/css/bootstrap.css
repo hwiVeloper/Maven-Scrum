@@ -3941,6 +3941,7 @@ tbody.collapse.in {
   .navbar-toggleable-md .navbar-nav {
     margin-top: .5rem;
     margin-bottom: .5rem;
+    z-index:1000;
   }
   .navbar-toggleable-md .navbar-nav .dropdown-menu {
     position: static;
@@ -6730,6 +6731,27 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     border-top: none;
     border-bottom: none;
     width: 100%!important;
+  }
+}
+
+/* Navigation Customization */
+.navbar-brand-mobile {
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  margin: auto;
+  margin-top: .3rem;
+}
+@media ( max-width : 991px ) {
+  .navbar-brand-mobile{
+    display: block;
+    z-index: -1;
+  }
+  .navbar-toggleable-md .navbar-brand {
+    display: none;
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
