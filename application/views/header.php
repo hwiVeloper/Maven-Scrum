@@ -39,15 +39,14 @@
           <a class="nav-link" href="#">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="htttp://naver.com">Lorem ipsum</a>
+          <a class="nav-link" href="#">Calendar</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan</a>
           <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-            <a class="dropdown-item" href="#">Calendar</a>
-            <a class="dropdown-item" href="#">Today Plan</a>
-            <a class="dropdown-item" href="#">Write Plan</a>
+            <a class="dropdown-item" href="<?php echo base_url('Plan/myPlan/'.date("Y-m-d")) ?>">View Plan</a>
+            <a class="dropdown-item" href="<?php echo base_url('Plan/add') ?>">Write Plan</a>
           </div>
         </li>
       </ul>
