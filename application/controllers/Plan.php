@@ -61,7 +61,7 @@
 
         if($result == TRUE){
           echo "<script>alert('".$msg."')</script>";
-          redirect('Main', 'refresh');
+          redirect('Plan/myPlan/'.date("Y-m-d"), 'refresh');
         }
       }else{
         // Plan count check (validation)

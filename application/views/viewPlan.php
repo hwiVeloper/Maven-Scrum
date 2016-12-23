@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   });
   /* Confirm delete button */
   function confirm_delete(date, seq) {
-    if(confirm("Are U sure to delete?")){
+    if(confirm("일정을 삭제하시겠습니까?")){
       location.href = "http://scrum.mismaven.kr/Plan/remove/"+date+"/"+seq;
     }else{
       return false;
