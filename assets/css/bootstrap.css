@@ -680,6 +680,18 @@ dl.row > dd + dt {
   height: auto;
 }
 
+.img-thumbnail .img-circle {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  max-width: 100%;
+  height: auto;
+}
+
 .figure {
   display: inline-block;
 }
