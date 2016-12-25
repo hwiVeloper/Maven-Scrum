@@ -36,7 +36,7 @@
           <a class="nav-link" href="http://scrum.mismaven.kr">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
+          <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Calendar</a>
