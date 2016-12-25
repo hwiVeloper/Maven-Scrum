@@ -51,6 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?=$row['plan_creation_dttm']?>
           </small>
         </p>
+      </div>
+      <div class="card-block text-xs-right" style="padding-top:0;">
+        <div class="" style="float:left;padding-top:0.25rem">
+          (댓글수 들어갈 부분)
+        </div>
         <a href="#" class="btn btn-primary">더보기</a>
       </div>
     </div>
