@@ -16,10 +16,10 @@ class Dashboard extends CI_Controller {
    */
   function index() {
     // Session check
-    if(!($this->session->userdata('user_id'))){
-      echo "<script>alert('먼저 로그인을 해주세요.');</script>";
-      redirect('Main', 'refresh');
-    }
+    // if(!($this->session->userdata('user_id'))){
+    //   echo "<script>alert('먼저 로그인을 해주세요.');</script>";
+    //   redirect('Main', 'refresh');
+    // }
 
     // Get date parameter (GET)
     if($this->uri->segment(2)){
