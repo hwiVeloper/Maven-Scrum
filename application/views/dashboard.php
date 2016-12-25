@@ -7,13 +7,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div style="margin-top:1rem"></div>
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
-<div class="row">
+<div class="row" style="margin: 15px 0;">
   <div class="alert alert-success col-lg-9 col-md-8 col-sm-6" role="alert">
     <strong>작성인원</strong> : <?=$today_count?>
   </div>
   <div class="form-group col-lg-3 col-md-4 col-sm-6" role="alert">
-    <form class="" action="" method="post">
-      <input class="form-control" style="margin-top: 0.25rem;" type="date" name="plan_date" value="<?=date('Y-m-d')?>" />
+    <form class="" action="<?php echo base_url('Dashboard')?>" method="post">
+      <input id="dashboardDate" class="form-control" style="margin-top: 0.25rem;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
     </form>
   </div>
 </div>
@@ -23,7 +23,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- CARD AREA -->
 <div class="row">
-  <?php foreach ($today_plans as $k=>$row) : ?>
+  <?php
+  foreach ($today_plans as $k=>$row) :
+    if(1 == $row['plan_status']){
+      $sts = '<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
+    }else{
+      $sts = '<i class="fa fa-times" aria-hidden="true" style="color:red"></i>';
+    }
+  ?>
   <?php
   if(0 == $row['plan_detail_seq']) {
   ?>
@@ -34,11 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <strong>&nbsp;<?=$row['user_name']?></strong>
       </h4>
       <div class="card-block">
-        <p class="card-text"><?=$row['plan_content']?></p>
+        <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }else {
   ?>
-        <p class="card-text"><?=$row['plan_content']?></p>
+        <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }
 
@@ -65,3 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   ?>
   <?php endforeach; ?>
 </div>
+<script type="text/javascript">
+$("#dashboardDate").change(function() {
+  this.form.submit();
+});
+</script>
