@@ -57,6 +57,7 @@ class User extends CI_Controller {
       redirect('User', 'refresh');
     }
 
+    // make array if changing password is allowed
     if($change_password_tf){
       $data = array(
         'user_password' => md5($user_password),
