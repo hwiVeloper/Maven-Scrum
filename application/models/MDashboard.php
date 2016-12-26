@@ -23,6 +23,10 @@ class MDashboard extends CI_Model {
                     FROM scrum_plan
                     WHERE plan_date = p1.plan_date
                     AND user_id = p1.user_id) AS each_count
+                 , (SELECT COUNT(*)
+                    FROM scrum_reply
+                    WHERE plan_date = '$date'
+                    AND user_id = p1.user_id) AS reply_count
             FROM scrum_plan AS p1
                , scrum_plan AS p2
                , scrum_user AS u

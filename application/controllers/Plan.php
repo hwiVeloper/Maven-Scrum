@@ -52,6 +52,23 @@
       }
     }
 
+    /* View Plan Detail (by Dashboard) */
+    function detail() {
+      $get_date = $this->uri->segment(3);
+      $get_user = $this->uri->segment(4);
+
+      $view_params['plan_date'] = $this->uri->segment(3);
+      $view_params['user_id'] = $get_user = $this->uri->segment(4);
+      $view_params['plans'] = $this->MPlan->view_plan($get_date, $get_user);
+      $view_params['comment'] = $this->MPlan->view_comment($get_date, $get_user);
+      $view_params['replies'] = $this->MPlan->view_reply($get_date, $get_user);
+      $view_params['count_reply'] = $this->MPlan->count_reply($get_date, $get_user);
+
+      $this->load->view('header');
+      $this->load->view('viewDetail', $view_params);
+      $this->load->view('footer');
+    }
+
     /* Insert Plan */
     function add() {
       if($this->input->post()) {

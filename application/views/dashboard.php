@@ -1,6 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<style>
+  #select_date{
+    padding: 0 5px;
+  }
+
+  @media(max-width:572px){
+    #select_date{
+      padding: 0;
+    }
+  }
+  .img-circle {
+    padding: 0.1rem;
+    border: 0.5px solid #ddd;
+    border-radius: 50%;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 <h3>Dashboard</h3>
 
 <!-- SPACE -->
@@ -11,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="alert alert-success col-lg-9 col-md-8 col-sm-6" role="alert">
     <strong>작성인원</strong> : <?=$today_count?>
   </div>
-  <div class="form-group col-lg-3 col-md-4 col-sm-6" role="alert">
+  <div id="select_date" class="form-group col-lg-3 col-md-4 col-sm-6" role="alert">
     <form class="" action="<?php echo base_url('Dashboard')?>" method="post">
       <input id="dashboardDate" class="form-control" style="margin-top: 0.25rem;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
     </form>
@@ -37,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
     <div class="card">
       <h4 class="card-header">
-        <img class="img-thumbnail" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
+        <img class="img-circle" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
         <strong>&nbsp;<?=$row['user_name']?></strong>
       </h4>
       <div class="card-block">
@@ -48,7 +69,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }
-
+  if(1 == $row['each_count']){
+    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+  }
+  if(2 == $row['each_count']){
+    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+  }
   // card footer
   if(2 == $row['plan_detail_seq'] || $row['each_count'] == $row['plan_detail_seq'] + 1) {
   ?>
@@ -61,9 +88,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <div class="card-block text-xs-right" style="padding-top:0;">
         <div class="" style="float:left;padding-top:0.25rem">
-          (댓글수 들어갈 부분)
+          <i class="fa fa-comments-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><?=$row['reply_count']?>
         </div>
-        <a href="#" class="btn btn-primary">더보기</a>
+        <?php
+        $view_more = base_url('Plan/detail/'.$row['plan_date'].'/'.$row['user_id']);
+        ?>
+        <a href="<?=$view_more?>" class="btn btn-primary">더보기</a>
       </div>
     </div>
   </div>
