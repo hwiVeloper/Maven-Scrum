@@ -68,7 +68,7 @@
             </div>
             <div class="col-md-12 dropdown-divider"></div>
             <div class="col-md-12">
-              <a href="#" class="btn btn-primary btn-block btn-sm">내정보</a>
+              <a href="<?php echo base_url('User')?>" class="btn btn-primary btn-block btn-sm">내정보</a>
             </div>
             <div class="col-md-12" style="margin-top:0.25em">
               <a href="<?php echo base_url('Main/logout')?>" class="btn btn-danger btn-block btn-sm">로그아웃</a>
