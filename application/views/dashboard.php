@@ -11,16 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       padding: 0;
     }
   }
-  .img-circle {
-    padding: 0.1rem;
-    border: 0.5px solid #ddd;
-    border-radius: 50%;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    max-width: 100%;
-    height: auto;
-  }
 </style>
 <h3>Dashboard</h3>
 
@@ -58,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
     <div class="card">
       <h4 class="card-header">
-        <img class="img-circle" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
+        <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
         <strong>&nbsp;<?=$row['user_name']?></strong>
       </h4>
       <div class="card-block">
@@ -69,15 +59,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }
-  if(1 == $row['each_count']){
-    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
-    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
-  }
-  if(2 == $row['each_count']){
-    echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
-  }
   // card footer
   if(2 == $row['plan_detail_seq'] || $row['each_count'] == $row['plan_detail_seq'] + 1) {
+    if(1 == $row['each_count']){
+      echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+      echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+    }
+    if(2 == $row['each_count']){
+      echo '<p class="card-text"><i class="fa fa-minus" aria-hidden="true"></i></p>';
+    }
   ?>
         <p class="card-text">
           <small class="text-muted">

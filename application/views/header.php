@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
   <!-- Meta Informations -->
@@ -17,6 +16,26 @@
   <!-- CSS Libraries -->
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style type="text/css">
+    .img-rounded {
+      border: 0px;
+      border-radius: 50%;
+      -webkit-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .nav-link {
+      padding-top: 0.6em!important;
+    }
+    #user-menu {
+      margin-bottom: 0em;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,6 +46,42 @@
     <a class="navbar-brand-mobile" href="<?=base_url()?>">
       <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
     </a>
+    <!-- User Account Information -->
+    <ul class="nav navbar-nav pull-xs-right" style="float:right">
+      <li class="nav-item">
+<?php
+        if($this->session->userdata('user_id')) {
+?>
+        <div class="dropdown">
+          <a class="dropdown-toggle nav-link" id="user-menu" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" href="#">
+            <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="30em" height="30em">
+            <span class="hidden-xs-down">&nbsp;<?=$this->session->userdata('user_name')?></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu" style="width:300px;">
+            <div class="col-md-4">
+              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="100em" height="100em">
+            </div>
+            <div class="col-md-8" style="padding-left:0px">
+              <p class="text-left"><strong><?=$this->session->userdata('user_name')?>&nbsp;(<?=$this->session->userdata('user_id')?>)</strong></p>
+              <p class="text-left small"><?=$this->session->userdata('user_email')?></p>
+            </div>
+            <div class="col-md-12 dropdown-divider"></div>
+            <div class="col-md-12">
+              <a href="#" class="btn btn-primary btn-block btn-sm">내정보</a>
+            </div>
+            <div class="col-md-12" style="margin-top:0.25em">
+              <a href="<?php echo base_url('Main/logout')?>" class="btn btn-danger btn-block btn-sm">로그아웃</a>
+            </div>
+          </div>
+        </div>
+<?php
+        }else {
+          echo "<span class='nav-link' style='color: rgba(255, 255, 255, 0.5);'>로그인 해주세요!</span>";
+        }
+?>
+      </li>
+    </ul>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
       <a class="navbar-brand" href="<?=base_url()?>">
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
