@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div style="margin-top:1rem"></div>
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
-<div class="row" style="margin: 15px 0;">
+<div class="row" style="margin: 0.25em 0;">
   <div class="alert alert-success col-lg-9 col-md-8 col-sm-6" role="alert">
     <strong>작성인원</strong> : <?=$today_count?>
   </div>
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <!-- SPACE -->
-<div style="margin-top:1rem"></div>
+<div style="margin-top:0.1rem"></div>
 
 <!-- CARD AREA -->
 <div class="row">

@@ -17,6 +17,8 @@
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
 
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
+
   <!-- Custom CSS -->
   <style type="text/css">
     .img-rounded {
@@ -90,6 +92,10 @@
         <li class="nav-item active">
           <a class="nav-link" href="<?=base_url()?>">Home <span class="sr-only">(current)</span></a>
         </li>
+<?php
+      if($this->session->userdata('user_id')) {
+        if($this->session->userdata('user_level') >= "1"){
+?>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">Dashboard</a>
         </li>
@@ -104,6 +110,14 @@
             <a class="dropdown-item" href="<?php echo base_url('Plan/add') ?>">Write Today</a>
           </div>
         </li>
+<?php
+        }else if($this->session->userdata('user_level') == "0"){
+          echo "<li class='nav-item'>";
+          echo '<a class="nav-link" href="#">승인 대기중입니다. 관리자에게 문의하여 주세요.</a>';
+          echo "</li>";
+        }
+      }
+?>
       </ul>
     </div>
   </nav>
