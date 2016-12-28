@@ -50,9 +50,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         ?>
         <dt class="col-sm-3">코멘트</dt>
         <dd class="col-sm-9"><?=$comment?></dd>
+        <p class="card-text" align="right"><small class="text-muted"><?=$creation_dttm?>에 작성</small></p>
       </div>
     </div>
   </div>
+  <!-- END PLAN AREA -->
   <!-- REPLY AREA -->
   <div class="col-md-6 col-sm-12">
     <h3>댓글 <small class="text-muted"><?=$count_reply?> 개</small></h3>
@@ -90,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <?php
                   if($this->session->userdata('user_id') == $row['write_user']){
                   ?>
-                  <a href="<?php echo base_url('Reply/delete/'.$row['reply_id'].'/'.$row['plan_date'].'/'.$row['user_id'])?>">삭제</a>
+                  <a class="btn btn-link" href="<?php echo base_url('Reply/delete/'.$row['reply_id'].'/'.$row['plan_date'].'/'.$row['user_id'])?>">삭제</a>
                   <?php
                   }
                   ?>

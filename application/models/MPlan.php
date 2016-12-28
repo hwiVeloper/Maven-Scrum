@@ -108,6 +108,20 @@ class MPlan extends CI_Model {
     return;
   }
 
+  function get_creation_dttm($date, $user) {
+    $sql = "SELECT time(plan_creation_dttm) AS creation_dttm
+            FROM scrum_plan_info
+            WHERE user_id = '$user'
+            AND plan_date = '$date'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+    if($row) {
+      return $row->creation_dttm;
+    }else {
+      return "";
+    }
+  }
+
   /**
    * PLAN CHECK FUNCTIONS
    */

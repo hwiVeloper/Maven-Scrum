@@ -61,6 +61,7 @@
       $view_params['user_id'] = $get_user = $this->uri->segment(4);
       $view_params['plans'] = $this->MPlan->view_plan($get_date, $get_user);
       $view_params['comment'] = $this->MPlan->view_comment($get_date, $get_user);
+      $view_params['creation_dttm'] = $this->MPlan->get_creation_dttm($get_date, $get_user);
       $view_params['replies'] = $this->MPlan->view_reply($get_date, $get_user);
       $view_params['count_reply'] = $this->MPlan->count_reply($get_date, $get_user);
 
