@@ -58,6 +58,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <h3>댓글 <small class="text-muted"><?=$count_reply?> 개</small></h3>
     <div class="card text-xs-center">
       <div class="card-block">
+        <div class="card card-outline-primary">
+          <div class="card-block">
+            <!-- WRITE REPLY AREA -->
+            <form class="" action="<?php echo base_url('Reply/add'); ?>" method="post">
+              <input type="hidden" name="user_id" value="<?=$user_id?>">
+              <input type="hidden" name="write_user" value="<?=$this->session->userdata('user_id')?>">
+              <input type="hidden" name="plan_date" value="<?=$plan_date?>">
+              <textarea class="form-control" name="reply_comment" rows="2" placeholder="댓글을 남겨주세요." style="" required=""></textarea>
+              <button type="submit" class="btn btn-primary" href="" style="margin-top:0.25em;width:100%;">댓글 등록</button>
+            </form>
+          </div>
+        </div>
         <blockquote class="card-blockquote">
           <?php
           // reply count check and fetch replies(count > 0)
@@ -72,8 +84,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
                   <strong>&nbsp;<?=$row['user_name']?></strong>
                 </h5>
-                <p><?=$row['reply_comment']?></p>
-                <p class="card-text"><small class="text-muted"><?=$row['reply_timestamp']?></small></p>
+                <p style="margin-top:1.0em"><?=$row['reply_comment']?></p>
+                <p class="card-text">
+                  <small class="text-muted"><?=$row['reply_timestamp']?></small>
+                  <?php
+                  if($this->session->userdata('user_id') == $row['write_user']){
+                  ?>
+                  <a href="<?php echo base_url('Reply/delete/'.$row['reply_id'].'/'.$row['plan_date'].'/'.$row['user_id'])?>">삭제</a>
+                  <?php
+                  }
+                  ?>
+                </p>
               </div>
             </div>
           <?php

@@ -43,6 +43,7 @@ class User extends CI_Controller {
     // password check
     $change_password_tf = FALSE;
     $error_message = "비밀번호 입력을 확인해 주세요.";
+
     if($user_password == "" && $user_password_confirm == "") {
       $change_password_tf = FALSE;
     }else if($user_password != "" && $user_password_confirm != "") {
