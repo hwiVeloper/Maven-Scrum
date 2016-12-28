@@ -66,3 +66,7 @@ $route['Plan/remove/(:any)'] = 'Plan/remove';
 
 /* Controller - Dashboard */
 $route['Dashboard/(:any)'] = 'Dashboard';
+
+/* Controller - Calendar */
+$route['Calendar/view/(:any)'] = 'Calendar/view';
+$route['Calendar'] = 'Calendar/view';

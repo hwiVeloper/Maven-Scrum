@@ -253,7 +253,7 @@ class CI_Calendar {
 		$colspan = ($this->show_next_prev === TRUE) ? 5 : 7;
 
 		$this->replacements['heading_title_cell'] = str_replace('{colspan}', $colspan,
-								str_replace('{heading}', $this->get_month_name($month).'&nbsp;'.$year, $this->replacements['heading_title_cell']));
+								str_replace('{heading}', $year.'년&nbsp;'.$this->get_month_name($month), $this->replacements['heading_title_cell']));
 
 		$out .= $this->replacements['heading_title_cell']."\n";
 
