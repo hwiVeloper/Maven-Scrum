@@ -2,6 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
+  p.card-content {
+    display: -webkit-box;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
   #select_date{
     padding: 0 5px;
   }
@@ -58,11 +65,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <strong>&nbsp;<?=$row['user_name']?></strong>
       </h4>
       <div class="card-block">
-        <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
+        <p class="card-text card-content"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }else {
   ?>
-        <p class="card-text"><?=$sts." "?><?=$row['plan_content']?></p>
+        <p class="card-text card-content"><?=$sts." "?><?=$row['plan_content']?></p>
   <?php
   }
   // card footer

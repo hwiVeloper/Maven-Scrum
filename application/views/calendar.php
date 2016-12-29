@@ -11,6 +11,7 @@
     padding-bottom: 2em;
   }
 </style>
+
 <!-- VIEW CALENDAR -->
 <?=$cal_view?>
 
