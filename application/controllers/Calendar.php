@@ -3,6 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Calendar extends CI_Controller{
 
+  /**
+   * Constructor
+   */
   public function __construct() {
     parent::__construct();
 
@@ -26,10 +29,10 @@ class Calendar extends CI_Controller{
 			'week_row_end'				=> '</tr>',
 			'cal_row_start'				=> '<tr style="text-align:center">',
 			'cal_cell_start'			=> '<td>',
-			'cal_cell_start_today'		=> '<td class="table-warning">',
+			'cal_cell_start_today'		=> '<td class="bg-primary">',
 			'cal_cell_start_other'		=> '<td style="color: #666;">',
 			'cal_cell_content'			=> '<a class="is-content" href="{content}" style="color:#fff"><strong>{day}</strong></a>',
-			'cal_cell_content_today'	=> '<a href="{content}"><strong>{day}</strong></a>',
+			'cal_cell_content_today'	=> '<a href="{content}" style="color:#fff"><strong>{day}</strong></a>',
 			'cal_cell_no_content'		=> '{day}',
 			'cal_cell_no_content_today'	=> '<strong>{day}</strong>',
 			'cal_cell_blank'			=> '&nbsp;',
@@ -46,6 +49,9 @@ class Calendar extends CI_Controller{
     $this->load->library('calendar', $prefs);
   }
 
+  /**
+   * View Calendar
+   */
   function view() {
     if($this->uri->segment(3) && $this->uri->segment(4)){
       $y = $this->uri->segment(3);
@@ -59,12 +65,16 @@ class Calendar extends CI_Controller{
     $data = $this->get_calendar_link($contents);
 
     $view_params['cal_view'] = $this->calendar->generate($y, $m, $data);
+    $view_params['month_info'] = $this->MCalendar->get_month_info_by_user($y, $m, $this->session->userdata('user_id'));
 
     $this->load->view('header');
     $this->load->view('calendar', $view_params);
     $this->load->view('footer');
   }
 
+  /**
+   * Get calendar link (contents of calendar)
+   */
   function get_calendar_link($contents) {
     $data = array();
     foreach($contents as $k=>$row) :

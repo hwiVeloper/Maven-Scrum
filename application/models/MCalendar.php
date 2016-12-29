@@ -18,4 +18,18 @@ class MCalendar extends CI_Model{
     $query = $this->db->query($sql);
     return $query->result_array();
   }
+
+  function get_month_info_by_user($y, $m, $user) {
+    /* 두가지로 경우 나누기 */
+    $sql = "SELECT COUNT(plan_date) AS is_content_days
+                 , DAYOFMONTH(NOW()) AS current_days
+                 , COUNT(plan_date) / DAYOFMONTH(NOW()) * 100 AS percentage
+            FROM scrum_plan_info
+            WHERE user_id = '$user'
+            AND YEAR(plan_date) = '$y'
+            AND MONTH(plan_date) = '$m'
+            ";
+    $query = $this->db->query($sql);
+    return $query->row();
+  }
 }
