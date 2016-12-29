@@ -20,11 +20,6 @@
       }
     }
 
-    /* Plan index (default) */
-    function index() {
-      //nothing
-    }
-
     /* View myPlan */
     function myPlan() {
       $ret = array();
@@ -40,6 +35,8 @@
       $valid_plan = $this->MPlan->check_valid_plan($get_date, $this->sUser);
 
       if($valid_plan != 0){ // not empty
+        $view_params['plan_date'] = $get_date;
+        $view_params['user_id'] = $this->session->userdata('user_id');
         $view_params['plans'] = $this->MPlan->view_plan($get_date, $this->sUser);
         $view_params['comment'] = $this->MPlan->view_comment($get_date, $this->sUser);
 
@@ -170,7 +167,7 @@
       // Insert dataset (Plan info)
       $data = array(
           'plan_date' => $this->input->post('plan_date'),
-          'plan_comment' => $this->input->post('plan_comment'),
+          'plan_comment' => nl2br($this->input->post('plan_comment')),
           'user_id' => $this->session->userdata('user_id')
       );
 
@@ -226,7 +223,7 @@
       $data = array(
           'plan_date' => $this->input->post('plan_date'),
           'user_id' => $this->session->userdata('user_id'),
-          'plan_comment' => $this->input->post('plan_comment')
+          'plan_comment' => nl2br($this->input->post('plan_comment'))
       );
 
       $this->MPlan->modify_plan_info($data);

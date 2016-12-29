@@ -71,22 +71,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <tr>
       <th>코멘트</th>
       <td>
-        <textarea class="form-control" name="plan_comment" rows="8"><?php echo $comment ?></textarea>
+        <textarea class="form-control" name="plan_comment" rows="8"><?=str_replace('<br />', '', $comment)?></textarea>
       </td>
       <td colspan="2"></td>
     </tr>
     <!-- Button area -->
+    <?php
+    $y = date('Y', strtotime($plan_date));
+    $m = date('m', strtotime($plan_date));
+    // $m = ;
+    ?>
     <tr>
       <th></th>
       <td align="center">
-        <button type="submit" name="submit" class="col-md-4 col-sm-12 col-xs-12 btn btn-primary">저장하기</button>
-        <button id="addToDo" type="button" class="col-md-4 col-sm-12 col-xs-12 btn btn-secondary">할 일 추가</button>
-        <button type="button" name="" class="col-md-4 col-sm-12 col-xs-12 btn btn-secondary">달력보기</button>
+        <button type="submit" name="submit" class="col-md-3 col-sm-12 col-xs-12 btn btn-primary">저장하기</button>
+        <button id="addToDo" type="button" class="col-md-3 col-sm-12 col-xs-12 btn btn-secondary">할 일 추가</button>
+  </form>
+  <!-- FORM END -->
+        <a class="btn btn-secondary col-md-3 col-sm-12 col-xs-12" href="<?=base_url('Calendar/view/'.$y.'/'.$m)?>">달력보기</a>
+        <form class="" action="<?=base_url('Dashboard')?>" method="post">
+          <input type="hidden" name="plan_date" value="<?=$plan_date?>">
+          <button type="submit" class="btn btn-secondary col-md-3 col-sm-12 col-xs-12">Dashboard</button>
+        </form>
       </td>
       <td colspan="2"></td>
     </tr>
   </table>
-  </form>
 </div>
 <!-- JQuery Area -->
 <script type="text/javascript">

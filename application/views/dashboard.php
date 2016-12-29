@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
-  p.card-content {
+  p.card-content, .text-muted-comment {
     display: -webkit-box;
     overflow : hidden;
     text-overflow: ellipsis;
@@ -26,18 +26,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
 <div class="row" style="margin: 0.25em 0;">
-  <div class="alert alert-success col-lg-9 col-md-8 col-sm-6" role="alert">
+  <div class="alert alert-success col-lg-2 col-md-4 col-sm-6" role="alert">
     <strong>작성인원</strong> : <?=$today_count?>
   </div>
-  <div id="select_date" class="form-group col-lg-3 col-md-4 col-sm-6" role="alert">
+  <div id="select_date" class="form-group col-lg-10 col-md-8 col-sm-6" role="alert">
     <form class="form-inline" action="<?php echo base_url('Dashboard')?>" method="post">
-      <div class="col-md-8 col-sm-8 col-xs-12">
+      <div class="col-md-3 col-sm-2 col-xs-12">
           <input id="dashboardDate" class="form-control" style="height:3em;width:100%;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
       </div>
-      <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="col-md-2 col-sm-2 col-xs-12">
         <button class="btn btn-primary btn-block" style="height:3em;" type="submit" name="button">조회</button>
       </div>
-
+      <!-- 공지 올리기 버튼 자리 -->
+      <!-- <div class="col-md-2 col-sm-2 col-xs-12">
+        <button class="btn btn-secondary btn-block" style="height:3em;" type="submit" name="button">공지 올리기</button>
+      </div> -->
     </form>
   </div>
 </div>
@@ -83,8 +86,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
   ?>
         <p class="card-text">
-          <small class="text-muted">
+          <small class="text-muted text-muted-comment">
           <?=$row['plan_comment']?><br>
+          </small>
+          <small class="text-muted">
           <?=$row['plan_creation_dttm']?>
           </small>
         </p>
