@@ -100,7 +100,7 @@
           <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Calendar</a>
+          <a class="nav-link" href="<?php echo base_url('Calendar') ?>">Calendar</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
