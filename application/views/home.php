@@ -24,7 +24,7 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   }
 
   h2 {
-    margin-top: 0.5em;
+    margin-top: 0.25em;
     margin-bottom: 0.25em;
   }
 
@@ -37,7 +37,7 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
     background-color: #fff;
     padding-right: 0;
     padding-left: 0;
-    margin-top: -0.6rem;
+    margin-top: -0.3rem;
   }
   @media (max-width:576px){
     .page-header {

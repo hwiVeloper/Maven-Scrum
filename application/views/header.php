@@ -63,21 +63,23 @@
       height: auto;
     }
 
-    .nav-link {
-      padding-top: 0.6em!important;
-    }
     #user-menu {
       margin-bottom: 0em;
     }
   </style>
 </head>
 <body style="height:100%">
-
+<?php
+  $home_url = base_url();
+  if($this->session->userdata('user_id')){
+    $home_url = base_url('Home');
+  }
+?>
 <!-- NAVBAR (FIXED-TOP) -->
 <div class="container-fluid">
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-    <a class="navbar-brand-mobile" href="<?=base_url()?>">
+    <a class="navbar-brand-mobile" href="<?=$home_url?>">
       <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
     </a>
     <!-- User Account Information -->
@@ -93,10 +95,10 @@
             <span class="hidden-xs-down">&nbsp;<?=$this->session->userdata('user_name')?></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu" style="width:300px;">
-            <div class="col-md-4">
-              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="100em" height="100em">
+            <div class="col-md-4 col-xs-4">
+              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
             </div>
-            <div class="col-md-8" style="padding-left:0px">
+            <div class="col-md-8 col-xs-8" style="padding-left:0px;padding-top:5px;">
               <p class="text-left"><strong><?=$this->session->userdata('user_name')?>&nbsp;(<?=$this->session->userdata('user_id')?>)</strong></p>
               <p class="text-left small"><?=$this->session->userdata('user_email')?></p>
             </div>
@@ -117,17 +119,11 @@
       </li>
     </ul>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-      <a class="navbar-brand" href="<?=base_url()?>">
+      <a class="navbar-brand" href="<?=$home_url?>">
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
       </a>
       <ul class="nav navbar-nav">
         <li class="nav-item <?=$menu_home?>">
-<?php
-          $home_url = base_url();
-          if($this->session->userdata('user_id')){
-            $home_url = base_url('Home');
-          }
-?>
           <a class="nav-link" href="<?=$home_url?>">Home</a>
         </li>
 <?php

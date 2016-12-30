@@ -6,7 +6,7 @@
  */
 /*! normalize.css v4.2.0 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: sans-serif;
+  font-family: 'Nanum Gothic';
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -6738,17 +6738,20 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .navbar-brand-mobile {
   display: none;
   position: absolute;
-  width: 100%;
+  width: 33.33333%;
   left: 0;
   top: 0;
   text-align: center;
   margin: auto;
-  margin-top: .3rem;
+  margin-top: .5rem;
 }
 @media ( max-width : 991px ) {
   .navbar-brand-mobile{
     display: block;
-    z-index: -1;
+    z-index: 0;
+    /*text-align:center;*/
+    left:33.33333%;
+    right:33.33333%;
   }
   .navbar-toggleable-md .navbar-brand {
     display: none;
