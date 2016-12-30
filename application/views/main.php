@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
   .img-fluid {
-    max-width: 70%;
+    max-width: 50%;
   }
 </style>
 <div class="row">

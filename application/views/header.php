@@ -124,24 +124,24 @@
       </a>
       <ul class="nav navbar-nav">
         <li class="nav-item <?=$menu_home?>">
-          <a class="nav-link" href="<?=$home_url?>">Home</a>
+          <a class="nav-link" href="<?=$home_url?>">개발자노트</a>
         </li>
 <?php
       if($this->session->userdata('user_id')) {
         if($this->session->userdata('user_level') >= "1"){
 ?>
         <li class="nav-item <?=$menu_dashboard?>">
-          <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">Dashboard</a>
+          <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">모두의오늘</a>
         </li>
         <li class="nav-item <?=$menu_calendar?>">
-          <a class="nav-link" href="<?php echo base_url('Calendar') ?>">Calendar</a>
+          <a class="nav-link" href="<?php echo base_url('Calendar') ?>">달력보기</a>
         </li>
         <li class="nav-item dropdown <?=$menu_plan?>">
           <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan</a>
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">내일정</a>
           <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
-            <a class="dropdown-item" href="<?php echo base_url('Plan/myPlan/'.date("Y-m-d")) ?>">Today</a>
-            <a class="dropdown-item" href="<?php echo base_url('Plan/add') ?>">Write Today</a>
+            <a class="dropdown-item" href="<?php echo base_url('Plan/myPlan/'.date("Y-m-d")) ?>">오늘일정</a>
+            <a class="dropdown-item" href="<?php echo base_url('Plan/add') ?>">일정쓰기</a>
           </div>
         </li>
         <li class="nav-item <?=$menu_suggestion?>">

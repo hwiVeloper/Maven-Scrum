@@ -53,7 +53,7 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   <!-- PAGE TITLE AREA -->
   <div class="page-header">
     <i class="fa fa-github" aria-hidden="true"></i><a href="https://www.github.com/devhwi/Maven-Scrum"> Go to github repository</a>
-    <h2 id="dev-note">Dev Note</h2>
+    <h2 id="dev-note">개발자 노트</h2>
     <div class="content-divider"></div>
   </div>
   <!-- TIMELINE AREA -->
