@@ -76,7 +76,7 @@ class Signup extends CI_Controller {
       }
     }else {
       echo "<script>alert('올바르지 않은 요청입니다.')</script>";
-      redirect('Main', 'refresh');
+      redirect('Home', 'refresh');
     }
   }
 }

@@ -135,7 +135,7 @@
         }
       }else {
         echo "<script>alert('올바르지 않은 요청입니다.')</script>";
-        redirect('Main', 'refresh');
+        redirect('Home', 'refresh');
       }
     }
 
@@ -253,7 +253,8 @@
       // Remove plan info (if there is no plan)
       if($this->MPlan->check_valid_plan($date, $this->sUser) == 0) {
         $this->MPlan->remove_plan_info($date, $this->sUser);
-        redirect('Main', 'refresh');
+        echo "<script>alert('등록된 일정이 없습니다.')</script>";
+        redirect('Home', 'refresh');
       }
 
       if($plan_count == 1){
