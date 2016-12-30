@@ -12,6 +12,7 @@
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
   <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
+  <!-- <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2.3"></script> -->
 
   <!-- CSS Libraries -->
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
@@ -90,7 +91,13 @@
       </a>
       <ul class="nav navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="<?=base_url()?>">Home <span class="sr-only">(current)</span></a>
+<?php
+          $home_url = base_url();
+          if($this->session->userdata('user_id')){
+            $home_url = base_url('Home');
+          }
+?>
+          <a class="nav-link" href="<?=$home_url?>">Home</a>
         </li>
 <?php
       if($this->session->userdata('user_id')) {

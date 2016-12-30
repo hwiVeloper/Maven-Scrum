@@ -23,7 +23,7 @@ class Main extends CI_Controller {
 				$msg = $status['msg'];
         if($status['result'] == TRUE) {
 					echo "<script>alert('$msg')</script>";
-          redirect('Main', 'refresh');
+          redirect('Home', 'refresh');
         }else{
 					echo "<script>alert('$msg')</script>";
 				}
