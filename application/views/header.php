@@ -1,3 +1,34 @@
+<?php
+  /* Menu Highlights Option by Uri */
+  $uri_segment = $this->uri->segment(1);
+
+  // menus
+  $menu_home = "";
+  $menu_dashboard = "";
+  $menu_calendar = "";
+  $menu_plan = "";
+  $menu_suggestion = "";
+
+  switch($uri_segment){
+    case "Home": case "Main":
+      $menu_home = "active";
+      break;
+    case "Dashboard":
+      $menu_dashboard = "active";
+      break;
+    case "Calendar":
+      $menu_calendar = "active";
+      break;
+    case "Plan":
+      $menu_plan = "active";
+      break;
+    case "Suggestion":
+      $menu_suggestion = "active";
+      break;
+    default:
+      $menu_home = "active";
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,7 +121,7 @@
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
       </a>
       <ul class="nav navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item <?=$menu_home?>">
 <?php
           $home_url = base_url();
           if($this->session->userdata('user_id')){
@@ -103,19 +134,22 @@
       if($this->session->userdata('user_id')) {
         if($this->session->userdata('user_level') >= "1"){
 ?>
-        <li class="nav-item">
+        <li class="nav-item <?=$menu_dashboard?>">
           <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">Dashboard</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item <?=$menu_calendar?>">
           <a class="nav-link" href="<?php echo base_url('Calendar') ?>">Calendar</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown <?=$menu_plan?>">
           <a class="nav-link dropdown-toggle" href="#" id="responsiveNavbarDropdown"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plan</a>
           <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown">
             <a class="dropdown-item" href="<?php echo base_url('Plan/myPlan/'.date("Y-m-d")) ?>">Today</a>
             <a class="dropdown-item" href="<?php echo base_url('Plan/add') ?>">Write Today</a>
           </div>
+        </li>
+        <li class="nav-item <?=$menu_suggestion?>">
+          <a class="nav-link" href="#">Suggestion(준비중)</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
