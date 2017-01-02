@@ -6698,16 +6698,6 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   width: 100%;
   height: 100%;
 }
-.centered {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  padding: auto;
-}
 
 /* Responsive table on mobile */
 @media( max-width: 640px ) {

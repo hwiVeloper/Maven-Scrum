@@ -12,22 +12,25 @@ html, body {
   background-size: cover;
 }
 
-.centered {
-  /*padding-top: 5em;*/
-  /*padding-bottom: 5em;*/
-}
-.centered > .container {
-}
-
 @media (min-width: 1200px) {
   input, button {
     max-width:50%;
   }
 }
+
+.centered {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  padding: auto;
+}
 </style>
 <div class="outer" style="">
   <div class="inner">
-    <!-- <div class="row"> -->
     <div class="centered">
       <!-- Container Start -->
       <div class="container">
@@ -80,9 +83,11 @@ html, body {
       </div>
       <!-- Container End -->
     </div>
-    <!-- </div> -->
+    <!-- centered -->
   </div>
+  <!-- inner -->
 </div>
+<!-- outer -->
 <script type="text/javascript">
   $(function() {
     $('.custom-select').change(function() {
