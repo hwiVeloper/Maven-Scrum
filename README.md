@@ -59,3 +59,5 @@ Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 
       * We can see or edit user's account information.
     * ATTENDANCE BOOK
       * Check user's attendance by month(calendar library)
+    * SUGGESTIONS
+      * Notify error or ask improvement things.
