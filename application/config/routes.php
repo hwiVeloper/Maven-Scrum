@@ -70,3 +70,6 @@ $route['Dashboard/(:any)'] = 'Dashboard';
 /* Controller - Calendar */
 $route['Calendar/view/(:any)'] = 'Calendar/view';
 $route['Calendar'] = 'Calendar/view';
+
+/* Controller - Suggestions */
+$route['Suggestions/delete/(:ant)'] = 'Suggestions/delete';

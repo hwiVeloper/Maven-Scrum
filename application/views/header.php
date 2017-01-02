@@ -145,7 +145,7 @@
           </div>
         </li>
         <li class="nav-item <?=$menu_suggestion?>">
-          <a class="nav-link" href="#">Suggestion(준비중)</a>
+          <a class="nav-link" href="<?php echo base_url('Suggestions')?>">건의사항</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
