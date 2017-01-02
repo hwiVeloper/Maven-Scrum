@@ -58,6 +58,19 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
+    <li class="timeline-inverted">
+      <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">건의사항 한줄메모 신설</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i>&nbsp; 2017. 01. 02</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify">건의사항 한줄메모 게시판이 생성되었습니다. 불편한 점과 개선하면 좋겠다 라는 점을 언제든지 적어주시면 검토 후 반영하도록 노력하겠습니다.</p>
+          <p>감사합니다.</p>
+        </div>
+      </div>
+    </li>
     <li id="20161230">
       <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
       <div class="timeline-panel">
