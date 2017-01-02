@@ -75,7 +75,7 @@
         $msg = $info['msg'];
 
         if($result == TRUE){
-          echo "<script>alert('".$msg."')</script>";
+          //echo "<script>alert('".$msg."')</script>";
           redirect('Plan/myPlan/'.date("Y-m-d"), 'refresh');
         }
       }else{
@@ -83,7 +83,7 @@
         $valid_plan = $this->MPlan->check_valid_plan(date("Y-m-d"), $this->sUser);
 
         if($valid_plan > 0) {
-          echo "<script>alert('등록된 일정이 있습니다.')</script>";
+          //echo "<script>alert('등록된 일정이 있습니다.')</script>";
           redirect('Plan/myPlan/'.date("Y-m-d"), 'refresh');
         }
 
@@ -104,7 +104,7 @@
         $msg = $info['msg'];
 
         if($result == TRUE){
-          echo "<script>alert('".$msg."')</script>";
+          //echo "<script>alert('".$msg."')</script>";
           redirect('Plan/myPlan/'.$date, 'refresh');
         }
       }else{
@@ -130,7 +130,7 @@
         $msg = $info['msg'];
 
         if($result == TRUE){
-          echo "<script>alert('".$msg."')</script>";
+          //echo "<script>alert('".$msg."')</script>";
           redirect('Plan/myPlan/'.$get_date, 'refresh');
         }
       }else {
