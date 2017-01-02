@@ -58,7 +58,7 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
-    <li class="timeline-inverted">
+    <li id="20170102" class="timeline-inverted">
       <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
