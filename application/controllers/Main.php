@@ -13,9 +13,7 @@ class Main extends CI_Controller {
 	public function index() {
 		// if session isset
     if($this->session->userdata('user_id')){
-      $this->load->view('header');
-  		$this->load->view('login_success');
-      $this->load->view('footer');
+      redirect('Home', 'refresh');
     }else{
 			if($this->input->post('user_id')
 			&& $this->input->post('user_password')){
