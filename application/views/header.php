@@ -22,7 +22,7 @@
     case "Plan":
       $menu_plan = "active";
       break;
-    case "Suggestion":
+    case "Suggestions":
       $menu_suggestion = "active";
       break;
     default:
