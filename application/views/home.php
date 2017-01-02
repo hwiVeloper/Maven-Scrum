@@ -68,6 +68,7 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
         <div class="timeline-body">
           <p style="text-align:justify">건의사항 한줄메모 게시판이 생성되었습니다. 불편한 점과 개선하면 좋겠다 라는 점을 언제든지 적어주시면 검토 후 반영하도록 노력하겠습니다.</p>
           <p>감사합니다.</p>
+          <p><a href="<?php echo base_url('Suggestions')?>">건의하러 가기</a></p>
         </div>
       </div>
     </li>
@@ -87,17 +88,5 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
         </div>
       </div>
     </li>
-    <!-- <li class="timeline-inverted">
-      <div class="timeline-badge warning"><i class="fa fa-microphone" aria-hidden="true"></i></div>
-      <div class="timeline-panel">
-        <div class="timeline-heading">
-          <h4 class="timeline-title">제목</h4>
-          <p><small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i> 시간</small></p>
-        </div>
-        <div class="timeline-body">
-          <p>내용</p>
-        </div>
-      </div>
-    </li> -->
   </ul>
 </div>
