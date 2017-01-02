@@ -78,7 +78,7 @@ class User extends CI_Controller {
 
     $this->MUser->modify_user($data);
 
-    echo "<script>alert('저장되었습니다.');</script>";
+    //echo "<script>alert('저장되었습니다.');</script>";
     redirect('User', 'refresh');
   }
 }

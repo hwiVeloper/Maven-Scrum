@@ -44,7 +44,7 @@
         $this->load->view('viewPlan', $view_params);
         $this->load->view('footer');
       }else {
-        echo "<script>alert('아직 일정을 등록하지 않았습니다.')</script>";
+        //echo "<script>alert('아직 일정을 등록하지 않았습니다.')</script>";
         redirect('Plan/add', 'refresh');
       }
     }

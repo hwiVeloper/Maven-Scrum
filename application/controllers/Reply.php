@@ -20,7 +20,7 @@ class Reply extends CI_Controller {
 
       // reply_comment NULL check
       if("" == $reply_comment){
-        echo "<script>alert('빈값을 허용하지 않습니다.')</script>";
+        echo "<script>alert('침묵은 허용하지 않는다.')</script>";
         redirect($redirect_address, 'refresh');
       }
 
@@ -35,7 +35,7 @@ class Reply extends CI_Controller {
       $added_reply_count = $this->MReply->add_reply($data);
 
       if($added_reply_count > 0){
-        echo "<script>alert('등록되었습니다.')</script>";
+        //echo "<script>alert('등록되었습니다.')</script>";
         redirect($redirect_address, 'refresh');
       }
     }else{
@@ -54,7 +54,7 @@ class Reply extends CI_Controller {
       $deleted_reply_count = $this->MReply->delete_reply($reply_id);
 
       if($deleted_reply_count > 0){
-        echo "<script>alert('삭제되었습니다..')</script>";
+        //echo "<script>alert('삭제되었습니다..')</script>";
         redirect("Plan/detail/".$this->uri->segment(4).'/'.$this->uri->segment(5), "refresh");
       }
     }else{
