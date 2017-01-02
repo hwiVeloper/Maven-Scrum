@@ -123,13 +123,13 @@
         <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
       </a>
       <ul class="nav navbar-nav">
-        <li class="nav-item <?=$menu_home?>">
-          <a class="nav-link" href="<?=$home_url?>">개발자노트</a>
-        </li>
 <?php
       if($this->session->userdata('user_id')) {
         if($this->session->userdata('user_level') >= "1"){
 ?>
+        <li class="nav-item <?=$menu_home?>">
+          <a class="nav-link" href="<?=$home_url?>">개발자노트</a>
+        </li>
         <li class="nav-item <?=$menu_dashboard?>">
           <a class="nav-link" href="<?php echo base_url('Dashboard') ?>">모두의오늘</a>
         </li>
