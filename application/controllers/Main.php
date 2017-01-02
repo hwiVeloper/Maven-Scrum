@@ -20,7 +20,7 @@ class Main extends CI_Controller {
 				$status = $this->check_login();
 				$msg = $status['msg'];
         if($status['result'] == TRUE) {
-					echo "<script>alert('$msg')</script>";
+					// echo "<script>alert('$msg')</script>";
           redirect('Home', 'refresh');
         }else{
 					echo "<script>alert('$msg')</script>";
