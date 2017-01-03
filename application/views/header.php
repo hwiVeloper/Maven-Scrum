@@ -50,7 +50,7 @@
 
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
 
-  <!-- Custom CSS -->
+  <!-- Custom Style -->
   <style type="text/css">
     .img-rounded {
       border: 0px;
@@ -111,11 +111,69 @@
           </div>
         </div>
 <?php
-        }else {
-          echo "<span class='nav-link' style='color: rgba(255, 255, 255, 0.5);'>로그인 해주세요!</span>";
         }
 ?>
       </li>
+    </ul>
+    <!-- <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;margin-top:0.1em;">
+      <li class="nav-item">
+        <div class="dropdown">
+          <a class="nav-link" id="user-menu" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" href="#">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <span class="tag tag-pill tag-danger"><?php echo $this->MNotification->count_notification();?></span>
+          </a>
+          <div id="notify-area" class="dropdown-menu dropdown-menu-right dropdown-notification" aria-labelledby="user-menu">
+            테스트.
+          </div>
+        </div>
+      </li>
+    </ul> -->
+    <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;margin-top:0.1em;">
+      <li class="nav-item">
+        <a class="nav-link" id="user-menu" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false" href="#">
+          <i class="fa fa-bell-o" aria-hidden="true"></i>
+          <span class="tag tag-pill tag-danger"><?php echo $this->MNotification->count_notification();?></span>
+        </a>
+  			<ul class="dropdown-menu dropdown-menu-right dropdown-menu-large row">
+  				<li class="col-sm-12">
+  					<ul>
+<?php
+            if( $this->MNotification->view_notifications() ){
+              foreach ( $this->MNotification->view_notifications() as $row) :
+?>
+              <li class="col-sm-12" style="margin-bottom:0.5em;">
+                <div class="col-md-2 col-sm-4 col-xs-3">
+                  <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
+                </div>
+                <div class="col-md-10 col-sm-8 col-xs-9" align="left" style="padding:0; margin-top:0.6em;">
+                  <a href="<?php echo base_url($row['alarm_target_controller'].$row['alarm_target_date'].'/'.$row['alarm_to_user']).'/'.$row['alarm_id']?>">
+                    <?php
+                    echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';
+                    ?>
+                  </a>
+                </div>
+              </li>
+<?php
+              endforeach;
+            }else {
+              echo "<li>알림이 없습니다.</li>";
+            }
+?>
+  						<!-- <li><a href="#">Available glyphs</a></li>
+  						<li class="disabled"><a href="#">How to use</a></li>
+  						<li><a href="#">Examples</a></li>
+  						<li class="divider"></li>
+  						<li class="dropdown-header">Dropdowns</li>
+  						<li><a href="#">Example</a></li>
+  						<li><a href="#">Aligninment options</a></li>
+  						<li><a href="#">Headers</a></li>
+  						<li><a href="#">Disabled menu items</a></li> -->
+  					</ul>
+  				</li>
+  			</ul>
+			</li>
     </ul>
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
       <a class="navbar-brand" href="<?=$home_url?>">

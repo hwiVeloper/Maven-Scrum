@@ -35,6 +35,7 @@ class Reply extends CI_Controller {
       $added_reply_count = $this->MReply->add_reply($data);
 
       if($added_reply_count > 0){
+        $this->MNotification->add_notification('Plan/detail/', $this->input->post('user_id'), $this->input->post('plan_date'));
         //echo "<script>alert('등록되었습니다.')</script>";
         redirect($redirect_address, 'refresh');
       }

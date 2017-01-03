@@ -51,6 +51,12 @@
 
     /* View Plan Detail (by Dashboard) */
     function detail() {
+      if($this->uri->segment(5)){
+        $get_alarm_id = $this->uri->segment(5);
+
+        $this->MNotification->click_notification($get_alarm_id);
+      }
+
       $get_date = $this->uri->segment(3);
       $get_user = $this->uri->segment(4);
 
@@ -154,6 +160,9 @@
       $data = array();
 
       for($i = 0; $i < sizeof($seq); $i++){
+        if($content[$i] == NULL || $content[$i] == ""){
+          continue;
+        }
         $data = array(
             'plan_date' => $this->input->post('plan_date'),
             'plan_detail_seq' => $seq[$i],

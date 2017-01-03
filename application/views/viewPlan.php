@@ -88,10 +88,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <button id="addToDo" type="button" class="col-md-3 col-sm-12 col-xs-12 btn btn-secondary">할 일 추가</button>
   </form>
   <!-- FORM END -->
-        <a class="btn btn-secondary col-md-3 col-sm-12 col-xs-12" href="<?=base_url('Calendar/view/'.$y.'/'.$m)?>">달력보기</a>
+        <a class="btn btn-secondary col-md-3 col-sm-12 col-xs-12" href="<?=base_url('Calendar/view/'.$y.'/'.$m)?>">달력</a>
         <form class="" action="<?=base_url('Dashboard')?>" method="post">
           <input type="hidden" name="plan_date" value="<?=$plan_date?>">
-          <button type="submit" class="btn btn-secondary col-md-3 col-sm-12 col-xs-12">Dashboard</button>
+          <button type="submit" class="btn btn-secondary col-md-3 col-sm-12 col-xs-12">모두의오늘</button>
         </form>
       </td>
       <td colspan="2"></td>
