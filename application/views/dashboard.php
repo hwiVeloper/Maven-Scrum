@@ -18,9 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       padding: 0;
     }
   }
+  #sticky-sidebar {
+    position:fixed;
+    max-width: 20%;
+  }
 </style>
-<h3>Dashboard</h3>
-
+<h3>모두의 오늘</h3>
 <!-- SPACE -->
 <div style="margin-top:1rem"></div>
 
