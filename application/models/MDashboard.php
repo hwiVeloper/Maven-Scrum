@@ -28,22 +28,21 @@ class MDashboard extends CI_Model {
                     WHERE plan_date = '$date'
                     AND user_id = p1.user_id) AS reply_count
             FROM scrum_plan AS p1
-               , scrum_plan AS p2
                , scrum_user AS u
                , scrum_plan_info AS i
-            WHERE p1.plan_date = p2.plan_date
-              AND p1.plan_detail_seq <= p2.plan_detail_seq
-              AND p1.user_id = u.user_id
+            WHERE p1.user_id = u.user_id
               AND p1.plan_date = i.plan_date
               AND p1.user_id = i.user_id
+              AND p1.plan_detail_seq <= 2
+              AND p1.plan_date = '$date'
             GROUP BY p1.user_id
                    , p1.plan_content
                    , p1.plan_status
-            HAVING p1.plan_detail_seq <= 2 AND p1.plan_date = '$date'
             ORDER BY i.plan_creation_dttm
                    , p1.plan_date
                    , p1.user_id
                    , p1.plan_detail_seq";
+                   
     $query = $this->db->query($sql);
     return $query->result_array();
   }
