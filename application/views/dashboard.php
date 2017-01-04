@@ -35,10 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div id="select_date" class="form-group col-lg-10 col-md-8 col-sm-6" role="alert">
     <form class="form-inline" action="<?php echo base_url('Dashboard')?>" method="post">
       <div class="col-md-3 col-sm-2 col-xs-12">
-          <input id="dashboardDate" class="form-control" style="height:3em;width:100%;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
+        <input id="dashboardDate" class="form-control" style="height:3em;width:100%;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
       </div>
       <div class="col-md-2 col-sm-2 col-xs-12">
         <button class="btn btn-primary btn-block" style="height:3em;" type="submit" name="button">조회</button>
+      </div>
+      <div class="col-md-7 col-sm-8 col-xs-12">
+        <!-- blank -->
       </div>
       <!-- 공지 올리기 버튼 자리 -->
       <!-- <div class="col-md-2 col-sm-2 col-xs-12">

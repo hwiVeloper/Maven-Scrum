@@ -21,7 +21,7 @@ class Dashboard extends CI_Controller {
       redirect('Main', 'refresh');
     }
 
-    // Get date parameter (GET)
+    // Get date parameter (POST/GET)
     if($this->input->post('plan_date')){
       // Cannot read the day after today
       if($this->input->post('plan_date') > date("Y-m-d")){
@@ -29,6 +29,12 @@ class Dashboard extends CI_Controller {
         redirect('Dashboard', 'refresh');
       }
       $date = $this->input->post('plan_date');
+    }else if($this->uri->segment(2)){
+      if($this->input->post('plan_date') > date("Y-m-d")){
+        echo "<script>alert('오늘 이후로는 조회할 수 없습니다.');</script>";
+        redirect('Dashboard', 'refresh');
+      }
+      $date = $this->uri->segment(2);
     }else{
       $date = date("Y-m-d");
     }
