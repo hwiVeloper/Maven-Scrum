@@ -2,45 +2,27 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
-.img-fluid {
-  width:300px;
-}
 
-html, body {
-  height: 100%;
-  background-image: url("<?php echo base_url('assets/img/main_bg.jpg')?>");
-  background-size: cover;
-}
 
-@media (min-width: 1200px) {
-  input, button {
-    max-width:50%;
-  }
-}
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
 
-.centered {
-  display: inline-block;
-  width: 100%;
-  height: auto;
-  position: absolute;
+.layer{
+  position:absolute;
   top:50%;
   left:50%;
-  transform: translate(-50%, -50%);
-  padding: auto;
+  transform:translate(-50%, -50%)
+}
+.main_title {
+    font-family: 'Jeju Hallasan', serif !important;
+    font-size: 0.8rem !important;
+    text-align: right;
+    padding: 0 0 10px 80px;
 }
 </style>
-<div class="outer" style="">
-  <div class="inner">
-    <div class="centered">
-      <!-- Container Start -->
-      <div class="container">
-        <div class="col-md-12">
-          <!-- <img class="img-fluid" src="<?php echo base_url('assets/img/logo.gif');?>" style=""> -->
-        </div>
-        <h4 class="col-md-12" align="center" style="color:#fff">DAILY SCRUM</h4>
-        <div class="col-md-12" align="center">
-          <!-- Form Start -->
-          <form class="" action="" method="post" style="margin-top:1.5em;" onsubmit="<?php echo base_url('Main') ?>">
+    <div class="layer">
+        <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
+        <!-- Form Start -->
+        <form action="" method="post" onsubmit="<?php echo base_url('Main') ?>">
             <!-- I D -->
             <div class= "form-group">
               <input class="form-control" type="text" id="user_id" name="user_id"
@@ -51,43 +33,12 @@ html, body {
               <input class="form-control" type="password" id="user_password" name="user_password"
                   placeholder="Password" tabindex="2">
             </div>
-            <!-- Remember me / Auto login -->
-            <!-- <div class= "form-group">
-              <div class="col-md-6" style="padding:0px;">
-                <label class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" name="remember_id" tabindex="3">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Remember ID</span>
-                </label>
-              </div>
-              <div class="col-md-6" style="padding:0px;">
-                <label class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" name="auto_login" tabindex="4">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Auto Login</span>
-                </label>
-              </div>
-            </div> -->
             <!-- Submit button -->
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" style="width:100%;" tabindex="5">Sign in</button>
+              <button type="submit" class="btn btn-primary" style="width:100%;" tabindex="5">로그인</button>
             </div>
-            <!-- Sign up button -->
-            <!-- <div class="form-group">
-              <button type="button" class="btn btn-secondary" style="width:100%;"
-                onclick="location.href='<?php echo base_url("Signup");?>'" tabindex="6">Sign up</button>
-            </div> -->
           </form>
-          <!-- End Form -->
-        </div>
-      </div>
-      <!-- Container End -->
     </div>
-    <!-- centered -->
-  </div>
-  <!-- inner -->
-</div>
-<!-- outer -->
 <script type="text/javascript">
   $(function() {
     $('.custom-select').change(function() {

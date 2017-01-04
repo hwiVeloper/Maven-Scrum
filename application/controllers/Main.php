@@ -26,7 +26,7 @@ class Main extends CI_Controller {
 					echo "<script>alert('$msg')</script>";
 				}
 			}
-      $this->load->view('header');
+      // $this->load->view('header');
       $this->load->view('main');
       $this->load->view('footer');
     }

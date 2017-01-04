@@ -115,6 +115,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
     }
     ?>
-    <a class="btn btn-secondary" href="<?=base_url('Dashboard/'.$plan_date)?>">돌아가기</a>
+    <a class="btn btn-secondary" href="<?=base_url('Dashboard/'.$plan_date)?>">모두의일정</a>
   </nav>
 </div>
