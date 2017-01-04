@@ -1,6 +1,78 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php
+  /* Menu Highlights Option by Uri */
+  $uri_segment = $this->uri->segment(1);
+
+  // menus
+  $menu_home = "";
+  $menu_dashboard = "";
+  $menu_calendar = "";
+  $menu_plan = "";
+  $menu_suggestion = "";
+
+  switch($uri_segment){
+    case "Home": case "Main":
+      $menu_home = "active";
+      break;
+    case "Dashboard":
+      $menu_dashboard = "active";
+      break;
+    case "Calendar":
+      $menu_calendar = "active";
+      break;
+    case "Plan":
+      $menu_plan = "active";
+      break;
+    case "Suggestions":
+      $menu_suggestion = "active";
+      break;
+    default:
+      $menu_home = "active";
+  }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Meta Informations -->
+  <meta http-equiv="Content-Type" context="text/html" charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+  <!-- Title -->
+  <title>MAVEN DAILY SCRUM</title>
+
+  <!-- Javascript Libraries -->
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+  <script src="<?php echo base_url('assets/js/bootstrap.js') ?>"></script>
+
+  <!-- CSS Libraries -->
+  <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
+
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
+
+  <!-- Custom Style -->
+  <style type="text/css">
+    .img-rounded {
+      border: 0px;
+      border-radius: 50%;
+      -webkit-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #user-menu {
+      margin-bottom: 0em;
+    }
+  </style>
+</head>
+<body style="height:100%">
+<div class="container-fluid" style="margin-top:4rem">
+  <div style="margin-top:4.5em"></div>
 <style>
 
 
