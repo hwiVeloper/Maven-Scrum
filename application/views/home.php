@@ -1,5 +1,5 @@
 <!--
-############# SOURCE CODE INFORMATION #############
+#################### SOURCE CODE INFORMATION ####################
 .timeline-badge
   primary - blue
   success - green
@@ -16,7 +16,7 @@ calendar - <i class="fa fa-calendar" aria-hidden="true"></i>
 microphone - <i class="fa fa-microphone" aria-hidden="true"></i>
 code - <i class="fa fa-code" aria-hidden="true"></i>
 commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
-###################################################
+#################################################################
 -->
 <style media="screen">
   .content-divider {
@@ -58,6 +58,19 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
+    <li id="20170106">
+      <div class="timeline-badge info"><i class="fa fa-commenting" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">댓글 알림 기능 추가 및 UI 유지 보수</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; 2017. 01. 06</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify;">댓글 알림 기능이 추가 되었습니다. 우측 상단 로그인 정보 옆에서 확인 가능하고, 알림 클릭 시에는 해당 일정 뷰로 넘어가게 됩니다. 알림 기능은 추후 계속 추가하도록 노력하겠습니다.</p>
+          <p style="text-align:justify;">UI 유지보수는 <a href="https://www.github.com/ruden91" target="_blank">박경두</a>가 조금씩 수정해나가고 있습니다. 앞으로 수고해 줄 경두에게 응원 부탁드립니다.</p>
+        </div>
+      </div>
+    </li>
     <li id="20170102" class="timeline-inverted">
       <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
       <div class="timeline-panel">

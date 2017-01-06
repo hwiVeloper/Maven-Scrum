@@ -52,6 +52,11 @@
 
   <!-- Custom Style -->
   <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    html, body {
+      font-family: 'Jeju Gothic';
+    }
     .img-rounded {
       border: 0px;
       border-radius: 50%;
