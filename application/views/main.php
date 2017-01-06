@@ -1,7 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<?php
   /* Menu Highlights Option by Uri */
   $uri_segment = $this->uri->segment(1);
 
@@ -50,47 +47,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- CSS Libraries -->
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
-
+  <link href="<?php echo base_url('assets/css/main_page.css') ?>" rel="stylesheet">
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
-
-  <!-- Custom Style -->
-  <style type="text/css">
-    .img-rounded {
-      border: 0px;
-      border-radius: 50%;
-      -webkit-transition: all .2s ease-in-out;
-      -o-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;
-      max-width: 100%;
-      height: auto;
-    }
-
-    #user-menu {
-      margin-bottom: 0em;
-    }
-  </style>
 </head>
 <body style="height:100%">
-<div class="container-fluid" style="margin-top:4rem">
-  <div style="margin-top:4.5em"></div>
-<style>
+<?php
+  $home_url = base_url();
+  if($this->session->userdata('user_id')){
+    $home_url = base_url('Home');
+  }
+?>
 
+<div class="container-fluid">
 
-@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
-
-.layer{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%)
-}
-.main_title {
-    font-family: 'Jeju Hallasan', serif !important;
-    font-size: 0.8rem !important;
-    text-align: right;
-    padding: 0 0 10px 80px;
-}
-</style>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
     <div class="layer">
         <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
         <!-- Form Start -->
@@ -107,10 +79,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <!-- Submit button -->
             <div class="form-group">
-              <button type="submit" class="btn btn-primary" style="width:100%;" tabindex="5">로그인</button>
+              <button type="submit" class="main_login" tabindex="5">로그인</button>
             </div>
           </form>
     </div>
+
+    <footer>
+        <ul class="footer_menu">
+            <li class="maven">ⓒ MAVEN</li>
+            <li class="facebook"><a href="https://www.facebook.com/mismaven/?fref=ts" target="_blank">페이스북</a></li>
+            <li class="github"><a href="#" target="_blank">깃허브</a></li>
+            <li class="website"><a href="http://mismaven.kr/" target="_blank">공식페이지</a></li>
+        </ul>
+    </footer>
 <script type="text/javascript">
   $(function() {
     $('.custom-select').change(function() {
@@ -118,3 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     });
   });
 </script>
+
+</div>
+</body>
+</html>
