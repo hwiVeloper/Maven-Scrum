@@ -1,7 +1,29 @@
+<style>
+  .alert-danger {
+    border-width: 2px;
+    background-color: #fff;
+  }
+  .alert-success {
+    border-width: 2px;
+    background-color: #fff;
+  }
+  .card-outline-danger {
+    border-width: 2px;
+  }
+  .card-outline-success {
+    border-width: 2px;
+  }
+</style>
 <div class="container">
   <h3>건의사항</h3>
   <div class="alert alert-info" role="alert">
     여러분들의 반짝거리는 아이디어와 희망하는 개선점을 적어주세요.
+  </div>
+  <div class="alert alert-success" role="alert">
+    완료된 건의사항입니다.
+  </div>
+  <div class="alert alert-danger" role="alert">
+    미완료된 건의사항입니다.
   </div>
   <div class="card card-outline-primary text-xs-right">
     <div class="card-block">
@@ -15,9 +37,14 @@
   </div>
 <?php
   foreach($suggestions as $k => $row) :
+    if($row['suggestion_complete'] == 0){
+      $complete_yn = "card-outline-danger";
+    } else {
+      $complete_yn = "card-outline-success";
+    }
 ?>
   <!-- VIEW SUGGESTIONS AREA -->
-  <div class="card card-outline-danger text-xs-left">
+  <div class="card <?=$complete_yn?> text-xs-left">
     <div class="card-block">
       <h5>
         <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">

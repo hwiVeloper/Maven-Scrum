@@ -14,7 +14,7 @@ class MSuggestions extends CI_Model{
             FROM scrum_suggestion s
                , scrum_user u
             WHERE s.user_id = u.user_id
-            ORDER BY s.suggestion_timestamp DESC
+            ORDER BY s.suggestion_id DESC
             ";
     $query = $this->db->query($sql);
     return $query->result_array();
