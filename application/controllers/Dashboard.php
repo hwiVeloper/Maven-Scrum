@@ -30,7 +30,7 @@ class Dashboard extends CI_Controller {
       }
       $date = $this->input->post('plan_date');
     }else if($this->uri->segment(2)){
-      if($this->input->post('plan_date') > date("Y-m-d")){
+      if($this->uri->segment(2)> date("Y-m-d")){
         echo "<script>alert('오늘 이후로는 조회할 수 없습니다.');</script>";
         redirect('Dashboard', 'refresh');
       }
