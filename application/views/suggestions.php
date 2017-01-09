@@ -13,9 +13,21 @@
   .card-outline-success {
     border-width: 2px;
   }
+
+  .box:after {
+      content: "";
+      clear: both;
+      display: block;
+  }
+  .alert-success {
+      float: right;
+      margin-right:2px;
+  }
+  .alert-danger {
+      float: right;
+  }
 </style>
 <div class="container">
-  <h3>건의사항</h3>
   <div class="alert alert-info" role="alert">
     여러분들의 반짝거리는 아이디어와 희망하는 개선점을 적어주세요.
   </div>
@@ -30,10 +42,18 @@
       <!-- WRITE SUGGESTION AREA -->
       <form class="" action="<?php echo base_url('Suggestions/add'); ?>" method="post">
         <input type="hidden" name="user_id" value="<?=$this->session->userdata('user_id')?>">
-        <textarea class="form-control" name="suggestion_content" rows="2" placeholder="건의 내용" style="" required></textarea>
+        <textarea class="form-control" name="suggestion_content" rows="4" placeholder="건의 내용" style="" required></textarea>
         <button type="submit" class="btn btn-primary" href="" style="margin-top:0.25em;">건의하기</button>
       </form>
     </div>
+  </div>
+  <div class="box">
+      <div class="alert alert-danger" role="alert">
+        미완료된 건의사항
+      </div>
+      <div class="alert alert-success" role="alert">
+        완료된 건의사항
+      </div>
   </div>
 <?php
   foreach($suggestions as $k => $row) :

@@ -19,6 +19,12 @@
     border-top-width: 0px;
     vertical-align: middle;
   }
+  @media screen and (min-width: 1040px) {
+      .table td {
+        padding-top: 3em;
+        padding-bottom: 3em;
+      }
+  }
 
   td.comment {
     vertical-align: middle;
@@ -29,6 +35,9 @@
   }
   td.todo {
     text-align: center;
+  }
+  .bg-success {
+      background-color:#7495c6 !important;
   }
 </style>
 
@@ -112,7 +121,6 @@ $(".is-content").parent("td").addClass("bg-success");
 $(".is-content").parent("td").click(function() {
   $(this).find("a.is-content").get(0).click();
 });
-
 $(function () {
     // $('#calTabs a:first').tab('show')
     if(location.hash == '#list') {
