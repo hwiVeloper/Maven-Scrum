@@ -58,6 +58,19 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
+    <li id="20170109" class="timeline-inverted">
+      <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">달력보기 - 월별 일정 리스트</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i>&nbsp; 2017. 01. 09</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify">달력보기 메뉴에 탭이 추가되었습니다. 기존의 달력형식 view와 목록형의 view로 자신의 일정을 관리하는 것이 더 편해졌습니다.</p>
+          <p>감사합니다.</p>
+        </div>
+      </div>
+    </li>
     <li id="20170106">
       <div class="timeline-badge info"><i class="fa fa-commenting" aria-hidden="true"></i></div>
       <div class="timeline-panel">
