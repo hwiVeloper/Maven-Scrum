@@ -65,6 +65,7 @@ class Calendar extends CI_Controller{
     $data = $this->get_calendar_link($contents);
 
     $view_params['cal_view'] = $this->calendar->generate($y, $m, $data);
+    $view_params['list_view'] = $this->MCalendar->get_list($y, $m, $this->session->userdata('user_id'));
     $view_params['month_info'] = $this->MCalendar->get_month_info_by_user($y, $m, $this->session->userdata('user_id'));
 
     $this->load->view('header');

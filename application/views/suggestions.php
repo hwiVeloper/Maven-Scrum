@@ -53,6 +53,12 @@
       <p style="margin-top:1.0em"><?=$row['suggestion_content']?></p>
       <p class="card-text">
         <small class="text-muted"><?=$row['suggestion_timestamp']?></small>
+        <br><br>
+<?php if($row['suggestion_complete_user_id'] != '') : ?>
+        <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:green"></i>
+        <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['dev_img']);?>" width="35px" height="35px">
+        <small class="text-muted"><?=$row['suggestion_comment']?></small>
+<?php endif; ?>
         <?php
         if($this->session->userdata('user_id') == $row['user_id']){
         ?>
