@@ -32,7 +32,7 @@ class Calendar extends CI_Controller{
 			'cal_cell_start_today'		=> '<td class="bg-primary">',
 			'cal_cell_start_other'		=> '<td style="color: #666;">',
 			'cal_cell_content'			=> '<a class="is-content" href="{content}" style="color:#fff"><strong>{day}</strong></a>',
-			'cal_cell_content_today'	=> '<a href="{content}" style="color:#fff"><strong>{day}</strong></a>',
+			'cal_cell_content_today'	=> '<a class="is-content-today" href="{content}" style="color:#fff"><strong>{day}</strong></a>',
 			'cal_cell_no_content'		=> '{day}',
 			'cal_cell_no_content_today'	=> '<strong>{day}</strong>',
 			'cal_cell_blank'			=> '&nbsp;',

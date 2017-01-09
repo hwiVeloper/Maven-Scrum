@@ -121,7 +121,6 @@ $(".is-content").parent("td").addClass("bg-success");
 $(".is-content").parent("td").click(function() {
   $(this).find("a.is-content").get(0).click();
 });
-
 $(function () {
     // $('#calTabs a:first').tab('show')
     if(location.hash == '#list') {
