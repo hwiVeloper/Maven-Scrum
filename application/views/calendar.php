@@ -11,6 +11,7 @@
     padding-top: 2em;
     padding-bottom: 2em;
     vertical-align: middle;
+    border-color: #ddd!important;
   }
   .table th {
     padding-top: 2em;
@@ -61,15 +62,15 @@
   <div class="tab-pane fade" id="list" role="tabpanel">
     <div class="" style="margin-top:1em;"></div>
     <!-- VIEW LIST OF THIS MONTH -->
-    <table class="table" border="0" cellpadding="4" cellspacing="0" style="">
+    <table id="calList" class="table" border="0" cellpadding="4" cellspacing="0" style="">
       <tr>
         <th width="14.2857%"><a href="<?=base_url('Calendar/view/'.$p_link.'#list')?>">&lt;&lt;</a></th>
         <th colspan="5"><h3><?=$year.'년 '.$month.'월'?></h3></th>
         <th width="14.2857%"><a href="<?=base_url('Calendar/view/'.$n_link.'#list')?>">&gt;&gt;</a></th>
       </tr>
     </table>
-    <table id="" class="table table-bordered table-sm">
-      <tr>
+    <table id="" class="table table-sm">
+      <tr class="cal-table-header">
         <th>날짜</th>
         <th>순번</th>
         <th>내용</th>
@@ -79,7 +80,7 @@
 <?php foreach($list_view as $k => $row) : ?>
       <tr>
 <?php if($row['plan_detail_seq'] == 0) : ?>
-        <th rowspan="<?=$row['each_count']?>">
+        <th rowspan="<?=$row['each_count']?>" style="border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;">
           <?=$row['plan_date_for_table']?><br/>
           <a class="btn btn-secondary" href="<?=base_url('Plan/myPlan/'.$row['plan_date_for_table'])?>">관리</a>
         </th>
