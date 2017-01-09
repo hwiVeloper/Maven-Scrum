@@ -446,3 +446,26 @@ output {
 [hidden] {
   display: none !important;
 }
+
+/* 메인페이지 style */
+.layer{
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%, -50%);
+          transform:translate(-50%, -50%)
+}
+.main_title {
+    font-size: 0.95rem !important;
+    text-align: right;
+    padding: 0 0 10px 80px;
+}
+.main_login {
+    color: #fff;
+    width: 100%;
+    padding: 5px;
+    background-color: #7495c6;
+    border: none;
+    border-radius: 3px;
+
+}
