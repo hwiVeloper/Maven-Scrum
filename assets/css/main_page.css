@@ -55,10 +55,9 @@ footer .footer_menu li{
     font-family: 'Hanna', serif !important;
     color: #fff;
     width: 100%;
-    padding: 5px;
+    padding: 10px !important;
     background-color: #7495c6;
     border: none;
-    border-radius: 3px;
 
 }
 @media screen and (min-width: 600px) {
