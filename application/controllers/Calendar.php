@@ -32,7 +32,7 @@ class Calendar extends CI_Controller{
 			'cal_cell_start_today'		=> '<td class="bg-primary">',
 			'cal_cell_start_other'		=> '<td style="color: #666;">',
 			'cal_cell_content'			=> '<a class="is-content" href="{content}" style="color:#fff"><strong>{day}</strong></a>',
-			'cal_cell_content_today'	=> '<a href="{content}" style="color:#fff"><strong>{day}</strong></a>',
+			'cal_cell_content_today'	=> '<a class="is-content-today" href="{content}" style="color:#fff"><strong>{day}</strong></a>',
 			'cal_cell_no_content'		=> '{day}',
 			'cal_cell_no_content_today'	=> '<strong>{day}</strong>',
 			'cal_cell_blank'			=> '&nbsp;',
@@ -64,7 +64,10 @@ class Calendar extends CI_Controller{
     $contents = $this->MCalendar->check_content($y, $m, $this->session->userdata('user_id'));
     $data = $this->get_calendar_link($contents);
 
+    $view_params['year'] = $y;
+    $view_params['month'] = $m;
     $view_params['cal_view'] = $this->calendar->generate($y, $m, $data);
+    $view_params['list_view'] = $this->MCalendar->get_list($y, $m, $this->session->userdata('user_id'));
     $view_params['month_info'] = $this->MCalendar->get_month_info_by_user($y, $m, $this->session->userdata('user_id'));
 
     $this->load->view('header');

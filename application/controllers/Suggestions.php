@@ -31,6 +31,7 @@ class Suggestions extends CI_Controller{
     $data = array(
         'user_id' => $this->input->post('user_id'),
         'suggestion_content' => nl2br($this->input->post('suggestion_content')),
+        'suggestion_complete' => 0
     );
 
     $this->MSuggestions->add_suggestion($data);
