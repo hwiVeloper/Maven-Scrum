@@ -9,6 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
+
+  .plan-card {
+    height: 350px;
+  }
+
   #select_date{
     padding: 0 5px;
   }
@@ -17,10 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     #select_date{
       padding: 0;
     }
-  }
-  #sticky-sidebar {
-    position:fixed;
-    max-width: 20%;
   }
 </style>
 <h3>모두의 오늘</h3>
@@ -33,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <strong>작성인원</strong> : <?=$today_count?>
   </div>
   <div id="select_date" class="form-group col-lg-10 col-md-8 col-sm-6" role="alert">
-    <form class="form-inline" action="<?php echo base_url('Dashboard')?>" method="post">
+    <form class="form-inline" onsubmit="<?php echo base_url('Dashboard')?>" method="post">
       <div class="col-md-3 col-sm-2 col-xs-12">
         <input id="dashboardDate" class="form-control" style="height:3em;width:100%;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
       </div>
@@ -67,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php
   if(0 == $row['plan_detail_seq']) {
   ?>
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+  <div class="plan-card col-lg-3 col-md-6 col-sm-12 col-xs-12">
     <div class="card">
       <h4 class="card-header">
         <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
