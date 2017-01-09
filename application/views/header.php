@@ -56,6 +56,7 @@
 
     html, body {
       font-family: 'Jeju Gothic';
+      font-size: 0.9rem;
     }
     .img-rounded {
       border: 0px;
