@@ -13,6 +13,7 @@
   .card-outline-success {
     border-width: 2px;
   }
+
   .box:after {
       content: "";
       clear: both;
@@ -24,7 +25,6 @@
   }
   .alert-danger {
       float: right;
-  }
   }
 </style>
 <div class="container">

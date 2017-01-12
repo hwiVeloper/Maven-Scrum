@@ -44,12 +44,30 @@ footer .footer_menu li{
   -webkit-transform:translate(-50%, -50%);
           transform:translate(-50%, -50%);
 }
-
 .main_title {
+    margin-bottom: 10px;
+}
+.main_title i{
+    display: none;
+    color: #C8626F;
+    font-size: 2em;
+    float: left;
+}
+.main_title h4{
     font-family: 'Hanna', serif !important;
     font-size: 0.6em;
     text-align: right;
-    padding: 0 0 10px 30px;
+    float:right;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.main_title:after {
+    content: "";
+    clear: both;
+    display: block;
 }
 .main_login {
     font-family: 'Hanna', serif !important;
@@ -61,8 +79,14 @@ footer .footer_menu li{
 
 }
 @media screen and (min-width: 600px) {
-    .main_title {
+    .main_title i{
+        display: block;
+        font-size: 4em;
+    }
+    .main_title h4{
         font-size: 0.9em;
-        padding: 0 0 10px 80px;
+        padding: 0 0 20px 50px;
+        position: relative;
+        top: 22px;
     }
 }
