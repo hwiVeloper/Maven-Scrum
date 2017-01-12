@@ -15,6 +15,7 @@ class MSuggestions extends CI_Model{
                  , IFNULL(c.user_img, '') AS dev_img
             FROM scrum_suggestion s LEFT JOIN scrum_user c ON s.suggestion_complete_user_id = c.user_id
                , scrum_user u
+               , scrum_user c
             WHERE s.user_id = u.user_id
             ORDER BY s.suggestion_id DESC
             ";

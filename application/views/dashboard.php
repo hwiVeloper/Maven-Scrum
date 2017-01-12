@@ -76,16 +76,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- blank -->
       </div>
       <div class="col-md-6 col-sm-7 col-xs-12" align="right">
-        <button type="button" class="btn btn-secondary hidden-md-down" onclick="window.location.href='<?=base_url('Dashboard')?>/<?=date("Y-m-d", strtotime($input_date." yesterday"))?>'">
+        <button type="button" class="btn btn-secondary hidden-md-down" style="width:3em;height:3em;" onclick="window.location.href='<?=base_url('Dashboard')?>/<?=date("Y-m-d", strtotime($input_date." yesterday"))?>'">
           <i class="fa fa-angle-left"  aria-hidden="true"></i>
         </button>
-        <input id="dashboardDate" class="form-control" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
-        <button type="button" class="btn btn-secondary hidden-md-down" onclick="window.location.href='<?=base_url('Dashboard')?>/<?=date("Y-m-d", strtotime($input_date." tomorrow"))?>'">
+        <input id="dashboardDate" class="form-control" style="height:3em;" type="date" name="plan_date" value="<?=$input_date?>" height="100%"/>
+        <button type="button" class="btn btn-secondary hidden-md-down" style="width:3em;height:3em;" onclick="window.location.href='<?=base_url('Dashboard')?>/<?=date("Y-m-d", strtotime($input_date." tomorrow"))?>'">
           <i class="fa fa-angle-right" aria-hidden="true"></i>
         </button>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-12">
-        <button class="btn btn-primary btn-block" type="submit" name="button">조회</button>
+        <button class="btn btn-primary btn-block" style="height:3em;" type="submit" name="button">조회</button>
       </div>
       <!-- 공지 올리기 버튼 자리 -->
       <!-- <div class="col-md-2 col-sm-2 col-xs-12">
@@ -160,3 +160,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   ?>
   <?php endforeach; ?>
 </div>
+<script type="text/javascript">
+  // script
+</script>

@@ -31,6 +31,12 @@
   <div class="alert alert-info" role="alert">
     여러분들의 반짝거리는 아이디어와 희망하는 개선점을 적어주세요.
   </div>
+  <div class="alert alert-success" role="alert">
+    완료된 건의사항입니다.
+  </div>
+  <div class="alert alert-danger" role="alert">
+    미완료된 건의사항입니다.
+  </div>
   <div class="card card-outline-primary text-xs-right">
     <div class="card-block">
       <!-- WRITE SUGGESTION AREA -->
