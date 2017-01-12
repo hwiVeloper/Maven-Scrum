@@ -51,7 +51,7 @@
   <link href="<?php echo base_url('assets/css/input_style/normalize.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/input_style/set1.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/main_page.css') ?>" rel="stylesheet">
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/maven.png')?>">
 </head>
 <body style="height:100%">
 <?php
@@ -67,7 +67,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
     <div class="layer">
-        <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
+        <div class="main_title">
+            <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+            <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
+        </div>
         <!-- Form Start -->
         <form action="" autocomplete="off" method="post" onsubmit="<?php echo base_url('Main') ?>">
             <!-- I D -->
