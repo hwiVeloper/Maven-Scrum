@@ -30,9 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php
         foreach ($plans as $k=>$row) :
           if(1 == $row['plan_status']){
-            $sts = '<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
+            $sts = '<i class="fa fa-check" aria-hidden="true" style="color:#425f4b"></i>';
           }else{
-            $sts = '<i class="fa fa-times" aria-hidden="true" style="color:red"></i>';
+            $sts = '<i class="fa fa-times" aria-hidden="true" style="color:#d9534f"></i>';
           }
 
           if($k == 0){

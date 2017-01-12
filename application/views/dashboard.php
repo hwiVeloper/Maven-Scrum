@@ -9,7 +9,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
-
+  .card-text i {
+      color :#7495C6;
+  }
   .plan-card {
     height: 350px;
   }
@@ -23,15 +25,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       padding: 0;
     }
   }
+  .dsh_user {
+      margin-top : 0.5rem;
+      margin-bottom: 0;
+      color: #d9534f;
+  }
+  .dsh_user i {
+      font-size: 25px;
+  }
+  .dsh_ct {
+      position: relative;
+      top: -5px;
+      font-style: italic;
+      padding-left: 5px;
+  }
+  .card-block.text-xs-right {
+      padding-top: 1.25rem;
+      border-top: 1px solid #ddd;
+      font-size: 15px;
+      color: #7495c6;
+  }
+  .text-muted.text-muted-comment {
+      padding-bottom: 5px;
+  }
+
+  .card {
+      transition: 0.22s ease-in-out;
+      -ms-user-select: none;
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+  }
+  .card:hover {
+      border: 5px solid #7495c6;
+      transition: 0.22s ease-in-out;
+  }
 </style>
-<h3>모두의 오늘</h3>
 <!-- SPACE -->
 <div style="margin-top:1rem"></div>
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
 <div class="row" style="margin: 0.25em 0;">
-  <div class="alert alert-success col-lg-2 col-md-4 col-sm-6" role="alert">
-    <strong>작성인원</strong> : <?=$today_count?>
+  <div class="col-lg-2 col-md-4 col-sm-6" role="alert">
+    <p class="dsh_user"><i class="fa fa-id-badge" aria-hidden="true"></i><strong class="dsh_ct"> 작성인원 : <?=$today_count?></strong></p>
   </div>
   <div id="select_date" class="form-group col-lg-10 col-md-8 col-sm-6" role="alert">
     <form class="form-inline" action="<?php echo base_url('Dashboard')?>" method="post">
@@ -66,9 +103,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php
   foreach ($today_plans as $k=>$row) :
     if(1 == $row['plan_status']){
-      $sts = '<i class="fa fa-check" aria-hidden="true" style="color:green"></i>';
+      $sts = '<i class="fa fa-check" aria-hidden="true" style="color:#425f4b"></i>';
     }else{
-      $sts = '<i class="fa fa-times" aria-hidden="true" style="color:red"></i>';
+      $sts = '<i class="fa fa-times" aria-hidden="true" style="color:#d9534f"></i>';
     }
   ?>
   <?php
@@ -78,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="card">
       <h4 class="card-header">
         <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
-        <strong>&nbsp;<?=$row['user_name']?></strong>
+        &nbsp;<?=$row['user_name']?>
       </h4>
       <div class="card-block">
         <p class="card-text card-content"><?=$sts." "?><?=$row['plan_content']?></p>
@@ -107,9 +144,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </small>
         </p>
       </div>
-      <div class="card-block text-xs-right" style="padding-top:0;">
-        <div class="" style="float:left;padding-top:0.25rem">
-          <i class="fa fa-comments-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><?=$row['reply_count']?>
+      <div class="card-block text-xs-right">
+        <div class="" style="float:left;padding-top:0.7rem">
+          <i class="fa fa-commenting" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><?=$row['reply_count']?>
         </div>
         <?php
         $view_more = base_url('Plan/detail/'.$row['plan_date'].'/'.$row['user_id']);

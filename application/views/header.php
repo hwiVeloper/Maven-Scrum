@@ -48,69 +48,35 @@
   <link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/font-awesome.min.css') ?>" rel="stylesheet">
 
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.gif')?>">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/maven.png')?>">
 
   <!-- Custom Style -->
-  <style type="text/css">
-    @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+  <link href="<?php echo base_url('assets/css/scrum_custom_style.css') ?>" rel="stylesheet">
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	$('#nav-icon2').click(function(){
+  		$(this).toggleClass('open');
+  	});
 
-    html, body {
-      font-family: 'Jeju Gothic';
-      font-size: 0.9rem;
-    }
-    .container-fluid {
-        padding-top:40px;
-    }
-    .img-rounded {
-      border: 0px;
-      border-radius: 50%;
-      -webkit-transition: all .2s ease-in-out;
-      -o-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;
-      max-width: 100%;
-      height: auto;
-    }
-    .dropdown-menu {
-        top: 111%;
-    }
-    .dropdown-menu-right {
-        top: 120%;
-    }
-    #user-menu {
-      margin-bottom: 0em;
-    }
-    .navbar-nav .nav-link {
-        padding-top: 10px !important;
-    }
-    .nav-link.left {
-        padding: 15px 0 !important;
-    }
-    .btn-primary {
-        border-color: #7495c6 !important;
-        background-color:#7495c6 !important;
-    }
-    .card-outline-primary {
-        border-color: #7495c6 !important;
-    }
-    button, .btn {
-        font-size: 0.87em !important;
-    }
-    .btn {
-        padding: 0.6rem 1rem 0.5rem 1rem;
-    }
-    .alert-info {
-        background-color: #7495c6;
-        border-color: #7495c6;
-        color: #fff;
-    }
-    textarea {
-        height:80px;
-        transition: all 1s;
-        -webkit-transition: all 1s; /* Safari */
-    }
-    textarea:focus {
-        height:120px;
-    }
+    $('.nav-item').click(function() {
+        $(".dropdown-menu").slideUp();
+
+        if ($(this).hasClass('open')) {
+            $(this).find('.dropdown-menu').slideUp();
+        } else {
+            $(this).find('.dropdown-menu').slideDown();
+        }
+    });
+
+    $(window).click(function() {
+        $(".dropdown-menu").slideUp();
+    })
+  });
+  </script>
+  <style media="screen">
+      * {
+          user-select: none;
+      }
   </style>
 </head>
 <body style="height:100%">
@@ -123,9 +89,16 @@
 <!-- NAVBAR (FIXED-TOP) -->
 <div class="container-fluid">
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse" role="navigation">
-    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div id="nav-icon2" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     <a class="navbar-brand-mobile" href="<?=$home_url?>">
-      <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
+      <img src="<?php echo base_url('assets/img/logo.png');?>" alt="" width="88px" height="45px"/>
     </a>
     <!-- User Account Information -->
     <ul class="nav navbar-nav pull-xs-right" style="float:right">
@@ -201,9 +174,7 @@
     </ul>
     <!-- NAVBAR MENUS -->
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-      <a class="navbar-brand" href="<?=$home_url?>">
-        <img src="<?php echo base_url('assets/img/logo.gif');?>" alt="" width="88px" height="45px"/>
-      </a>
+        <img class="nav_img" src="<?php echo base_url('assets/img/logo.png');?>" alt="" width="88px" height="45px"/>
       <ul class="nav navbar-nav">
 <?php
       if($this->session->userdata('user_id')) {

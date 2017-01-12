@@ -37,10 +37,16 @@
     text-align: center;
   }
   .bg-success {
-      background-color:#7495c6 !important;
+      background-color:#7ba9a9 !important;
+  }
+  .bg-primary {
+      transition: 0.5s ease-in-out;
+  }
+  .change_color {
+      background-color:#009ac8;
+      transition: 0.5s ease-in-out;
   }
 </style>
-
 <!-- SIMPLE INFORMATION -->
 <div class="row" style="margin-bottom:1em;">
 <!-- ATTENDANCE : <?=$month_info->is_content_days?><br> -->
@@ -133,4 +139,10 @@ $(function () {
         });
     }
 });
+</script>
+<script type="text/javascript">
+    $(function() {
+        var $change_color = "#009ac8 !important;";
+        $(".bg-primary").css('background-color', $change_color);
+    })
 </script>
