@@ -8,6 +8,7 @@
   $menu_calendar = "";
   $menu_plan = "";
   $menu_suggestion = "";
+  $menu_stat = "";
 
   switch($uri_segment){
     case "Home": case "Main":
@@ -24,6 +25,9 @@
       break;
     case "Suggestions":
       $menu_suggestion = "active";
+      break;
+    case "Statistics":
+      $menu_stat = "active";
       break;
     default:
       $menu_home = "active";
@@ -199,6 +203,9 @@
         </li>
         <li class="nav-item <?=$menu_suggestion?>">
           <a class="nav-link left" href="<?php echo base_url('Suggestions')?>">건의사항</a>
+        </li>
+        <li class="nav-item <?=$menu_stat?>">
+          <a class="nav-link left" href="#">통계(준비중)</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
