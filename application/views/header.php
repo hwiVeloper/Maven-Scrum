@@ -205,7 +205,7 @@
           <a class="nav-link left" href="<?php echo base_url('Suggestions')?>">건의사항</a>
         </li>
         <li class="nav-item <?=$menu_stat?>">
-          <a class="nav-link left" href="#">통계(준비중)</a>
+          <a class="nav-link left" href="<?php echo base_url('Statistics') ?>">통계(준비중)</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
