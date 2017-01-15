@@ -8,7 +8,7 @@
   $menu_calendar = "";
   $menu_plan = "";
   $menu_suggestion = "";
-  $menu_stat = "";
+  $menu_statistics = "";
 
   switch($uri_segment){
     case "Home": case "Main":
@@ -27,7 +27,7 @@
       $menu_suggestion = "active";
       break;
     case "Statistics":
-      $menu_stat = "active";
+      $menu_statistics = "active";
       break;
     default:
       $menu_home = "active";
@@ -41,7 +41,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
   <!-- Title -->
-  <title>MAVEN DAILY SCRUM</title>
+  <title>MAVEN SCRUM | <?=$this->uri->segment(1)?></title>
 
   <!-- Javascript Libraries -->
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -56,32 +56,52 @@
 
   <!-- Custom Style -->
   <link href="<?php echo base_url('assets/css/scrum_custom_style.css') ?>" rel="stylesheet">
-  <script type="text/javascript">
-  $(document).ready(function(){
-  	$('#nav-icon2').click(function(){
-  		$(this).toggleClass('open');
-  	});
 
-    $('.nav-item').click(function() {
-        $(".dropdown-menu").slideUp();
-
-        if ($(this).hasClass('open')) {
-            $(this).find('.dropdown-menu').slideUp();
-        } else {
-            $(this).find('.dropdown-menu').slideDown();
+  <style media="screen">
+        ul {
+            list-style:none;
         }
-    });
-
-    $(window).click(function() {
-        $(".dropdown-menu").slideUp();
-    })
-  });
-  </script>
+      .dropdown_menu {
+          background-color:#fff;
+          position: absolute;
+          display: none;
+          border: 1px solid #ddd;
+          border-top:none;
+          padding:10px;
+      }
+      .dropdown_menu.dropdown_right {
+          top: 61px;
+          right: -14px;
+          width: 300px;
+      }
+      .dropdown_menu.dropdown_left {
+          top: 68px;
+          text-align: left;
+          right: 0;
+          width: 400px;
+      }
+      ul.dropdown_menu ul{
+          padding-left: 0 !important;
+      }
+  </style>
   <style media="screen">
       * {
           user-select: none;
       }
   </style>
+  <script type="text/javascript">
+      $(function() {
+          $('.nav-item').click(function() {
+              var drop_menu = $(this).find(".dropdown_menu");
+              $(".dropdown_menu").slideUp();
+              if(drop_menu.css("display") === "block") {
+                  drop_menu.slideUp();
+              } else {
+                  drop_menu.slideDown();
+              }
+          })
+      })
+  </script>
 </head>
 <body style="height:100%">
 <?php
@@ -111,12 +131,11 @@
         if($this->session->userdata('user_id')) {
 ?>
         <div class="dropdown">
-          <a class="dropdown-toggle nav-link" id="user-menu" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false" href="#">
+          <a class="dropdown-toggle nav-link" href="#">
             <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="30em" height="30em">
             <span class="hidden-xs-down">&nbsp;<?=$this->session->userdata('user_name')?></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-menu" style="width:300px;">
+          <div class="dropdown_menu dropdown_right">
             <div class="col-md-4 col-xs-4">
               <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
             </div>
@@ -141,12 +160,11 @@
     <!-- USER NOTIFICATION -->
     <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;margin-top:0.1em;">
       <li class="nav-item">
-        <a class="nav-link left" id="user-menu" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false" href="#">
+        <a class="nav-link left" href="#">
           <i class="fa fa-bell-o" aria-hidden="true"></i>
           <span class="tag tag-pill tag-danger"><?php echo $this->MNotification->count_notification();?></span>
         </a>
-  			<ul class="dropdown-menu dropdown-menu-right dropdown-menu-large row">
+  			<ul class="dropdown_menu dropdown_left">
   				<li class="col-sm-12">
   					<ul>
 <?php
@@ -204,8 +222,8 @@
         <li class="nav-item <?=$menu_suggestion?>">
           <a class="nav-link left" href="<?php echo base_url('Suggestions')?>">건의사항</a>
         </li>
-        <li class="nav-item <?=$menu_stat?>">
-          <a class="nav-link left" href="<?php echo base_url('Statistics') ?>">통계(준비중)</a>
+        <li class="nav-item <?=$menu_statistics?>">
+          <a class="nav-link left" href="<?php echo base_url('Statistics')?>">통계(준비중)</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){

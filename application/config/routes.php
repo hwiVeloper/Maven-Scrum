@@ -72,4 +72,7 @@ $route['Calendar/view/(:any)'] = 'Calendar/view';
 $route['Calendar'] = 'Calendar/view';
 
 /* Controller - Suggestions */
-$route['Suggestions/delete/(:ant)'] = 'Suggestions/delete';
+$route['Suggestions/delete/(:any)'] = 'Suggestions/delete';
+
+/* Controller - Statistics */
+$route['Statistics/(:any)'] = 'Statistics';
