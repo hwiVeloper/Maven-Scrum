@@ -56,6 +56,13 @@
 
   <!-- Custom Style -->
   <link href="<?php echo base_url('assets/css/scrum_custom_style.css') ?>" rel="stylesheet">
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#nav-icon2').click(function(){
+      $(this).toggleClass('open');
+    });
+  });
+  </script>
 
   <style media="screen">
         ul {
