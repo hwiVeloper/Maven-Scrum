@@ -37,7 +37,11 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
     background-color: #fff;
     padding-right: 0;
     padding-left: 0;
-    margin-top: -0.6rem;
+    margin-top: 0em;
+  }
+
+  .container-fluid {
+    padding-top: 3em;
   }
   @media (max-width:576px){
     .page-header {
@@ -58,6 +62,23 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
+    <li id="20170119">
+      <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">건의사항 업데이트 예정일</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; 2017. 01. 19</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify;">안녕하세요. 이종휘입니다.</p>
+          <p style="text-align:justify;">
+            계속해서 남겨주시는 건의사항은 잘 보고 있습니다.<br>
+            건의사항들은 한 번에 검토 후에 봄꽃이 나올 준비를 하는 3월에 일괄 개발하겠습니다.<br>
+            그 때까지 알찬 의견들 지속적으로 남겨주시면 감사하겠습니다.
+          </p>
+        </div>
+      </div>
+    </li>
     <li id="20170109" class="timeline-inverted">
       <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
       <div class="timeline-panel">
