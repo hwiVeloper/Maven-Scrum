@@ -56,61 +56,8 @@
 
   <!-- Custom Style -->
   <link href="<?php echo base_url('assets/css/scrum_custom_style.css') ?>" rel="stylesheet">
-  <script type="text/javascript">
-  $(document).ready(function(){
-    $('#nav-icon2').click(function(){
-      $(this).toggleClass('open');
-    });
-  });
-  </script>
-
-  <style media="screen">
-        ul {
-            list-style:none;
-        }
-      .dropdown_menu {
-          background-color:#fff;
-          position: absolute;
-          display: none;
-          border: 1px solid #ddd;
-          border-top:none;
-          padding:10px;
-      }
-      .dropdown_menu.dropdown_right {
-          top: 61px;
-          right: -14px;
-          width: 300px;
-      }
-      .dropdown_menu.dropdown_left {
-          top: 68px;
-          text-align: left;
-          right: 0;
-          width: 400px;
-      }
-      ul.dropdown_menu ul{
-          padding-left: 0 !important;
-      }
-  </style>
-  <style media="screen">
-      * {
-          user-select: none;
-      }
-  </style>
-  <script type="text/javascript">
-      $(function() {
-          $('.nav-item').click(function() {
-              var drop_menu = $(this).find(".dropdown_menu");
-              $(".dropdown_menu").slideUp();
-              if(drop_menu.css("display") === "block") {
-                  drop_menu.slideUp();
-              } else {
-                  drop_menu.slideDown();
-              }
-          })
-      })
-  </script>
 </head>
-<body style="height:100%">
+<body>
 <?php
   $home_url = base_url();
   if($this->session->userdata('user_id')){
@@ -165,7 +112,7 @@
       </li>
     </ul>
     <!-- USER NOTIFICATION -->
-    <ul class="nav navbar-nav pull-xs-right" style="float:right;margin-right:1em;margin-top:0.1em;">
+    <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
         <a class="nav-link left" href="#">
           <i class="fa fa-bell-o" aria-hidden="true"></i>
@@ -178,11 +125,11 @@
             if( $this->MNotification->view_notifications() ){
               foreach ( $this->MNotification->view_notifications() as $row) :
 ?>
-              <li class="col-sm-12" style="margin-bottom:0.5em;">
+              <li class="col-sm-12">
                 <div class="col-md-2 col-sm-4 col-xs-3">
                   <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
                 </div>
-                <div class="col-md-10 col-sm-8 col-xs-9" align="left" style="padding:0; margin-top:0.6em;">
+                <div class="col-md-10 col-sm-8 col-xs-9" align="left">
                   <a href="<?php echo base_url($row['alarm_target_controller'].$row['alarm_target_date'].'/'.$row['alarm_to_user']).'/'.$row['alarm_id']?>">
                     <?php
                     echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';

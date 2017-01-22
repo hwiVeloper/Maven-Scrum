@@ -1,11 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<style>
-  .img-fluid {
-    max-width: 70%;
-  }
-</style>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-lg-8 push-lg-2 pull-lg-2 col-md-12" style="margin-top:2em;">

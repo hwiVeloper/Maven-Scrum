@@ -2,51 +2,6 @@
   $p_link = date('Y/m', strtotime(date($year.'-'.$month.'-01')." -1 month"));
   $n_link = date('Y/m', strtotime(date($year.'-'.$month.'-01')." +1 month"));
 ?>
-
-<style>
-  th {
-    text-align: center;
-  }
-  .table td {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    vertical-align: middle;
-    border-color: #ddd!important;
-  }
-  .table th {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    border-top-width: 0px;
-    vertical-align: middle;
-  }
-  @media screen and (min-width: 1040px) {
-      .table td {
-        padding-top: 3em;
-        padding-bottom: 3em;
-      }
-  }
-
-  td.comment {
-    vertical-align: middle;
-    padding-left: 0.75em;
-  }
-  td.content {
-    padding-left: 0.75em;
-  }
-  td.todo {
-    text-align: center;
-  }
-  .bg-success {
-      background-color:#7ba9a9 !important;
-  }
-  .bg-primary {
-      transition: 0.5s ease-in-out;
-  }
-  .change_color {
-      background-color:#009ac8;
-      transition: 0.5s ease-in-out;
-  }
-</style>
 <!-- SIMPLE INFORMATION -->
 <div class="row" style="margin-bottom:1em;">
 <!-- ATTENDANCE : <?=$month_info->is_content_days?><br> -->
@@ -79,9 +34,9 @@
     <!-- VIEW LIST OF THIS MONTH -->
     <table id="calList" class="table" border="0" cellpadding="4" cellspacing="0" style="">
       <tr>
-        <th width="14.2857%"><a href="<?=base_url('Calendar/view/'.$p_link.'#list')?>">&lt;&lt;</a></th>
+        <th class="list_menu_left"><a href="<?=base_url('Calendar/view/'.$p_link.'#list')?>">&lt;&lt;</a></th>
         <th colspan="5"><h3><?=$year.'년 '.$month.'월'?></h3></th>
-        <th width="14.2857%"><a href="<?=base_url('Calendar/view/'.$n_link.'#list')?>">&gt;&gt;</a></th>
+        <th class="list_menu_right"><a href="<?=base_url('Calendar/view/'.$n_link.'#list')?>">&gt;&gt;</a></th>
       </tr>
     </table>
     <table id="" class="table table-sm">
@@ -100,13 +55,13 @@
           <a class="btn btn-secondary" href="<?=base_url('Plan/myPlan/'.$row['plan_date_for_table'])?>">관리</a>
         </th>
 <?php endif; ?>
-        <td class="todo">할일 <?=$row['plan_detail_seq']+1?></td>
+        <td class="todo mb_status_tw">할일 <?=$row['plan_detail_seq']+1?></td>
         <td class="content"><?=$row['plan_content']?></td>
 <?php
       if($row['plan_status'] == 0) {
-        $class = 'bg-danger';
+        $class = 'bg-danger mb_status_tw';
       }else {
-        $class = 'bg-success';
+        $class = 'bg-success mb_status_tw';
       }
 ?>
         <td class="<?=$class?>" align="center" style="color:#fff"><?=$row['plan_status_display']?></td>

@@ -1,33 +1,33 @@
 <?php
-  /* Menu Highlights Option by Uri */
-  $uri_segment = $this->uri->segment(1);
+/* Menu Highlights Option by Uri */
+$uri_segment = $this->uri->segment(1);
 
-  // menus
-  $menu_home = "";
-  $menu_dashboard = "";
-  $menu_calendar = "";
-  $menu_plan = "";
-  $menu_suggestion = "";
+// menus
+$menu_home = "";
+$menu_dashboard = "";
+$menu_calendar = "";
+$menu_plan = "";
+$menu_suggestion = "";
 
-  switch($uri_segment){
-    case "Home": case "Main":
-      $menu_home = "active";
-      break;
-    case "Dashboard":
-      $menu_dashboard = "active";
-      break;
-    case "Calendar":
-      $menu_calendar = "active";
-      break;
-    case "Plan":
-      $menu_plan = "active";
-      break;
-    case "Suggestions":
-      $menu_suggestion = "active";
-      break;
-    default:
-      $menu_home = "active";
-  }
+switch($uri_segment){
+  case "Home": case "Main":
+  $menu_home = "active";
+  break;
+  case "Dashboard":
+  $menu_dashboard = "active";
+  break;
+  case "Calendar":
+  $menu_calendar = "active";
+  break;
+  case "Plan":
+  $menu_plan = "active";
+  break;
+  case "Suggestions":
+  $menu_suggestion = "active";
+  break;
+  default:
+  $menu_home = "active";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,103 +54,103 @@
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/maven.png')?>">
 </head>
 <body style="height:100%">
-<?php
+  <?php
   $home_url = base_url();
   if($this->session->userdata('user_id')){
     $home_url = base_url('Home');
   }
-?>
+  ?>
 
-<div class="container-fluid">
+  <div class="container-fluid">
 
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+    <?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+    ?>
     <div class="layer">
-        <div class="main_title">
-            <i class="fa fa-connectdevelop" aria-hidden="true"></i>
-            <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
+      <div class="main_title">
+        <i class="fa fa-connectdevelop" aria-hidden="true"></i>
+        <h4 class="main_title">지금 MAVEN DAILY SCRUM을 시작하세요!</h4>
+      </div>
+      <!-- Form Start -->
+      <form action="" autocomplete="off" method="post" onsubmit="<?php echo base_url('Main') ?>">
+        <!-- I D -->
+        <div class= "form-group">
+          <span class="input input--jiro">
+            <input class="input__field input__field--jiro" type="text" id="user_id" name="user_id"
+            tabindex="1" autofocus/>
+            <label class="input__label input__label--jiro" for="user_id">
+              <span class="input__label-content input__label-content--jiro">ID</span>
+            </label>
+          </span>
         </div>
-        <!-- Form Start -->
-        <form action="" autocomplete="off" method="post" onsubmit="<?php echo base_url('Main') ?>">
-            <!-- I D -->
-            <div class= "form-group">
-                <span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="text" id="user_id" name="user_id"
-                        tabindex="1" autofocus/>
-					<label class="input__label input__label--jiro" for="user_id">
-						<span class="input__label-content input__label-content--jiro">ID</span>
-					</label>
-				</span>
-            </div>
-            <!-- Password -->
-            <div class= "form-group">
-                <span class="input input--jiro">
-					<input class="input__field input__field--jiro" type="password" id="user_password" name="user_password"
-                        tabindex="2"/>
-					<label class="input__label input__label--jiro" for="user_password">
-						<span class="input__label-content input__label-content--jiro">Password</span>
-					</label>
-				</span>
-            </div>
-            <!-- Submit button -->
-            <div class="form-group">
-              <button type="submit" class="main_login" tabindex="5">로그인</button>
-            </div>
-          </form>
+        <!-- Password -->
+        <div class= "form-group">
+          <span class="input input--jiro">
+            <input class="input__field input__field--jiro" type="password" id="user_password" name="user_password"
+            tabindex="2"/>
+            <label class="input__label input__label--jiro" for="user_password">
+              <span class="input__label-content input__label-content--jiro">Password</span>
+            </label>
+          </span>
+        </div>
+        <!-- Submit button -->
+        <div class="form-group">
+          <button type="submit" class="main_login" tabindex="5">로그인</button>
+        </div>
+      </form>
     </div>
 
     <footer>
-        <ul class="footer_menu">
-            <li class="maven">ⓒ MAVEN</li>
-            <li class="facebook"><a href="https://www.facebook.com/mismaven/?fref=ts" target="_blank">페이스북</a></li>
-            <li class="github"><a href="#" target="_blank">깃허브</a></li>
-            <li class="website"><a href="http://mismaven.kr/" target="_blank">공식페이지</a></li>
-        </ul>
+      <ul class="footer_menu">
+        <li class="maven">ⓒ MAVEN</li>
+        <li class="facebook"><a href="https://www.facebook.com/mismaven/?fref=ts" target="_blank">페이스북</a></li>
+        <li class="github"><a href="#" target="_blank">깃허브</a></li>
+        <li class="website"><a href="http://mismaven.kr/" target="_blank">공식페이지</a></li>
+      </ul>
     </footer>
-<script type="text/javascript">
-  $(function() {
-    $('.custom-select').change(function() {
+    <script type="text/javascript">
+    $(function() {
+      $('.custom-select').change(function() {
 
+      });
     });
-  });
-</script>
+    </script>
 
-</div>
-<script type="text/javascript">
-(function() {
+  </div>
+  <script type="text/javascript">
+  (function() {
     // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
     if (!String.prototype.trim) {
-        (function() {
-            // Make sure we trim BOM and NBSP
-            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-            String.prototype.trim = function() {
-                return this.replace(rtrim, '');
-            };
-        })();
+      (function() {
+        // Make sure we trim BOM and NBSP
+        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+        String.prototype.trim = function() {
+          return this.replace(rtrim, '');
+        };
+      })();
     }
 
     [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
-        // in case the input is already filled..
-        if( inputEl.value.trim() !== '' ) {
-            classie.add( inputEl.parentNode, 'input--filled' );
-        }
+      // in case the input is already filled..
+      if( inputEl.value.trim() !== '' ) {
+        classie.add( inputEl.parentNode, 'input--filled' );
+      }
 
-        // events:
-        inputEl.addEventListener( 'focus', onInputFocus );
-        inputEl.addEventListener( 'blur', onInputBlur );
+      // events:
+      inputEl.addEventListener( 'focus', onInputFocus );
+      inputEl.addEventListener( 'blur', onInputBlur );
     } );
 
     function onInputFocus( ev ) {
-        classie.add( ev.target.parentNode, 'input--filled' );
+      classie.add( ev.target.parentNode, 'input--filled' );
     }
 
     function onInputBlur( ev ) {
-        if( ev.target.value.trim() === '' ) {
-            classie.remove( ev.target.parentNode, 'input--filled' );
-        }
+      if( ev.target.value.trim() === '' ) {
+        classie.remove( ev.target.parentNode, 'input--filled' );
+      }
     }
-})();
-</script>
+  })();
+  </script>
 </body>
 </html>

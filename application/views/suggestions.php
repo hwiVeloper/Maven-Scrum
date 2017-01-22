@@ -1,32 +1,3 @@
-<style>
-  .alert-danger {
-    border-width: 2px;
-    background-color: #fff;
-  }
-  .alert-success {
-    border-width: 2px;
-    background-color: #fff;
-  }
-  .card-outline-danger {
-    border-width: 2px;
-  }
-  .card-outline-success {
-    border-width: 2px;
-  }
-
-  .box:after {
-      content: "";
-      clear: both;
-      display: block;
-  }
-  .alert-success {
-      float: right;
-      margin-right:2px;
-  }
-  .alert-danger {
-      float: right;
-  }
-</style>
 <div class="container">
   <div class="alert alert-info" role="alert">
     여러분들의 반짝거리는 아이디어와 희망하는 개선점을 적어주세요.

@@ -2,27 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
-<style>
-  .row {
-    margin-bottom: 3em;
-  }
-  .plan_detail_head {
-    border-left: 4px solid #777;
-    font-weight: bold;
-  }
-  .plan_detail_content {
-    margin-left: 4px;
-  }
-</style>
-<div class="row" style="">
+<div class="container">
+<div class="row">
   <!-- PLAN AREA -->
   <div class="col-md-6 col-sm-12">
-    <h3>일정 상세보기</h3>
+    <h5><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;일정 상세보기</h5>
     <div class="card text-xs-left">
       <div class="card-block">
         <h4 class="card-title">
           <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$plans[0]['user_img']);?>" width="50px" height="50px">
-          <strong>&nbsp;<?=$plans[0]['user_name']?></strong>
+          &nbsp;<?=$plans[0]['user_name']?>
         </h4>
         <dt class="col-sm-3">작성일</dt>
         <dd class="col-sm-9"><?=$plan_date?></dd>
@@ -57,18 +46,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- END PLAN AREA -->
   <!-- REPLY AREA -->
   <div class="col-md-6 col-sm-12">
-    <h3>댓글 <small class="text-muted"><?=$count_reply?> 개</small></h3>
+    <h5><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;댓글 <small class="text-muted"><?=$count_reply?> 개</small></h5>
     <div class="card text-xs-center">
       <div class="card-block">
-        <div class="card card-outline-primary">
-          <div class="card-block">
+        <div class="card card-outline-comment">
+          <div class="card-block2">
             <!-- WRITE REPLY AREA -->
             <form class="" action="<?php echo base_url('Reply/add'); ?>" method="post">
               <input type="hidden" name="user_id" value="<?=$user_id?>">
               <input type="hidden" name="write_user" value="<?=$this->session->userdata('user_id')?>">
               <input type="hidden" name="plan_date" value="<?=$plan_date?>">
               <textarea class="form-control" name="reply_comment" rows="2" placeholder="댓글을 남겨주세요." style="" required=""></textarea>
-              <button type="submit" class="btn btn-primary" href="" style="margin-top:0.25em;width:100%;">댓글 등록</button>
+              <button type="submit" class="btn btn-primary btn-comment" href="">댓글 등록</button>
             </form>
           </div>
         </div>
@@ -80,13 +69,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }else {
             foreach ($replies as $k=>$row) :
           ?>
-            <div class="card card-outline-danger text-xs-left">
-              <div class="card-block">
-                <h5>
-                  <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
-                  <strong>&nbsp;<?=$row['user_name']?></strong>
-                </h5>
-                <p style="margin-top:1.0em"><?=$row['reply_comment']?></p>
+            <div class="text-xs-left">
+              <div class="card-block-comment">
+                <h6>
+                  <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
+                  &nbsp;<?=$row['user_name']?>
+                </h6>
+                <p><?=$row['reply_comment']?></p>
                 <p class="card-text">
                   <small class="text-muted"><?=$row['reply_timestamp']?></small>
                   <?php
@@ -117,4 +106,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     ?>
     <a class="btn btn-secondary" href="<?=base_url('Dashboard/'.$plan_date)?>">모두의일정</a>
   </nav>
+</div>
 </div>
