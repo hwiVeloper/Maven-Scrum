@@ -176,9 +176,9 @@
         <li class="nav-item <?=$menu_suggestion?>">
           <a class="nav-link left" href="<?php echo base_url('Suggestions')?>">건의사항</a>
         </li>
-        <li class="nav-item <?=$menu_statistics?>">
+        <!-- <li class="nav-item <?=$menu_statistics?>">
           <a class="nav-link left" href="<?php echo base_url('Statistics')?>">통계(준비중)</a>
-        </li>
+        </li> -->
 <?php
         }else if($this->session->userdata('user_level') == "0"){
           echo "<li class='nav-item'>";
