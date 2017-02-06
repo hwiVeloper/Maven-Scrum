@@ -3,12 +3,13 @@
   $uri_segment = $this->uri->segment(1);
 
   // menus
-  $menu_home = "";
-  $menu_dashboard = "";
-  $menu_calendar = "";
-  $menu_plan = "";
+  $menu_home       = "";
+  $menu_dashboard  = "";
+  $menu_calendar   = "";
+  $menu_plan       = "";
   $menu_suggestion = "";
   $menu_statistics = "";
+  $menu_forum      = "";
 
   switch($uri_segment){
     case "Home": case "Main":
@@ -28,6 +29,9 @@
       break;
     case "Statistics":
       $menu_statistics = "active";
+      break;
+    case "Forum":
+      $menu_forum = "active";
       break;
     default:
       $menu_home = "active";
@@ -179,6 +183,9 @@
         <!-- <li class="nav-item <?=$menu_statistics?>">
           <a class="nav-link left" href="<?php echo base_url('Statistics')?>">통계(준비중)</a>
         </li> -->
+        <li class="nav-item <?=$menu_forum?>">
+          <a class="nav-link left" href="<?php echo base_url('Forum')?>" style="pointer-events:none;" >나눔의 장(개발중)</a>
+        </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
           echo "<li class='nav-item'>";

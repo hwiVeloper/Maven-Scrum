@@ -76,3 +76,6 @@ $route['Suggestions/delete/(:any)'] = 'Suggestions/delete';
 
 /* Controller - Statistics */
 $route['Statistics/(:any)'] = 'Statistics';
+
+/* Controller - Forum */
+$route['Forum/(:any)'] = 'Forum';
