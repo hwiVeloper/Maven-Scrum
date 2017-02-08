@@ -31,9 +31,40 @@ class MForum extends CI_Model{
 
   function get_ym_list() {
     $sql = "SELECT *
-            FROM scrum_forum";
+            FROM scrum_forum
+            ORDER BY forum_seq DESC";
     $query = $this->db->query($sql);
 
     return $query->result_array();
+  }
+
+  function check_forum_count_by_ym($ym, $user) {
+    $sql = "SELECT COUNT(*) AS count
+            FROM scrum_forum_detail
+            WHERE forum_ym = '$ym'
+            AND forum_writer = '$user'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->count;
+  }
+
+  function insert($data) {
+    $this->db->insert('scrum_forum_detail', $data);
+    return $this->db->affected_rows();
+  }
+
+  function update($data, $ym, $user) {
+    $this->db->where('forum_ym', $ym);
+    $this->db->where('forum_writer', $user);
+    $this->db->update('scrum_forum_detail', $data);
+
+    return $this->db->affected_rows();
+  }
+
+  function delete($ym, $user) {
+    $this->db->where('forum_ym', $ym);
+    $this->db->where('forum_writer', $user);
+    $this->db->delete('scrum_forum_detail');
   }
 }

@@ -78,4 +78,4 @@ $route['Suggestions/delete/(:any)'] = 'Suggestions/delete';
 $route['Statistics/(:any)'] = 'Statistics';
 
 /* Controller - Forum */
-$route['Forum/(:any)'] = 'Forum';
+$route['Forum/(:num)'] = 'Forum';
