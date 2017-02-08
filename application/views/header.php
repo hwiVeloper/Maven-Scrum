@@ -184,7 +184,7 @@
           <a class="nav-link left" href="<?php echo base_url('Statistics')?>">통계(준비중)</a>
         </li> -->
         <li class="nav-item <?=$menu_forum?>">
-          <a class="nav-link left" href="<?php echo base_url('Forum')?>" style="pointer-events:none;" >나눔의 장(개발중)</a>
+          <a class="nav-link left" href="<?php echo base_url('Forum')?>">나눔의 장</a>
         </li>
 <?php
         }else if($this->session->userdata('user_level') == "0"){
