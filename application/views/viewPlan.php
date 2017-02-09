@@ -124,11 +124,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   $(function() {
     $("#addToDo").click(function() {
       // append things
-      var h =  '<input type="hidden" name="plan_date" value="<?=$base_date?>">';
+      var h  = '<tr class="">';
+          h +=  '<input type="hidden" name="plan_date" value="<?=$base_date?>">';
           h += '<input type="hidden" name="plan_detail_seq[]" value="N">';
           h += '<input type="hidden" name="user_id" value="<?=$base_user?>">';
           h += '<input type="hidden" name="row_status[]" value="C">';
-          h += '<tr class="">';
           h += '  <th style="vertical-align:middle;">할 일(+)</th>';
           h += '  <td>';
           h += '    <input type="text" name="plan_content[]" value="" class="form-control">';
@@ -139,13 +139,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           h += '      <option value="1">완료</option>';
           h += '    </select>';
           h += '  </td>';
-          h += '  <td class="delete_button">';
+          h += '  <td class="delete_button">&nbsp;';
           h += '  </td>';
           h += '</tr>';
       var appendTr = document.getElementById("append"); //tbody
       var addedTr = document.createElement("tr");
-          addedTr.innerHTML = h;
-          appendTr.append(addedTr);
+          // addedTr.innerHTML = h;
+          // appendTr.append(addedTr);
+      $(appendTr).append(h);
     });
   });
 </script>
