@@ -9,6 +9,10 @@
     margin-bottom: 0.75em;
   }
 </style>
+<?php
+$date = strtotime($open.' -6 day');
+$close_date = date('Y-m-d', $date);
+?>
 <div class="container">
   <div class="col-md-8 col-xs-12" align="left">
     <h3>
@@ -25,7 +29,9 @@
     </form>
   </div>
   <div class="col-md-2 col-xs-12">
-    <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#add">나눔주제 등록</button>
+    <?php if ($close_date > date('Y-m-d')): ?>
+      <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#add">나눔주제 등록</button>
+    <?php endif; ?>
   </div>
   <!-- SUBJECT AREA -->
   <div class="col-md-12 col-xs-12">

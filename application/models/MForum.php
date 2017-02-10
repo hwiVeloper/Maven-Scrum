@@ -67,4 +67,14 @@ class MForum extends CI_Model{
     $this->db->where('forum_writer', $user);
     $this->db->delete('scrum_forum_detail');
   }
+
+  function get_forum_open($ym) {
+    $sql = "SELECT forum_open
+            FROM scrum_forum
+            WHERE forum_ym = '$ym'";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    return $row->forum_open;
+  }
 }
