@@ -10,7 +10,7 @@
   }
 </style>
 <?php
-$date = strtotime($open.' -6 day');
+$date = strtotime($open.' -5 day');
 $close_date = date('Y-m-d', $date);
 ?>
 <div class="container">
