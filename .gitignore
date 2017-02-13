@@ -7,4 +7,9 @@
 # .htaccess
 .htaccess
 
+# minitalk
+admin.conf.php
+db.conf.php
+key.conf.php
+
 ####### IGNORE LIST END #######
