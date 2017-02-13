@@ -1,7 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
+<script type="text/javascript">
+// $(document).ready(function(){
+//   setInterval(function() {
+//     $("#plans").load("<?=base_url('Dashboard/'.$this->uri->segment(2))?> #plans");
+//     trophy_apply();
+//   }, 1000);
+// });
+</script>
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
 <div class="row dsh_mobile">
@@ -34,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <!-- CARD AREA -->
-<div class="row">
+<div id="plans" class="row">
   <?php
   foreach ($today_plans as $k=>$row) :
     if(1 == $row['plan_status']){
