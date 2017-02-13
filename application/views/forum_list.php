@@ -12,6 +12,7 @@
 <?php
 $date = strtotime($open.' -5 day');
 $close_date = date('Y-m-d', $date);
+// $close_date = $date;
 ?>
 <div class="container">
   <div class="col-md-8 col-xs-12" align="left">
