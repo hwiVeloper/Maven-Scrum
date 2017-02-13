@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+.img-rounded {
+  border: 0px;
+  border-radius: 50%;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  max-width: 100%;
+  height: auto;
+}
+
+#user-menu {
+  margin-bottom: 0em;
+}
+.form-group {
+    font-family: 'Hanna', serif !important;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #7495c6;
+}
+footer .footer_menu {
+text-align: right;
+padding-right: 20px;
+padding-top: 18px;
+}
+.footer_menu li a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+footer .footer_menu li{
+  font-size: 0.8em;
+  color: #fff;
+  display : inline-block;
+  padding: 0 6px;
+}
+.layer{
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%, -50%);
+          transform:translate(-50%, -50%);
+}
+.main_title {
+    margin-bottom: 10px;
+}
+.main_title i{
+    display: none;
+    color: #C8626F;
+    font-size: 2em;
+    float: left;
+}
+.main_title h4{
+    font-family: 'Hanna', serif !important;
+    font-size: 0.6em;
+    text-align: right;
+    float:right;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.main_title:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.main_login {
+    font-family: 'Hanna', serif !important;
+    color: #fff;
+    width: 100%;
+    padding: 10px !important;
+    background-color: #7495c6;
+    border: none;
+
+}
+@media screen and (min-width: 600px) {
+    .main_title i{
+        display: block;
+        font-size: 4em;
+    }
+    .main_title h4{
+        font-size: 0.9em;
+        padding: 0 0 20px 50px;
+        position: relative;
+        top: 22px;
+    }
+}
