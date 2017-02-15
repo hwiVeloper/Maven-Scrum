@@ -312,6 +312,7 @@ p.card-content, .text-muted-comment {
 }
 .plan-card {
   height: 350px;
+  margin-bottom:1em;
 }
 
 #select_date{
