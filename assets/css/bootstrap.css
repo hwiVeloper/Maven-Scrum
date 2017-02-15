@@ -6999,13 +6999,4 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   }
 }
 
-input, input:before, input:after,
-textarea, textarea:before, textarea:after {
-  -webkit-user-select: initial;
-  -khtml-user-select: initial;
-  -moz-user-select: initial;
-  -ms-user-select: initial;
-  user-select: initial;
-}
-
 /*# sourceMappingURL=bootstrap.css.map */

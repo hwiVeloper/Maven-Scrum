@@ -4,14 +4,15 @@
     <!-- navigation toggle button script -->
     <script type="text/javascript">
     $(document).ready(function(){
+      $('.dropdown-menu').hide();
       $('#nav-icon2').click(function(){
         $(this).toggleClass('open');
       });
 
       // navigation slideUp / slideDown 적용
       $('.nav-item').click(function() {
-          var drop_menu = $(this).find(".dropdown_menu");
-          $(".dropdown_menu").slideUp();
+          var drop_menu = $(this).find(".dropdown-menu");
+          $(".dropdown-menu").slideUp();
           if(drop_menu.css("display") === "block") {
               drop_menu.slideUp();
           } else {

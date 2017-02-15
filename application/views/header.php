@@ -83,7 +83,7 @@
       <img src="<?php echo base_url('assets/img/logo.png');?>" alt="" width="88px" height="45px"/>
     </a>
     <!-- User Account Information -->
-    <ul class="nav navbar-nav pull-xs-right" style="float:right">
+    <ul class="nav navbar-nav float-xs-right">
       <li class="nav-item">
 <?php
         if($this->session->userdata('user_id')) {
@@ -93,7 +93,7 @@
             <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="30em" height="30em">
             <span class="hidden-xs-down">&nbsp;<?=$this->session->userdata('user_name')?></span>
           </a>
-          <div class="dropdown_menu dropdown_right">
+          <div class="dropdown-menu dropdown-menu-right" style="width: 350px">
             <div class="col-md-4 col-xs-4">
               <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
             </div>
@@ -116,13 +116,13 @@
       </li>
     </ul>
     <!-- USER NOTIFICATION -->
-    <ul class="nav navbar-nav pull-xs-right">
+    <ul class="nav navbar-nav float-xs-right" style="margin-right: 1em;">
       <li class="nav-item">
         <a class="nav-link left" href="#">
           <i class="fa fa-bell-o" aria-hidden="true"></i>
           <span class="tag tag-pill tag-danger"><?php echo $this->MNotification->count_notification();?></span>
         </a>
-  			<ul class="dropdown_menu dropdown_left">
+  			<ul class="dropdown-menu dropdown-menu-right" style="width: 375px;">
   				<li class="col-sm-12">
   					<ul>
 <?php
