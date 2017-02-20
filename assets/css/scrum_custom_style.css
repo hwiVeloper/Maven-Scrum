@@ -403,7 +403,8 @@ th .btn {
   color: #7495c6;
   z-index: 1;
   font-size: 12px;
-  top: 8px;
+  top: 0px;
+  bottom: 0px;
 }
 .biliboard:before {
   content: '';

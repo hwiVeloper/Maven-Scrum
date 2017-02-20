@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </p>
       </div>
       <div class="card-block text-xs-right">
-        <div class="cb_comment">
+        <div class="cb_comment" style="float:left">
           <i class="fa fa-commenting" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><?=$row['reply_count']?>
         </div>
         <?php
