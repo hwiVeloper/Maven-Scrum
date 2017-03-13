@@ -4,8 +4,10 @@ html, body {
   font-family: 'Jeju Gothic';
   font-size: 0.9rem;
 }
+
 .container-fluid {
-    padding-top:50px;
+    padding-top:3em;
+    padding-bottom: 2em;
 }
 .img-rounded {
   border: 0px;
@@ -105,6 +107,9 @@ textarea {
 }
 .card-outline-danger {
     border-color: #D9534F;
+}
+.card-black-quote {
+
 }
 @media screen and (min-width:768px) {
   .container {

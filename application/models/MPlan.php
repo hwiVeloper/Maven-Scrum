@@ -35,15 +35,24 @@ class MPlan extends CI_Model {
   }
 
   function view_reply($date, $user) {
-    $sql= "SELECT r.*
-                , u.user_name AS user_name
-                , u.user_img AS user_img
-           FROM scrum_reply r
-              , scrum_user u
-           WHERE plan_date = '$date'
-           AND r.user_id = '$user'
-           AND r.write_user = u.user_id
-           ORDER BY reply_id";
+    $this->db->query("SET @rownum := 0;");
+    $sql = "SELECT level - 1 AS reply_level
+                 , r.*
+                 , (SELECT user_name FROM scrum_user WHERE user_id = r.write_user) AS user_name
+                 , (SELECT user_img FROM scrum_user WHERE user_id = r.write_user) AS user_img
+                 , func.level
+            FROM (SELECT @rownum := @rownum + 1 AS rownum
+                       , get_lvl() AS id
+                       , @level AS level
+                  FROM (SELECT @start_with:=0
+                             , @id:=@start_with
+                             , @level:=0) vars
+                  JOIN scrum_reply
+                  WHERE @id IS NOT NULL) func
+                  JOIN scrum_reply r ON func.id = r.reply_id
+            WHERE plan_date = '$date'
+            AND user_id = '$user'
+            ORDER BY rownum, r.reply_id";
     $query = $this->db->query($sql);
     return $query->result_array();
   }

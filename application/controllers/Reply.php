@@ -29,14 +29,15 @@ class Reply extends CI_Controller {
           'write_user' => $this->input->post('write_user'),
           'plan_date' => $this->input->post('plan_date'),
           'reply_comment' => $this->input->post('reply_comment'),
-          'up_reply_id' => 0
+          'up_reply_id' => $this->input->post('up_reply_id'),
+          'up_reply_user' => $this->input->post('up_reply_user')
       );
 
       $added_reply_count = $this->MReply->add_reply($data);
 
       if($added_reply_count > 0){
-        $this->MNotification->add_notification('Plan/detail/', $this->input->post('user_id'), $this->input->post('plan_date'));
-        //echo "<script>alert('등록되었습니다.')</script>";
+        // $this->MNotification->add_notification('Plan/detail/', $this->input->post('user_id'), $this->input->post('plan_date'));
+        // echo "<script>alert('등록되었습니다.')</script>";
         redirect($redirect_address, 'refresh');
       }
     }else{
