@@ -55,6 +55,14 @@ class Reply extends CI_Controller {
 
       $deleted_reply_count = $this->MReply->delete_reply($reply_id);
 
+      // 하위 대댓글 등을 가져온다.
+      $child_replies = $this->MReply->get_child_reply($reply_id);
+
+      // 하위 대댓글 셋을 삭제
+      foreach($child_replies as $k=>$row) {
+        $this->MReply->delete_reply($row['reply_id']);
+      }
+
       if($deleted_reply_count > 0){
         //echo "<script>alert('삭제되었습니다..')</script>";
         redirect("Plan/detail/".$this->uri->segment(4).'/'.$this->uri->segment(5), "refresh");
