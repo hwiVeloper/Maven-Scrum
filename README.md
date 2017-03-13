@@ -1,5 +1,7 @@
 # MAVEN Daily Scrum Project
 
+[![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg)]()
+
 ## Definition
 **Maven**<br>
 Korea University MIS IT Crew. It established on July 3rd, 2016 and there are 12 members now(Nov 30th, 2016). Maven's meaning is 'Specialist' in each fields(programming, data science, network, information security, etc..)<br>
