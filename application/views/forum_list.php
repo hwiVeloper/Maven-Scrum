@@ -61,7 +61,7 @@ $close_date = date('Y-m-d', $date);
               </p>
             </div>
             <div class="timeline-body">
-              <p style="text-align:justify"><?=$row['forum_content']?></p>
+              <p style="text-align:justify"><?=$this->markdown->parse($row['forum_content'])?></p>
             </div>
           </div>
         </li>

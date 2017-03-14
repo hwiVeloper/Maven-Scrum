@@ -496,3 +496,8 @@ th .btn {
     left: 15px;
     font-size: 1.5em;
   }
+
+  .star {
+    font-size: 0.6em;
+    margin-left: 0.8em;
+  }

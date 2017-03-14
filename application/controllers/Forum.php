@@ -25,6 +25,9 @@ class Forum extends CI_Controller{
       $ym = $this->MForum->get_max_ym();
     }
 
+    // 나눔의장 내용 마크다운 지원
+    $this->load->library('markdown');
+
     $view_params['ym'] = $ym;
     $view_params['ym_list'] = $this->MForum->get_ym_list();
     $view_params['list'] = $this->MForum->get_forum_list_by_ym($ym);

@@ -33,11 +33,12 @@
             card_header = $(".plan-card").eq(i).find(".card-header");
             if (i === 0) {
                trophy_chk.append("<i class='fa fa-trophy' aria-hidden='true' style='color:#edcb5e'></i>");
+               trophy_chk.append("<i class='fa fa-star fa-stack-1x star' aria-hidden='true' style='color:#edcb5e;'></i>");
               card_header.css({
                 "background-color" : "#edcb5e",
                 "color" : "#fff"
               });
-               $(".plan-card").eq(i).append("<i class='fa fa-star star' style='color:#edcb5e' aria-hidden='true'></i>");
+              //  $(".plan-card").eq(i).append("<i class='fa fa-star star' style='color:#edcb5e' aria-hidden='true'></i>");
             } else if(i === 1) {
                trophy_chk.append("<i class='fa fa-trophy' aria-hidden='true' style='color:#C0C0C0'></i>");
               card_header.css({
