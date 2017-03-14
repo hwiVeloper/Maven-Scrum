@@ -1,13 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<script src="<?=base_url('assets/js/cropper.js')?>"></script>
+<link rel="stylesheet" href="<?=base_url('assets/css/cropper.css')?>">
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-lg-8 push-lg-2 pull-lg-2 col-md-12" style="margin-top:2em;">
       <h3 align="center">내 정보</h3>
       <!-- Form Start -->
       <form class="" action="<?php echo base_url('User/modify')?>" onsubmit="return check_password()" method="post"
-        style="margin-top:1.5em;" id="user_form">
+        style="margin-top:1.5em;" id="user_form" enctype="multipart/form-data">
         <!-- I D -->
         <div class= "form-group">
           <label for="user_id">ID</label>
@@ -74,6 +77,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <option <?=$security?>    value="Security">Security</option>
           </select>
         </div>
+        <!-- Profile Image -->
+        <input type="hidden" name="original_file_name" value="<?=$user->user_img?>">
+        <div class="form-group">
+          <label for="">Profile Image(정방형 업로드 권장)</label>
+          <input class="form-control" type="file" name="user_img" id="fileInput">
+        </div>
         <!-- S button -->
         <div class="form-group">
           <button type="submit" class="col-md-6 col-xs-12 btn btn-primary" tabindex="8">저장</button>
@@ -85,6 +94,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 </div>
 <script type="text/javascript">
+  $(document).ready(function() {
+
+  });
   function check_password() {
     var error_message = "비밀번호 입력을 확인해 주세요."
     var p1 = document.forms["user_form"]["user_password"].value;

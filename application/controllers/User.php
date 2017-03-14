@@ -58,6 +58,29 @@ class User extends CI_Controller {
       redirect('User', 'refresh');
     }
 
+    if($_FILES){
+      echo "<script>alert('파일 업로드 시작');</script>";
+      // file upload
+      $config['upload_path'] = './assets/img/member/';
+      $config['allowed_types'] = 'jpg|jpeg|gif|png';
+      $config['file_ext_tolower'] = TRUE;
+      $config['overwrite'] = TRUE;
+      $config['max_size'] = "4096";
+      $config['remove_spaces'] = TRUE;
+      $config['file_name'] = $this->input->post('original_file_name');
+
+      $this->load->library('upload', $config);
+
+      if ( ! $this->upload->do_upload('user_img') ) {
+        $error = array('error' => $this->upload->display_errors());
+        echo "<script>alert('업로드실패');</script>";
+        redirect('User', 'refresh');
+      } else {
+        echo "<script>alert('업로드성공');</script>";
+        $file_name = $this->upload->data('file_name');
+      }
+    }
+
     // make array if changing password is allowed
     if($change_password_tf){
       $data = array(
@@ -78,7 +101,7 @@ class User extends CI_Controller {
 
     $this->MUser->modify_user($data);
 
-    //echo "<script>alert('저장되었습니다.');</script>";
+    echo "<script>alert('저장되었습니다.');</script>";
     redirect('User', 'refresh');
   }
 }
