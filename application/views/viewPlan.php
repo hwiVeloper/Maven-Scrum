@@ -124,8 +124,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   $(function() {
     $("#addToDo").click(function() {
       // append things
+      /**********************다른 방법********************/
+      // let todoListTemplate = `<tr class="">
+      //                           <input type="hidden"`;
+
+      // html로 빼서 템플릿처럼 해도 되고 ajax로 구현해도 된다.
+      // html5 template 태그도 괜찮지만, 지원여부가 불확실
+      /***************************************************/
       var h  = '<tr class="">';
-          h +=  '<input type="hidden" name="plan_date" value="<?=$base_date?>">';
+          h += '<input type="hidden" name="plan_date" value="<?=$base_date?>">';
           h += '<input type="hidden" name="plan_detail_seq[]" value="N">';
           h += '<input type="hidden" name="user_id" value="<?=$base_user?>">';
           h += '<input type="hidden" name="row_status[]" value="C">';
