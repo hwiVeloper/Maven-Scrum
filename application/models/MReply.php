@@ -10,7 +10,7 @@ class MReply extends CI_Model{
 
   function add_reply($data) {
     $query = $this->db->insert('scrum_reply', $data);
-    return 1;
+    return $this->db->insert_id();
   }
 
   function delete_reply($id) {

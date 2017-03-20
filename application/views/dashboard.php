@@ -99,9 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <script type="text/javascript">
-  var date = $('#dashboardDate').val();
-
   $('#rBtn').click(function() {
-    window.location.href='http://scrum.mismaven.kr/Dashboard/' + date;
+    window.location.href='http://scrum.mismaven.kr/Dashboard/' + $('#dashboardDate').val();
   });
 </script>

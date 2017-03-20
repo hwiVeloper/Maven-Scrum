@@ -126,7 +126,7 @@
   				<li class="col-sm-12">
   					<ul>
 <?php
-            if( $this->MNotification->view_notifications() ){
+            if( $this->MNotification->count_notification() > 0){
               foreach ( $this->MNotification->view_notifications() as $row) :
 ?>
               <li class="col-sm-12">
@@ -136,7 +136,11 @@
                 <div class="col-md-10 col-sm-8 col-xs-9" align="left">
                   <a href="<?php echo base_url($row['alarm_target_controller'].$row['alarm_target_date'].'/'.$row['alarm_to_user']).'/'.$row['alarm_id']?>">
                     <?php
-                    echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';
+                    if ($row['reply_user']) {
+                      echo $row['user_name_from'].'님께서 '.$row['user_name_to'].'님의 일정에 남긴 댓글에 답글을 달았습니다.';
+                    } else {
+                      echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';
+                    }
                     ?>
                   </a>
                 </div>

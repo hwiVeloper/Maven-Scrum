@@ -12,17 +12,15 @@ class MNotification extends CI_Model{
     $this->user_id = $this->session->userdata('user_id');
   }
 
-  function add_notification($target_controller, $target_user, $target_date) {
-    if($this->user_id == $target_user) {
+  function add_notification($data) {
+    if($this->user_id == $data['alarm_reply_user']) {
       return;
     }
-    $data = array(
-      'alarm_from_user' => $this->user_id,
-      'alarm_to_user' => $target_user,
-      'alarm_target_date' => $target_date,
-      'alarm_target_controller' => $target_controller,
-      'alarm_status' => 0
-    );
+
+    if($this->user_id == $data['alarm_to_user']
+    || ($data['alarm_reply_user'] == null || $data['alarm_reply_user'] == "")) {
+      return;
+    }
 
     $query = $this->db->insert('scrum_alarm', $data);
     return;
@@ -30,15 +28,15 @@ class MNotification extends CI_Model{
 
   function view_notifications() {
     $sql = "SELECT a.*
-                 , u2.user_name AS user_name_to
-                 , u1.user_name AS user_name_from
-                 , u1.user_img AS user_img
+                 , u1.user_name AS user_name_to
+                 , (SELECT user_name FROM scrum_user WHERE user_id = a.alarm_from_user) AS user_name_from
+                 , (SELECT user_img FROM scrum_user WHERE user_id = a.alarm_from_user) AS user_img
+                 , (SELECT user_name FROM scrum_user WHERE user_id = a.alarm_reply_user) AS reply_user
+                 , (SELECT user_img FROM scrum_user WHERE user_id = a.alarm_reply_user) AS reply_user_img
             FROM scrum_alarm a
                , scrum_user u1
-               , scrum_user u2
-            WHERE alarm_to_user = '$this->user_id'
-            AND a.alarm_from_user = u1.user_id
-            AND a.alarm_to_user = u2.user_id
+            WHERE (alarm_to_user = '$this->user_id' OR alarm_reply_user = '$this->user_id')
+            AND a.alarm_to_user = u1.user_id
             AND a.alarm_status = 0
             ORDER BY alarm_creation_dttm DESC
             ";
@@ -60,9 +58,40 @@ class MNotification extends CI_Model{
     return $row->count;
   }
 
-  function click_notification($id) {
-    $this->db->where('alarm_id', $id);
-    $this->db->set('alarm_status', 1);
-    $this->db->update('scrum_alarm');
+  function click_notification($id, $date) {
+    $sql = "UPDATE scrum_alarm
+            SET alarm_status = 1
+            WHERE (alarm_to_user = '$this->user_id' OR alarm_reply_user = '$this->user_id')
+            AND alarm_target_date = '$date'";
+    $query = $this->db->query($sql);
+
+    // $this->db->where('alarm_to_user', $this->user_id);
+    // $this->db->where('alarm_target_date', $info->alarm_target_date);
+    // $this->db->set('alarm_status', 1);
+    // $this->db->update('scrum_alarm');
+  }
+
+  function get_notification_info($id) {
+    $sql = "SELECT *
+            FROM scrum_alarm
+            WHERE alarm_id = $id";
+    $query = $this->db->query($sql);
+
+    return $query->row();
+  }
+
+  function delete_notification($id) {
+    $this->db->where('alarm_ref_reply', $id);
+    $this->db->delete('scrum_alarm');
+  }
+
+  function get_notification_date($id) {
+    $sql = "SELECT alarm_target_date
+            FROM scrum_alarm
+            WHERE alarm_id = $id";
+    $query = $this->db->query($sql);
+    $row = $query->row();
+
+    // return $row->alarm_target_date;
   }
 }

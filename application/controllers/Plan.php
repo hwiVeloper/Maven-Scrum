@@ -54,7 +54,8 @@
       if($this->uri->segment(5)){
         $get_alarm_id = $this->uri->segment(5);
 
-        $this->MNotification->click_notification($get_alarm_id);
+        $date = $this->MNotification->get_notification_date($get_alarm_id);
+        $this->MNotification->click_notification($get_alarm_id, $date);
       }
 
       $get_date = $this->uri->segment(3);
