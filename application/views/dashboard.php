@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <p class="dsh_user"><i class="fa fa-id-badge" aria-hidden="true"></i><strong class="dsh_ct"> 작성인원 : <?=$today_count?></strong></p>
   </div>
   <div id="select_date" class="form-group col-lg-10 col-md-8 col-sm-6" role="alert">
-    <form class="form-inline" action="<?php echo base_url('Dashboard')?>" method="post">
+    <form class="form-inline">
       <div class="col-md-4 col-sm-3 col-xs-12">
         <!-- blank -->
       </div>
@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </button>
       </div>
       <div class="col-md-2 col-sm-3 col-xs-4 dsb_search2">
-        <button class="btn btn-primary btn-block" type="submit" name="button">조회</button>
+        <button id="rBtn" class="btn btn-primary btn-block" type="button">조회</button>
       </div>
       <!-- 공지 올리기 버튼 자리 -->
       <!-- <div class="col-md-2 col-sm-2 col-xs-12">
@@ -97,3 +97,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   ?>
   <?php endforeach; ?>
 </div>
+
+<script type="text/javascript">
+  var date = $('#dashboardDate').val();
+
+  $('#rBtn').click(function() {
+    window.location.href='http://scrum.mismaven.kr/Dashboard/' + date;
+  });
+</script>
