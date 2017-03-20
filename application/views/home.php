@@ -62,6 +62,28 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
+    <li id="20170109" class="timeline-inverted">
+      <div class="timeline-badge info"><i class="fa fa-commenting" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">건의사항 반영</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar-o" aria-hidden="true"></i>&nbsp; 2017. 03. 20</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify">
+            건의사항 3건이 반영되었습니다.
+          </p>
+          <p style="text-align:justify">
+            - 일정 상세보기 -> 대댓글 구현<br>
+            - 내정보 -> 프로필 사진 수정 (정방형으로 업로드 권장)<br>
+            - 알림 클릭 시, 관련 알림 모두 체크.
+          </p>
+          <p>
+            사용 중 오류가 있다면 언제든 말씀해주세요 :)
+          </p>
+        </div>
+      </div>
+    </li>
     <li id="20170119">
       <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
       <div class="timeline-panel">

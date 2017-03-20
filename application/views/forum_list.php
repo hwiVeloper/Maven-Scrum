@@ -82,9 +82,9 @@ $close_date = date('Y-m-d', $date);
         <div class="modal-body">
           <input type="hidden" name="forum_ym" value="<?=$ym?>">
           <input type="hidden" name="forum_writer" value="<?=$this->session->userdata('user_id')?>">
-          <input class="form-control" type="text" name="forum_type" value="" placeholder="나눔 주제 종류 (시연, 강의, 소개, 스터디 등)">
-          <input class="form-control" type="text" name="forum_title" value="" placeholder="나눔 주제 제목">
-          <textarea class="form-control" name="forum_content" rows="15" placeholder="상세 내용" style="height: 150px;"></textarea>
+          <input class="form-control" type="text" name="forum_type" value="" placeholder="나눔 주제 종류 (시연, 강의, 소개, 스터디 등)" required>
+          <input class="form-control" type="text" name="forum_title" value="" placeholder="나눔 주제 제목" require>
+          <textarea class="form-control" name="forum_content" rows="15" placeholder="상세 내용" style="height: 150px;" required></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
