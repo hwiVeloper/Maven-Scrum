@@ -158,7 +158,9 @@
     </ul>
     <!-- NAVBAR MENUS -->
     <div class="collapse navbar-toggleable-md" id="navbarResponsive">
-        <img class="nav_img" src="<?php echo base_url('assets/img/logo.png');?>" alt="" width="88px" height="45px"/>
+        <a href="<?=base_url()?>">
+          <img class="nav_img" src="<?php echo base_url('assets/img/logo.png');?>" alt="" width="88px" height="45px"/>
+        </a>
       <ul class="nav navbar-nav">
 <?php
       if($this->session->userdata('user_id')) {

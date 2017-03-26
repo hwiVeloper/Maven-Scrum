@@ -58,8 +58,8 @@ class User extends CI_Controller {
       redirect('User', 'refresh');
     }
 
-    if($_FILES){
-      echo "<script>alert('파일 업로드 시작');</script>";
+    if($this->input->post('user_img') && $_FILES){
+      // echo "<script>alert('파일 업로드 시작');</script>";
       // file upload
       $config['upload_path'] = './assets/img/member/';
       $config['allowed_types'] = 'jpg|jpeg|gif|png';
