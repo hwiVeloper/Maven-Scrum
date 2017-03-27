@@ -8,4 +8,6 @@
 # .htaccess
 .htaccess
 
+assets/img/member/*
+
 ####### IGNORE LIST END #######
