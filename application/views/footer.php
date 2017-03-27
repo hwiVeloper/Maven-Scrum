@@ -23,7 +23,6 @@
     </script>
 
     <!-- dashboard 순위별 색상 및 트로피 변경 -->
-
     <script>
       $(function() {
           var trophy_chk;

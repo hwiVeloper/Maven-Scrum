@@ -60,6 +60,10 @@
 
   <!-- Custom Style -->
   <link href="<?php echo base_url('assets/css/scrum_custom_style.css') ?>" rel="stylesheet">
+
+  <!-- highcharts cdn -->
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+
 </head>
 <body>
 <?php
