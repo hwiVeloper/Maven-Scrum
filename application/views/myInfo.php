@@ -55,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $datascience = "";
         $network     = "";
         $security    = "";
+        $newbie      = "";
         switch($user->user_field){
           case ""           : $null_value  = "selected"; break;
           case "Backend"    : $backend     = "selected"; break;
@@ -63,18 +64,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           case "DataScience": $datascience = "selected"; break;
           case "Network"    : $network     = "selected"; break;
           case "Security"   : $security    = "selected"; break;
+          case "Newbie"     : $newbie      = "selected"; break;
         }
         ?>
         <div class= "form-group">
           <label for="user_field">Field</label>
           <select class="custom-select form-control" name="user_field" tabindex="7">
-            <option <?=$null_value?>value="">Select your field</option>
+            <option <?=$null_value?>  value="">Select your field</option>
             <option <?=$backend?>     value="Backend">Backend</option>
             <option <?=$frontend?>    value="Frontend">Frontend</option>
             <option <?=$database?>    value="Database">Database</option>
             <option <?=$datascience?> value="DataScience">DataScience</option>
             <option <?=$network?>     value="Network">Network</option>
             <option <?=$security?>    value="Security">Security</option>
+            <option <?=$newbie?>      value="Newbie">Newbie</option>
           </select>
         </div>
         <!-- Profile Image -->
