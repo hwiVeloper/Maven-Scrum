@@ -1,3 +1,13 @@
+<style>
+    .scrum-items__detail {
+        margin-bottom: 100px;
+    }
+
+    .scrum-items__chart {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+</style>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
@@ -11,9 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   }
 </style>
 <div class="container">
-  <div class="row">
+  <div class="row scrum-items__detail">
     <!-- PLAN AREA -->
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6">
       <h5><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;일정 상세보기</h5>
       <div class="card text-xs-left">
         <div class="card-block">
@@ -50,10 +60,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <p class="card-text" align="right"><small class="text-muted"><?=$creation_dttm?>에 작성</small></p>
         </div>
       </div>
+      <div class="scrum-items__chart">
+          <div id="sample-chart"></div>
+      </div>
     </div>
     <!-- END PLAN AREA -->
     <!-- REPLY AREA -->
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6">
       <h5><i class="fa fa-rss" aria-hidden="true"></i>&nbsp;댓글 <small class="text-muted"><?=$count_reply?> 개</small></h5>
       <div class="card text-xs-center">
         <div class="card-block">
@@ -117,11 +130,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
 </div>
-    <div class="col-md-6">
-        <div id="container"></div>
-    </div>
     <script>
-        Highcharts.chart('container', {
+        Highcharts.chart('sample-chart', {
 
             title: {
                 text: '메이븐 스크럼 완료율'
