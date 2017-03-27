@@ -116,6 +116,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
     </div>
+</div>
+    <div class="col-md-6">
+        <div id="container"></div>
+    </div>
+    <script>
+        Highcharts.chart('container', {
+
+            title: {
+                text: '메이븐 스크럼 완료율'
+            },
+            xAxis: {
+                categories: [26, 27, 28, 29, 30, 31, 1]
+            },
+            yAxis: {
+                title: '완료율'
+            },
+            series: [{
+                name: 'userName',
+                data: [1, 5, 3, 3, 2, 6, 4],
+                color: '#7495c6'
+            }, {
+                name: 'mavenTotalCount',
+                data: [3, 1, 5, 4, 2, 1, 2],
+                color: '#6536D7'
+            }],
+            plotOptions: {
+                series: {
+                    marker: {
+                        fillColor: '#FFFFFF',
+                        lineWidth: 2,
+                        lineColor: null // inherit from series
+                    }
+                }
+            },
+        });
+    </script>
     <nav class="navbar navbar-fixed-bottom navbar-light bg-faded" align="right">
       <?php
       if($user_id == $this->session->userdata('user_id')){
