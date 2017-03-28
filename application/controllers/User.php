@@ -58,7 +58,7 @@ class User extends CI_Controller {
       redirect('User', 'refresh');
     }
 
-    if($this->input->post('user_img') && $_FILES){
+    if($_FILES){
       // echo "<script>alert('파일 업로드 시작');</script>";
       // file upload
       $config['upload_path'] = './assets/img/member/';
@@ -70,15 +70,17 @@ class User extends CI_Controller {
       $config['file_name'] = $this->input->post('original_file_name');
 
       $this->load->library('upload', $config);
-
+      $this->upload->do_upload('user_img');
       if ( ! $this->upload->do_upload('user_img') ) {
         $error = array('error' => $this->upload->display_errors());
         echo "<script>alert('업로드실패');</script>";
         redirect('User', 'refresh');
       } else {
-        echo "<script>alert('업로드성공');</script>";
+        // echo "<script>alert('업로드성공');</script>";
         $file_name = $this->upload->data('file_name');
       }
+    }else {
+      // echo "<script>alert('파일 업로드 실패');</script>";
     }
 
     // make array if changing password is allowed
@@ -89,6 +91,7 @@ class User extends CI_Controller {
         'user_birth' => $user_birth,
         'user_email' => $user_email,
         'user_field' => $user_field
+        // ,'user_img' => isset($file_name) ? $file_name : $this->input->post('original_file_name')
       );
     }else{
       $data = array(
@@ -96,6 +99,7 @@ class User extends CI_Controller {
         'user_birth' => $user_birth,
         'user_email' => $user_email,
         'user_field' => $user_field
+        // ,'user_img' => isset($file_name) ? $file_name : $this->input->post('original_file_name')
       );
     }
 

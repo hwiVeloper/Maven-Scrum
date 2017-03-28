@@ -1,24 +1,23 @@
 <style>
-    .scrum-items__detail {
-        margin-bottom: 100px;
-    }
-
-    .scrum-items__chart {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+.scrum-items__detail {
+  margin-bottom: 100px;
+}
+.scrum-items__chart {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 </style>
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style media="screen">
-  /* 댓글 목록 스타일 */
-  .reply{
-    /*border-top: 1px dashed #bbb;*/
-    /*border-bottom: 1px dashed #bbb;*/
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
+/* 댓글 목록 스타일 */
+.reply{
+  /*border-top: 1px dashed #bbb;*/
+  /*border-bottom: 1px dashed #bbb;*/
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 </style>
 <div class="container">
   <div class="row scrum-items__detail">
@@ -41,18 +40,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }else{
               $sts = '<i class="fa fa-times" aria-hidden="true" style="color:#d9534f"></i>';
             }
-
             if($k == 0){
-          ?>
-          <dd class="col-sm-9"><?=$sts?> <?=$row['plan_content']?></dd>
-          <?php
+              ?>
+              <dd class="col-sm-9"><?=$sts?> <?=$row['plan_content']?></dd>
+              <?php
             }else{
-          ?>
-          <dd class="col-sm-9 offset-sm-3"><?=$sts?> <?=$row['plan_content']?></dd>
-          <?php
+              ?>
+              <dd class="col-sm-9 offset-sm-3"><?=$sts?> <?=$row['plan_content']?></dd>
+              <?php
             }
-          ?>
-          <?php
+            ?>
+            <?php
           endforeach;
           ?>
           <dt class="col-sm-3">코멘트</dt>
@@ -61,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
       <div class="scrum-items__chart">
-          <div id="sample-chart"></div>
+        <div id="sample-chart"></div>
       </div>
     </div>
     <!-- END PLAN AREA -->
@@ -90,38 +88,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               echo "댓글이 없습니다.";
             }else {
               foreach ($replies as $k=>$row) :
-            ?>
-              <div class="text-xs-left reply">
-                <div class="card-block-comment" style="padding-left: <?=1.5*$row['reply_level']?>em">
-                  <h6>
-                    <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
-                    &nbsp;<?=$row['user_name']?>
-                  </h6>
-                  <p><?=$row['reply_comment']?></p>
-                  <p class="card-text">
-                    <small class="text-muted"><?=$row['reply_timestamp']?></small>
-                    <button class="btn btn-link btn-reply-of-reply" type="button">댓글</button>
-                    <?php if($this->session->userdata('user_id') == $row['write_user']) : ?>
-                    <a class="btn btn-link" href="<?php echo base_url('Reply/delete/'.$row['reply_id'].'/'.$row['plan_date'].'/'.$row['user_id'])?>">삭제</a>
-                    <?php endif; ?>
-                  </p>
+                ?>
+                <div class="text-xs-left reply">
+                  <div class="card-block-comment" style="padding-left: <?=1.5*$row['reply_level']?>em">
+                    <h6>
+                      <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
+                      &nbsp;<?=$row['user_name']?>
+                    </h6>
+                    <p><?=$row['reply_comment']?></p>
+                    <p class="card-text">
+                      <small class="text-muted"><?=$row['reply_timestamp']?></small>
+                      <button class="btn btn-link btn-reply-of-reply" type="button">댓글</button>
+                      <?php if($this->session->userdata('user_id') == $row['write_user']) : ?>
+                        <a class="btn btn-link" href="<?php echo base_url('Reply/delete/'.$row['reply_id'].'/'.$row['plan_date'].'/'.$row['user_id'])?>">삭제</a>
+                      <?php endif; ?>
+                    </p>
+                  </div>
+                  <!-- WRITE REPLY OF REPLY -->
+                  <div class="r-of-r">
+                    <form class="" action="<?=base_url('Reply/add')?>" method="post">
+                      <input type="hidden" name="user_id" value="<?=$user_id?>">
+                      <input type="hidden" name="write_user" value="<?=$this->session->userdata('user_id')?>">
+                      <input type="hidden" name="plan_date" value="<?=$plan_date?>">
+                      <input type="hidden" name="up_reply_id" value="<?=$row['reply_id']?>">
+                      <input type="hidden" name="up_reply_user" value="<?=$row['write_user']?>">
+                      <textarea class="form-control" name="reply_comment" rows="1" placeholder="" style="" required></textarea>
+                      <div class="" align="right">
+                        <button type="submit" class="btn btn-primary" style="margin-top:0.5em;">대댓글 등록</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-                <!-- WRITE REPLY OF REPLY -->
-                <div class="r-of-r">
-                  <form class="" action="<?=base_url('Reply/add')?>" method="post">
-                    <input type="hidden" name="user_id" value="<?=$user_id?>">
-                    <input type="hidden" name="write_user" value="<?=$this->session->userdata('user_id')?>">
-                    <input type="hidden" name="plan_date" value="<?=$plan_date?>">
-                    <input type="hidden" name="up_reply_id" value="<?=$row['reply_id']?>">
-                    <input type="hidden" name="up_reply_user" value="<?=$row['write_user']?>">
-                    <textarea class="form-control" name="reply_comment" rows="1" placeholder="" style="" required></textarea>
-                    <div class="" align="right">
-                      <button type="submit" class="btn btn-primary" style="margin-top:0.5em;">대댓글 등록</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            <?php
+                <?php
               endforeach;
             }
             ?>
@@ -129,63 +127,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
     </div>
-</div>
-    <script>
-        Highcharts.chart('sample-chart', {
-
-            title: {
-                text: '메이븐 스크럼 완료율'
-            },
-            xAxis: {
-                categories: [26, 27, 28, 29, 30, 31, 1]
-            },
-            yAxis: {
-                title: '완료율'
-            },
-            series: [{
-                name: 'userName',
-                data: [1, 5, 3, 3, 2, 6, 4],
-                color: '#7495c6'
-            }, {
-                name: 'mavenTotalCount',
-                data: [3, 1, 5, 4, 2, 1, 2],
-                color: '#6536D7'
-            }],
-            plotOptions: {
-                series: {
-                    marker: {
-                        fillColor: '#FFFFFF',
-                        lineWidth: 2,
-                        lineColor: null // inherit from series
-                    }
-                }
-            },
-        });
-    </script>
-    <nav class="navbar navbar-fixed-bottom navbar-light bg-faded" align="right">
-      <?php
-      if($user_id == $this->session->userdata('user_id')){
+  </div>
+  <script>
+  <?php
+  foreach ($charts_dates as $k => $row) {
+    $chart_date[] = $row['date'];
+  }
+  foreach ($user_count as $k => $row) {
+    $chart_user[] = $row['count'];
+  }
+  foreach ($maven_count as $k => $row) {
+    $chart_maven[] = $row['avg'];
+  }
+  ?>
+  Highcharts.chart('sample-chart', {
+    title: {
+      text: '스크럼 최근 동향'
+    },
+    xAxis: {
+      categories: [<?php echo join($chart_date, ',') ?>]
+    },
+    yAxis: {
+      title: '완료'
+    },
+    series: [{
+      name: '<?=$user_id?>',
+      data: [<?php echo join($chart_user, ',') ?>],
+      color: '#7495c6'
+    }, {
+      name: 'MAVEN 평균',
+      data: [<?php echo join($chart_maven, ',') ?>],
+      color: '#6536D7'
+    }],
+    plotOptions: {
+      series: {
+        marker: {
+          fillColor: '#FFFFFF',
+          lineWidth: 2,
+          lineColor: null // inherit from series
+        }
+      }
+    },
+  });
+  </script>
+  <nav class="navbar navbar-fixed-bottom navbar-light bg-faded" align="right">
+    <?php
+    if($user_id == $this->session->userdata('user_id')){
       ?>
       <a class="btn btn-primary" href="<?=base_url('Plan/myPlan/'.$plan_date)?>">내 일정관리</a>
       <?php
-      }
-      ?>
-      <a class="btn btn-secondary" href="<?=base_url('Dashboard/'.$plan_date)?>">모두의일정</a>
-    </nav>
-  </div>
+    }
+    ?>
+    <a class="btn btn-secondary" href="<?=base_url('Dashboard/'.$plan_date)?>">모두의일정</a>
+  </nav>
+</div>
 </div>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('.r-of-r').hide();
-  });
-
-  $('.btn-reply-of-reply').click(function() {
-    if($(this).parent().parent().siblings('.r-of-r').is(':visible')) {
-      $(this).parent().parent().siblings('.r-of-r').hide();
-      $(this).html('댓글');
-    }else {
-      $(this).parent().parent().siblings('.r-of-r').show();
-      $(this).html('닫기');
-    }
-  });
+$(document).ready(function() {
+  $('.r-of-r').hide();
+});
+$('.btn-reply-of-reply').click(function() {
+  if($(this).parent().parent().siblings('.r-of-r').is(':visible')) {
+    $(this).parent().parent().siblings('.r-of-r').hide();
+    $(this).html('댓글');
+  }else {
+    $(this).parent().parent().siblings('.r-of-r').show();
+    $(this).html('닫기');
+  }
+});
 </script>

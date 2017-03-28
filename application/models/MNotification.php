@@ -17,9 +17,8 @@ class MNotification extends CI_Model{
       return;
     }
 
-    if($this->user_id == $data['alarm_to_user']
-    || ($data['alarm_reply_user'] == null || $data['alarm_reply_user'] == "")) {
-      return;
+    if($data['alarm_reply_user'] == null || $data['alarm_reply_user'] == "") {
+      // return;
     }
 
     $query = $this->db->insert('scrum_alarm', $data);
@@ -92,6 +91,6 @@ class MNotification extends CI_Model{
     $query = $this->db->query($sql);
     $row = $query->row();
 
-    // return $row->alarm_target_date;
+    return $row->alarm_target_date;
   }
 }

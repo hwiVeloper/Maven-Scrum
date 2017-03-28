@@ -10,6 +10,7 @@
       $this->load->helper('form');
       $this->load->library('form_validation');
       $this->load->model('MPlan');
+      $this->load->model('MCharts');
 
       $this->sUser = $this->session->userdata('user_id');
 
@@ -68,6 +69,10 @@
       $view_params['creation_dttm'] = $this->MPlan->get_creation_dttm($get_date, $get_user);
       $view_params['replies'] = $this->MPlan->view_reply($get_date, $get_user);
       $view_params['count_reply'] = $this->MPlan->count_reply($get_date, $get_user);
+
+      $view_params['charts_dates'] = $this->MCharts->get_recent_seven_dates();
+      $view_params['user_count'] = $this->MCharts->get_recent_plan_complete_count($view_params['user_id']);
+      $view_params['maven_count'] = $this->MCharts->get_recent_plan_average();
 
       $this->load->view('header');
       $this->load->view('viewDetail', $view_params);
