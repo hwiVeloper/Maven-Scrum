@@ -34,8 +34,8 @@ class Reply extends CI_Controller {
       );
 
       $added_reply_id = $this->MReply->add_reply($data);
-      
-      $noti_data = array(
+
+      $noti_data1 = array(
         'alarm_from_user' => $this->session->userdata('user_id'), // 작성자
         'alarm_to_user' => $this->input->post('user_id'), // 소유자
         'alarm_reply_user' => $this->input->post('up_reply_user'), // 댓글 소유자
@@ -45,7 +45,7 @@ class Reply extends CI_Controller {
         'alarm_status' => 0,
         'alarm_creation_dttm' => date('Y-m-d h:i:s')
       );
-      $this->MNotification->add_notification($noti_data);
+      $this->MNotification->add_notification($noti_data1);
       // echo "<script>alert('등록되었습니다.')</script>";
       redirect($redirect_address, 'refresh');
     }
