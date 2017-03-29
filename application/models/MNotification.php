@@ -13,14 +13,6 @@ class MNotification extends CI_Model{
   }
 
   function add_notification($data) {
-    if($this->user_id == $data['alarm_reply_user']) {
-      return;
-    }
-
-    if($data['alarm_reply_user'] == null || $data['alarm_reply_user'] == "") {
-      // return;
-    }
-
     $query = $this->db->insert('scrum_alarm', $data);
     return;
   }
@@ -29,12 +21,10 @@ class MNotification extends CI_Model{
     $sql = "SELECT a.*
                  , u1.user_name AS user_name_to
                  , (SELECT user_name FROM scrum_user WHERE user_id = a.alarm_from_user) AS user_name_from
-                 , (SELECT user_img FROM scrum_user WHERE user_id = a.alarm_from_user) AS user_img
-                 , (SELECT user_name FROM scrum_user WHERE user_id = a.alarm_reply_user) AS reply_user
-                 , (SELECT user_img FROM scrum_user WHERE user_id = a.alarm_reply_user) AS reply_user_img
+                 , (SELECT user_img FROM scrum_user WHERE user_id = a.alarm_from_user) AS user_img_from
             FROM scrum_alarm a
                , scrum_user u1
-            WHERE (alarm_to_user = '$this->user_id' OR alarm_reply_user = '$this->user_id')
+            WHERE alarm_target_user = '$this->user_id'
             AND a.alarm_to_user = u1.user_id
             AND a.alarm_status = 0
             ORDER BY alarm_creation_dttm DESC
@@ -60,7 +50,7 @@ class MNotification extends CI_Model{
   function click_notification($id, $date) {
     $sql = "UPDATE scrum_alarm
             SET alarm_status = 1
-            WHERE (alarm_to_user = '$this->user_id' OR alarm_reply_user = '$this->user_id')
+            WHERE alarm_target_user = '$this->user_id'
             AND alarm_target_date = '$date'";
     $query = $this->db->query($sql);
 

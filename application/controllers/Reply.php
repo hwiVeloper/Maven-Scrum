@@ -35,17 +35,29 @@ class Reply extends CI_Controller {
 
       $added_reply_id = $this->MReply->add_reply($data);
 
-      $noti_data1 = array(
-        'alarm_from_user' => $this->session->userdata('user_id'), // 작성자
-        'alarm_to_user' => $this->input->post('user_id'), // 소유자
-        'alarm_reply_user' => $this->input->post('up_reply_user'), // 댓글 소유자
+      $noti_data = array(
+        'alarm_from_user' => $this->session->userdata('user_id'), // 댓글 작성자
+        'alarm_to_user' => $this->input->post('user_id'), // Plan 작성자
+        'alarm_target_user' => $this->input->post('user_id'), // 알림 타겟 유저
         'alarm_target_date' => $this->input->post('plan_date'), // 소유자의 plan 날짜
         'alarm_target_controller' => 'Plan/detail/', // 타겟 컨트롤러
         'alarm_ref_reply' => $added_reply_id, // 댓글 소유자 참조 댓글id
         'alarm_status' => 0,
         'alarm_creation_dttm' => date('Y-m-d h:i:s')
       );
-      $this->MNotification->add_notification($noti_data1);
+
+      if($this->input->post('user_id') != $this->input->post('write_user')) {
+        $noti_data['alarm_target_user'] = $this->input->post('user_id');
+        $this->MNotification->add_notification($noti_data);
+      }
+      if($this->input->post('up_reply_id') != 0) {
+        if($this->input->post('up_reply_user') != $this->input->post('write_user')) {
+          if($this->input->post('user_id') != $this->input->post('up_reply_id')) {
+            $noti_data['alarm_target_user'] = $this->input->post('up_reply_user');
+            $this->MNotification->add_notification($noti_data);
+          }
+        }
+      }
       // echo "<script>alert('등록되었습니다.')</script>";
       redirect($redirect_address, 'refresh');
     }
