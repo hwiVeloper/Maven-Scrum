@@ -30,6 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$plans[0]['user_img']);?>" width="50px" height="50px">
             &nbsp;<?=$plans[0]['user_name']?>
           </h4>
+          <div id="myData"></div>
           <dt class="col-sm-3">작성일</dt>
           <dd class="col-sm-9"><?=$plan_date?></dd>
           <dt class="col-sm-3">할 일</dt>
@@ -140,35 +141,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $chart_maven[] = $row['avg'];
   }
   ?>
-  Highcharts.chart('sample-chart', {
-    title: {
-      text: '스크럼 최근 동향'
-    },
-    xAxis: {
-      categories: [<?php echo join($chart_date, ',') ?>]
-    },
-    yAxis: {
-      title: '완료'
-    },
-    series: [{
-      name: '<?=$user_id?>',
-      data: [<?php echo join($chart_user, ',') ?>],
-      color: '#7495c6'
-    }, {
-      name: 'MAVEN 평균',
-      data: [<?php echo join($chart_maven, ',') ?>],
-      color: '#6536D7'
-    }],
-    plotOptions: {
-      series: {
-        marker: {
-          fillColor: '#FFFFFF',
-          lineWidth: 2,
-          lineColor: null // inherit from series
+  (function() {
+    Highcharts.chart('sample-chart', {
+      title: {
+        text: '스크럼 최근 동향'
+      },
+      xAxis: {
+        categories: [<?php echo join($chart_date, ',') ?>]
+      },
+      yAxis: {
+        title: '완료'
+      },
+      series: [{
+        name: '<?=$user_id?>',
+        data: [<?php echo join($chart_user, ',') ?>],
+        color: '#7495c6'
+      }, {
+        name: 'MAVEN 평균',
+        data: [<?php echo join($chart_maven, ',') ?>],
+        color: '#6536D7'
+      }],
+      plotOptions: {
+        series: {
+          marker: {
+            fillColor: '#FFFFFF',
+            lineWidth: 2,
+            lineColor: null // inherit from series
+          }
         }
-      }
-    },
-  });
+      },
+    });
+  })();
+  </script>
+  <script>
+  (function() {
+    Highcharts.chart('myData', {
+
+      chart: {
+        polar: true,
+        type: 'line'
+      },
+      title: {
+        style: {
+          display: 'none'
+        }
+      },
+      xAxis: {
+        categories: ['출석', '스크럼 작성', '댓글작성', '스크럼 완료율', '평균 완료율'],
+        tickmarkPlacement: 'on',
+        lineWidth: 0
+      },
+      yAxis: {
+        gridLineInterpolation: 'polygon',
+        lineWidth: 0,
+        min: 0
+      },
+      legend: {
+        enabled: false
+      },
+      exporting: {
+        enabled: false
+      },
+      series: [{
+        name: '리종휘',
+        data: [17, 17, 30, 45, 25],
+        pointPlacement: 'on'
+      }, {
+        name: '박경두',
+        data: [8, 7, 10, 17, 35],
+        pointPlacement: 'on'
+      }]
+
+    });
+  })();
   </script>
   <nav class="navbar navbar-fixed-bottom navbar-light bg-faded" align="right">
     <?php
