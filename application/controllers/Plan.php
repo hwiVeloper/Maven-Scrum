@@ -70,9 +70,13 @@
       $view_params['replies'] = $this->MPlan->view_reply($get_date, $get_user);
       $view_params['count_reply'] = $this->MPlan->count_reply($get_date, $get_user);
 
+      /* Trend Chart */
       $view_params['charts_dates'] = $this->MCharts->get_recent_seven_dates();
       $view_params['user_count'] = $this->MCharts->get_recent_plan_complete_count($view_params['user_id']);
       $view_params['maven_count'] = $this->MCharts->get_recent_plan_average();
+
+      /* Acheivement Chart */
+      $view_params['acheivement'] = $this->MCharts->get_month_acheivement($get_user, $get_date);
 
       $this->load->view('header');
       $this->load->view('viewDetail', $view_params);

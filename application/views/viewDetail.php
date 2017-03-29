@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$plans[0]['user_img']);?>" width="50px" height="50px">
             &nbsp;<?=$plans[0]['user_name']?>
           </h4>
-          <div id="myData"></div>
+          <div id="chart-acheivement"></div>
           <dt class="col-sm-3">작성일</dt>
           <dd class="col-sm-9"><?=$plan_date?></dd>
           <dt class="col-sm-3">할 일</dt>
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
       <div class="scrum-items__chart">
-        <div id="sample-chart"></div>
+        <div id="chart-trend"></div>
       </div>
     </div>
     <!-- END PLAN AREA -->
@@ -142,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   }
   ?>
   (function() {
-    Highcharts.chart('sample-chart', {
+    Highcharts.chart('chart-trend', {
       title: {
         text: '스크럼 최근 동향'
       },
@@ -175,7 +175,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </script>
   <script>
   (function() {
-    Highcharts.chart('myData', {
+    Highcharts.chart('chart-acheivement', {
 
       chart: {
         polar: true,
@@ -187,14 +187,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
       },
       xAxis: {
-        categories: ['출석', '스크럼 작성', '댓글작성', '스크럼 완료율', '평균 완료율'],
+        categories: ['월 출석율', '월 작성률', '댓글 비중', '오늘 완료율', '월평균 완료율'],
         tickmarkPlacement: 'on',
         lineWidth: 0
       },
       yAxis: {
         gridLineInterpolation: 'polygon',
         lineWidth: 0,
-        min: 0
+        min: 0,
+        max: 100
       },
       legend: {
         enabled: false
@@ -203,12 +204,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         enabled: false
       },
       series: [{
-        name: '리종휘',
-        data: [17, 17, 30, 45, 25],
-        pointPlacement: 'on'
-      }, {
-        name: '박경두',
-        data: [8, 7, 10, 17, 35],
+        name: '<?php echo $plans[0]['user_name']?>',
+        data: [
+          <?php echo $acheivement->att_ratio?>,
+          <?php echo $acheivement->write_ratio?>,
+          <?php echo $acheivement->reply_ratio?>,
+          <?php echo $acheivement->achv_today_ratio?>,
+          <?php echo $acheivement->achv_avg_ratio?>
+        ],
         pointPlacement: 'on'
       }]
 

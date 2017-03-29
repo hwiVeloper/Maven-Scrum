@@ -64,4 +64,51 @@ class MCharts extends CI_Model{
 
     return $query->result_array();
   }
+
+  /**
+   * 해당월 개인 성과 그래프
+   */
+  function get_month_acheivement($user, $date) {
+    $ym = date('Y-m', strtotime($date));
+
+    $sql = "SELECT (SELECT COUNT(*) / DAY(LAST_DAY(NOW())) * 100
+                    FROM scrum_attendance
+                    WHERE user_id = '$user'
+                    AND DATE_FORMAT(attendance_date, '%Y-%m') = '$ym') AS att_ratio
+                 , (SELECT COUNT(*) / DAY(LAST_DAY(NOW())) * 100
+                    FROM scrum_plan_info
+                    WHERE user_id = '$user'
+                    AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') AS write_ratio
+                 , (SELECT user_count / all_count * 100
+                    FROM (SELECT COUNT(*) AS user_count
+                          FROM scrum_reply
+                          WHERE user_id = '$user'
+                          AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') u
+                       , (SELECT COUNT(*) AS all_count
+                          FROM scrum_reply
+                          WHERE DATE_FORMAT(plan_date, '%Y-%m') = '$ym') a) AS reply_ratio
+                 , (SELECT user_count / user_all_count * 100
+                    FROM (SELECT COUNT(*) AS user_count
+                          FROM scrum_plan
+                          WHERE user_id = '$user'
+                          AND plan_date = '$date'
+                          AND plan_status = 1) u
+                       , (SELECT COUNT(*) AS user_all_count
+                          FROM scrum_plan
+                          WHERE user_id = '$user'
+                          AND plan_date = '$date') a) AS achv_today_ratio
+                 , (SELECT user_count / user_all_count * 100
+                    FROM (SELECT COUNT(*) AS user_count
+                          FROM scrum_plan
+                          WHERE user_id = '$user'
+                          AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym'
+                          AND plan_status = 1) u
+                       , (SELECT COUNT(*) AS user_all_count
+                          FROM scrum_plan
+                          WHERE user_id = '$user'
+                          AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') a) AS achv_avg_ratio";
+    $query = $this->db->query($sql);
+
+    return $query->row();
+  }
 }
