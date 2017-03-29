@@ -28,7 +28,7 @@
           var trophy_chk;
           var card_header;
           for (var i = 0; i < 3; i++) {
-            trophy_chk = $(".plan-card").eq(i).find(".trophy");
+            trophy_chk = $(".plan-card").eq(i).find(".scrum-items__trophy");
             card_header = $(".plan-card").eq(i).find(".card-header");
             if (i === 0) {
                trophy_chk.append("<i class='fa fa-trophy' aria-hidden='true' style='color:#edcb5e'></i>");

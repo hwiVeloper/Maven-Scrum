@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
+/* default css */
+
 html, body {
   font-family: 'Jeju Gothic';
   font-size: 0.9rem;
@@ -320,15 +322,6 @@ p.card-content, .text-muted-comment {
   margin-bottom:1em;
 }
 
-#select_date{
-  padding: 0 5px;
-}
-
-@media(max-width:572px){
-  #select_date{
-    padding: 0;
-  }
-}
 .dsh_user {
     margin-top : 0.5rem;
     margin-bottom: 0;
@@ -447,7 +440,7 @@ th .btn {
   }
 
   #select_date{
-    padding: 0 5px;
+    padding: 0 15px;
   }
 
   @media(max-width:572px){
@@ -490,14 +483,39 @@ th .btn {
   .plan-card {
     position: relative;
   }
-  .plan-card .trophy {
+  .scrum-items__trophy {
     position: absolute;
     top: -25px;
-    left: 15px;
+    left: 0;
     font-size: 1.5em;
   }
 
   .star {
     font-size: 0.6em;
     margin-left: 0.8em;
+    line-height: 4px;
   }
+
+.row {
+    max-width: 1920px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.scrum-items__dashboard-calendar {
+    float: right;
+}
+.scrum-items__search-btn-box {
+    float: right;
+}
+@media screen and (max-width:599px) {
+    .scrum-items__dashboard-calendar {
+        width: 80%;
+    }
+    .scrum-items__search-btn-box {
+        width: 20%;
+    }
+}
+.scrum-items__dashboard-calendar {
+    padding-right: 10px;
+}
