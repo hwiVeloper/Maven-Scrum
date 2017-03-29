@@ -63,6 +63,7 @@
 
   <!-- highcharts cdn -->
   <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
 
 </head>
 <body>
@@ -126,36 +127,28 @@
           <i class="fa fa-bell-o" aria-hidden="true"></i>
           <span class="tag tag-pill tag-danger"><?php echo $this->MNotification->count_notification();?></span>
         </a>
-  			<ul class="dropdown-menu dropdown-menu-right" style="width: 375px;">
-  				<li class="col-sm-12">
-  					<ul>
+  			<ul class="dropdown-menu dropdown-menu-right" style="max-width:100%; min-width: 375px;">
+  				<li>
 <?php
             if( $this->MNotification->count_notification() > 0){
               foreach ( $this->MNotification->view_notifications() as $row) :
 ?>
-              <li class="col-sm-12">
                 <div class="col-md-2 col-sm-4 col-xs-3">
-                  <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
+                  <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img_from']);?>" width="50px" height="50px">
                 </div>
                 <div class="col-md-10 col-sm-8 col-xs-9" align="left">
                   <a href="<?php echo base_url($row['alarm_target_controller'].$row['alarm_target_date'].'/'.$row['alarm_to_user']).'/'.$row['alarm_id']?>">
                     <?php
-                    if ($row['reply_user']) {
-                      echo $row['user_name_from'].'님께서 '.$row['user_name_to'].'님의 일정에 남긴 댓글에 답글을 달았습니다.';
-                    } else {
-                      echo $row['user_name_from'].'님께서 '.$row['alarm_target_date'].'의 일정에 댓글을 달았습니다.';
-                    }
+                      echo $row['user_name_from'].'님께서 댓글을 남겼습니다.';
                     ?>
                   </a>
                 </div>
-              </li>
 <?php
               endforeach;
             }else {
-              echo "<li>알림이 없습니다.</li>";
+              echo "<div class='col-md-12'>알림이 없습니다.</div>";
             }
 ?>
-  					</ul>
   				</li>
   			</ul>
 			</li>
