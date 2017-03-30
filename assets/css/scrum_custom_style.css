@@ -519,3 +519,18 @@ th .btn {
 .scrum-items__dashboard-calendar {
     padding-right: 10px;
 }
+svg{
+    overflow:visible;
+}
+.highcharts-container{
+    overflow:visible !important;
+}
+.card-title:after {
+    display: block;
+    content: "";
+    width: 108%;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    top: 10px;
+    left: -18px;
+}
