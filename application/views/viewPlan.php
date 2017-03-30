@@ -100,17 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- JQuery Area -->
 <script type="text/javascript">
-
-  /* Checkbox change Event (each row color change) */
-  $(function() {
-    $('.custom-select').change(function() {
-      if($(this).find('option:selected').attr('value') == '1') {
-        $(this).closest('tr').addClass('bg-success');
-      }else{
-        $(this).closest('tr').removeClass('bg-success');
-      }
-    });
-  });
   /* Confirm delete button */
   function confirm_delete(date, seq) {
     if(confirm("일정을 삭제하시겠습니까?")){

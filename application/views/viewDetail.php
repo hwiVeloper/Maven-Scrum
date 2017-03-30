@@ -1,10 +1,10 @@
 <style>
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 .scrum-items__detail {
   margin-bottom: 100px;
-}
-.scrum-items__chart {
-  padding-left: 15px;
-  padding-right: 15px;
 }
 </style>
 <?php
@@ -22,13 +22,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     list-style: none;
     padding-left: 0;
     text-align: center;
-    margin-top: 25px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.125);
 }
 .scrum-items__chart-lists li {
     float: left;
     width: 25%;
-    border: 1px solid #ddd;
-    border-radius: 30px;
+    border-right: 1px solid rgba(0, 0, 0, 0.125);
+}
+.scrum-items__chart-lists li:hover {
+    background-color: #7495c6;
+}
+.scrum-items__chart-lists li a:hover {
+    color: #fff;
+}
+.scrum-items__chart-lists li:last-child {
+    border-right: 0;
 }
 .scrum-items__chart-lists li a {
     padding: 10px 0;
@@ -40,32 +48,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }
 .scrum-items__chart {
     width: 100%;
+    padding:20px;
 }
 #chart-acheivement {
     width: 100%;
 }
 #chart-trend {
     width:100%;
-    display: none;
 }
 .scrum-items__list-item {
-    padding: 13px;
-    padding-left: 21px;
     position: relative;
 }
 .scrum-items__chart-lists li a {
     display: block;
     font-size: 12px;
 }
-.scrum-items__list-item:before {
-    content: '';
-    position: absolute;
-    top: 14px;
-    left: 5px;
-    background: url(<?php echo base_url('assets/img/mycelebs.png');?>) no-repeat left top;
-    background-size: 10px 10px;
-    width: 10px;
-    height: 10px;
+.is-actived {
+    background-color: #7495c6;
+}
+.is-actived a {
+    color: #fff;
 }
 </style>
 
@@ -75,20 +77,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="col-md-6">
       <h5><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;일정 상세보기</h5>
       <div class="card text-xs-left">
-        <div class="card-block">
-          <h4 class="card-title">
-            <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$plans[0]['user_img']);?>" width="50px" height="50px">
-            &nbsp;<?=$plans[0]['user_name']?>
-          </h4>
+        <div class="scrum-items__card-block">
+        <div class="scrum-items__card-title">
+            <h4>
+              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$plans[0]['user_img']);?>" width="50px" height="50px">
+              &nbsp;<?=$plans[0]['user_name']?>
+            </h4>
+        </div>
           <ul class="scrum-items__chart-lists">
-              <li><a href="#"><span class="scrum-items__list-item">acheivement</span></a></li>
+              <li class="is-actived"><a href="#"><span class="scrum-items__list-item">acheivement</span></a></li>
               <li><a href="#"><span class="scrum-items__list-item">trend</span></a></li>
               <li><a href="#"><span class="scrum-items__list-item">chartItem3</span></a></li>
               <li><a href="#"><span class="scrum-items__list-item">chartItem4</span></a></li>
           </ul>
           <div class="scrum-items__chart">
-              <div id="chart-acheivement"></div>
-              <div id="chart-trend"></div>
+              <div id="chart-acheivement" style="width: 100%;"></div>
+              <div id="chart-trend" style="width: 100%;"></div>
           </div>
           <dt class="col-sm-3">작성일</dt>
           <dd class="col-sm-9"><?=$plan_date?></dd>
@@ -147,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               foreach ($replies as $k=>$row) :
                 ?>
                 <div class="text-xs-left reply">
-                  <div class="card-block-comment" style="padding-left: <?=1.5*$row['reply_level']?>em">
+                  <div class="card-block-comment">
                     <h6>
                       <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
                       &nbsp;<?=$row['user_name']?>
@@ -200,7 +204,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   (function() {
     Highcharts.chart('chart-trend', {
       chart: {
-        width: 450
       },
       title: {
         text: '스크럼 최근 동향'
@@ -226,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             fillColor: '#FFFFFF',
             lineWidth: 2,
             lineColor: null // inherit from series
-          }
+        },
         }
       },
     });
@@ -238,8 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       chart: {
         polar: true,
-        type: 'line',
-        width:450
+        type: 'line'
       },
       title: {
         style: {
@@ -273,15 +275,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?php echo $acheivement->achv_avg_ratio?>
         ],
         pointPlacement: 'on'
-      }]
+    }],
+    plotOptions: {
+        size: "100%",
+        overflow: "none",
+        series: {
+            overflow: 'none'
+        }
+    },
 
     });
   })();
   </script>
   <script>
   $(function() {
+    $("#chart-trend").hide();
+    $("")
       $(".scrum-items__chart-lists li").click(function() {
           let checkChart = $(this).text();
+          $(".scrum-items__chart-lists li").removeClass('is-actived');
+          $(this).addClass('is-actived');
           console.log(checkChart);
           if (checkChart == "acheivement") {
               $("#chart-trend").hide();
