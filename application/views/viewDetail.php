@@ -282,7 +282,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   $(function() {
       $(".scrum-items__chart-lists li").click(function() {
           let checkChart = $(this).text();
-          console.log(checkChart);
           if (checkChart == "acheivement") {
               $("#chart-trend").hide();
               $("#chart-acheivement").fadeIn();
