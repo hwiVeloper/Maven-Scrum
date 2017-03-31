@@ -24,6 +24,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | cache_override 출력라이브러리(Output Library) 에 있는 _display_cache() 함수 대신 당신의 스크립트를 호출할 수 있도록 해줍니다. 이로서 당신만의 캐시 표시 메커니즘(cache display mechanism)을 적용할 수 있습니다.
 | post_system 최종 렌더링 페이지가 브라우저로 보내진후에 호출됩니다.
 */
+
+$hook['post_controller_constructor'] = array(
+  'class'    => 'Point',
+  'function' => 'index',
+  'filename' => 'Point.php',
+  'filepath' => 'hooks',
+  'params'   => ''
+);
+
 $hook['post_controller'] = array(
   'class'    => 'Attendance',
   'function' => 'index',

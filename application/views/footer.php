@@ -1,5 +1,89 @@
+      <div class="fab-container">
+        <div class="fab-popup">
+          <ul class="fab-popup-items">
+            <li>
+              <button class="btn fab-btn fab-btn-ranking" type="button" data-tooltip="tooltip" data-placement="left" title="랭킹(준비중)" data-toggle="modal" data-target="#rankingModal">
+                <i class='fa fa-2x fa-trophy' aria-hidden='true'></i>
+              </button>
+            </li>
+            <li>
+              <button class="btn fab-btn fab-btn-achievement" type="button" data-tooltip="tooltip" data-placement="left" title="포인트" data-toggle="modal" data-target="#acheivementModal">
+                <i class='fa fa-2x fa-user' aria-hidden='true'></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="fab-btn-box">
+          <button class="btn fab-btn" type="button">
+            <i class='fa fa-3x fa-star-o' aria-hidden='true'></i>
+          </button>
+        </div>
+      </div>
     </div>
     <!-- END CONTAINER-FLUID -->
+
+    <!-- RANKING MODAL -->
+    <div class="modal fade" id="rankingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">준비중입니다..</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACHEIVEMENT MODAL -->
+    <div class="modal fade" id="acheivementModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">개인 포인트 현황</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <th>&nbsp;</th>
+                <th>출석 (10)</th>
+                <th>스크럼 작성 (10)</th>
+                <th>댓글 작성 (1)</th>
+                <th>포인트</th>
+              </tr>
+              <tr>
+                <th>이번달</th>
+                <th><?=$this->session->userdata('month_attendance_count')?></th>
+                <th><?=$this->session->userdata('month_plan_count')?></th>
+                <th><?=$this->session->userdata('month_reply_count')?></th>
+                <th><?=$this->session->userdata('month_point')?></th>
+              </tr>
+              <tr>
+                <th>누적</th>
+                <th><?=$this->session->userdata('attendance_count')?></th>
+                <th><?=$this->session->userdata('plan_count')?></th>
+                <th><?=$this->session->userdata('reply_count')?></th>
+                <th><?=$this->session->userdata('accml_point')?></th>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- navigation toggle button script -->
     <script type="text/javascript">
@@ -53,6 +137,17 @@
              }
           }
       })
+    </script>
+    <script type="text/javascript">
+    /* Floating Action Button */
+    $(function() {
+      $('.fab-popup').hide();
+
+      $('.fab-btn').click(function() {
+        $('.fab-popup').fadeToggle();
+      });
+      $('[data-tooltip="tooltip"]').tooltip();
+    });
     </script>
   </body>
 </html>

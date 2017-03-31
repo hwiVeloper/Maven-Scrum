@@ -523,3 +523,47 @@ svg{
 .scrum-items__card-block {
     padding: 0;
 }
+
+/* Floating Action Button */
+.fab-container {
+  position: fixed;
+  right: 2em;
+  bottom: 5em;
+  z-index: 1000;
+}
+
+.fab-popup {
+  padding-right: 0.25rem;
+  margin-bottom: 0.25rem;
+  z-index: 1000;
+}
+
+.fab-popup-items {
+  list-style: none!important;
+}
+
+.fab-popup-items > li {
+  list-style: none!important;
+  margin-bottom: 1em;
+}
+
+.fab-btn-box {
+  text-align:right;
+}
+
+.fab-btn {
+  border-radius: 50%;
+  background-color: #66cab4;
+  color: #fff;
+  box-shadow: 1px 3px 8px #bbb;
+}
+
+.fab-btn-ranking {
+  background-color: #f6cac9;
+  width:100%
+}
+
+.fab-btn-achievement {
+  background-color: #91a7d0;
+  width:100%;
+}

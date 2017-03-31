@@ -71,15 +71,15 @@ class MCharts extends CI_Model{
   function get_month_acheivement($user, $date) {
     $ym = date('Y-m', strtotime($date));
 
-    $sql = "SELECT (SELECT COUNT(*) / DAY(LAST_DAY(NOW())) * 100
+    $sql = "SELECT (SELECT COUNT(*) / DAY('$date') * 100
                     FROM scrum_attendance
                     WHERE user_id = '$user'
                     AND DATE_FORMAT(attendance_date, '%Y-%m') = '$ym') AS att_ratio
-                 , (SELECT COUNT(*) / DAY(LAST_DAY(NOW())) * 100
+                 , (SELECT COUNT(*) / DAY('$date') * 100
                     FROM scrum_plan_info
                     WHERE user_id = '$user'
                     AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') AS write_ratio
-                 , (SELECT user_count / all_count * 100
+                 , (SELECT IFNULL(user_count / all_count, 0) * 100
                     FROM (SELECT COUNT(*) AS user_count
                           FROM scrum_reply
                           WHERE user_id = '$user'
@@ -87,7 +87,7 @@ class MCharts extends CI_Model{
                        , (SELECT COUNT(*) AS all_count
                           FROM scrum_reply
                           WHERE DATE_FORMAT(plan_date, '%Y-%m') = '$ym') a) AS reply_ratio
-                 , (SELECT user_count / user_all_count * 100
+                 , (SELECT IFNULL(user_count / user_all_count, 0) * 100
                     FROM (SELECT COUNT(*) AS user_count
                           FROM scrum_plan
                           WHERE user_id = '$user'
@@ -97,7 +97,7 @@ class MCharts extends CI_Model{
                           FROM scrum_plan
                           WHERE user_id = '$user'
                           AND plan_date = '$date') a) AS achv_today_ratio
-                 , (SELECT user_count / user_all_count * 100
+                 , (SELECT IFNULL(user_count / user_all_count, 0) * 100
                     FROM (SELECT COUNT(*) AS user_count
                           FROM scrum_plan
                           WHERE user_id = '$user'
