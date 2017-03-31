@@ -68,7 +68,6 @@ class User extends CI_Controller {
       $config['max_size'] = "4096";
       $config['remove_spaces'] = TRUE;
       $config['file_name'] = $this->input->post('original_file_name');
-
       $this->load->library('upload', $config);
       $this->upload->do_upload('user_img');
       if ( ! $this->upload->do_upload('user_img') ) {
