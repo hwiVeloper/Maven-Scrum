@@ -270,20 +270,6 @@ td.content {
 td.todo {
   text-align: center;
 }
-#calendar .bg-success{
-  background: #ff6e7f; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #ff6e7f , #bfe9ff); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #ff6e7f , #bfe9ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-attachment: fixed;
-  border-top:none !important;
-
-}
-#mobileTables .bg-success {
-    color:#fff;
-    background: #D3959B; /* fallback for old browsers */
-    background: linear-gradient(90deg, #7495c6, #a0cea7, #9ec0db);
-    background-attachment: fixed;
-}
 #mobileTables th,#mobileTables td {
     font-weight: normal;
 }
@@ -525,12 +511,15 @@ svg{
 .highcharts-container{
     overflow:visible !important;
 }
-.card-title:after {
-    display: block;
-    content: "";
-    width: 108%;
-    position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    top: 10px;
-    left: -18px;
+.scrum-items__card-title {
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.scrum-items__card-title h4 {
+    margin: 0;
+    padding: 0;
+}
+.scrum-items__card-block {
+    padding: 0;
 }
