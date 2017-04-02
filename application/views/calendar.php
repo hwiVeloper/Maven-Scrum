@@ -39,7 +39,7 @@
         <th class="list_menu_right"><a href="<?=base_url('Calendar/view/'.$n_link.'#list')?>">&gt;&gt;</a></th>
       </tr>
     </table>
-    <table id="" class="table table-sm">
+    <table id="" class="table">
       <tr class="cal-table-header">
         <th>날짜</th>
         <th>순번</th>

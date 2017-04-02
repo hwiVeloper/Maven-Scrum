@@ -242,8 +242,11 @@ th {
 .table th {
   vertical-align: middle;
 }
-#list td {
-  font-size: 9px;
+
+@media (max-width: 450px) {
+  #list td {
+    font-size: 10px;
+  }
 }
 #calendar td {
     padding-top: 2em;

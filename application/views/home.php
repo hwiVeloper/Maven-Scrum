@@ -62,7 +62,36 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   </div>
   <!-- TIMELINE AREA -->
   <ul class="timeline" style="padding-top:6em;">
-    <li id="20170109" class="timeline-inverted">
+    <li id="20170401">
+      <div class="timeline-badge danger"><i class="fa fa-microphone" aria-hidden="true"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">출석체크 및 포인트 구현</h4>
+          <p><small class="text-muted"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; 2017. 04. 01</small></p>
+        </div>
+        <div class="timeline-body">
+          <p style="text-align:justify;">안녕하세요. 이종휘입니다.</p>
+          <p style="text-align:justify;">
+            - 시작일 : 2017년 04월 01일 <br>
+            - 목적 : 데일리 스크럼 활성화 <br>
+            - 내용 일 1회 데일리 스크럼 접속 및 로그인 시 포인트 획득(알림창으로 확인) <br>
+            &nbsp;&nbsp;포인트 산정 기준 월 단위로 산정이 되며, 실시간 확인 가능하고 월말에는 합산하여 순위가 나눠집니다.<br> 
+            &nbsp;&nbsp;출석 (10) | 스크럼 작성 (10) | 댓글(1) - 랭킹 기준 출석, 스크럼 작성, 댓글 기준 포인트를 모두 종합하여 월말마다 산정합니다. <br>
+            &nbsp;&nbsp;누적(연도별)랭킹 역시 연말에 산정하겠습니다. <br>
+            - 보상 세 가지 부문으로 나누어 보상을 드리겠습니다. <br>
+            &nbsp;&nbsp;월말 종합 포인트<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* 1위: (가까운 나눔의 장 회비 면제)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* 2위: (가까운 나눔의 장 회비 50% 면제)<br>
+            &nbsp;&nbsp;월말 스크럼 작성<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* 1위: (가까운 나눔의 장 회비 면제) <br>
+            &nbsp;&nbsp;월말 댓글 작성(자기글 댓글은 포인트 제외입니다.)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;* 1위 (가까운 나눔의 장 회비 50% 면제)  <br>
+            &nbsp;&nbsp;스크럼, 댓글 순위가 동률인 경우 (출석률, 월플랜완료율) 등으로 산정하겠습니다.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li id="20170309" class="timeline-inverted">
       <div class="timeline-badge info"><i class="fa fa-commenting" aria-hidden="true"></i></div>
       <div class="timeline-panel">
         <div class="timeline-heading">
