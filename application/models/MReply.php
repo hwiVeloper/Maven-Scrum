@@ -38,7 +38,7 @@ class MReply extends CI_Model{
   }
 
   function check_reply_fake($user_id, $plan_date, $write_user) {
-    $sql = "SELECT COUNT(reply_timestamp) AS count
+    $sql = "SELECT COUNT(*) AS count
             FROM scrum_reply
             WHERE reply_timestamp > DATE_ADD(NOW(), INTERVAL -30 SECOND)
             AND user_id = '$user_id'

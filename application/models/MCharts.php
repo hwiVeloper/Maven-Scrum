@@ -74,15 +74,17 @@ class MCharts extends CI_Model{
     $sql = "SELECT (SELECT COUNT(*) / DAY('$date') * 100
                     FROM scrum_attendance
                     WHERE user_id = '$user'
-                    AND DATE_FORMAT(attendance_date, '%Y-%m') = '$ym') AS att_ratio
+                    AND DATE_FORMAT(attendance_date, '%Y-%m') = '$ym'
+                    AND attendance_date <= '$date') AS att_ratio
                  , (SELECT COUNT(*) / DAY('$date') * 100
                     FROM scrum_plan_info
                     WHERE user_id = '$user'
-                    AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') AS write_ratio
+                    AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym'
+                    AND plan_date <= '$date') AS write_ratio
                  , (SELECT IFNULL(user_count / all_count, 0) * 100
                     FROM (SELECT COUNT(*) AS user_count
                           FROM scrum_reply
-                          WHERE user_id = '$user'
+                          WHERE write_user = '$user'
                           AND DATE_FORMAT(plan_date, '%Y-%m') = '$ym') u
                        , (SELECT COUNT(*) AS all_count
                           FROM scrum_reply
