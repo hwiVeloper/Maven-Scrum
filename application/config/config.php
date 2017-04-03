@@ -101,6 +101,7 @@ $config['charset'] = 'UTF-8';
 |
 */
 $config['enable_hooks'] = FALSE;
+// $config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

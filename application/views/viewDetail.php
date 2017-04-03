@@ -293,6 +293,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $("")
       $(".scrum-items__chart-lists li").click(function() {
           let checkChart = $(this).text();
+
           $(".scrum-items__chart-lists li").removeClass('is-actived');
           $(this).addClass('is-actived');
           console.log(checkChart);
