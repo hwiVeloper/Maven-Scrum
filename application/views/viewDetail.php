@@ -150,7 +150,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }else {
               foreach ($replies as $k=>$row) :
                 ?>
-                <div class="text-xs-left reply">
+                <div class="text-xs-left reply" style="padding-left:<?=$row['reply_level'] * 1?>em">
                   <div class="card-block-comment">
                     <h6>
                       <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
@@ -293,10 +293,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $("")
       $(".scrum-items__chart-lists li").click(function() {
           let checkChart = $(this).text();
-        
+
           $(".scrum-items__chart-lists li").removeClass('is-actived');
           $(this).addClass('is-actived');
-        
+
           if (checkChart == "acheivement") {
               $("#chart-trend").hide();
               $("#chart-acheivement").fadeIn();
