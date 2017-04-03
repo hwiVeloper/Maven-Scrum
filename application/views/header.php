@@ -98,7 +98,7 @@
             <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="30em" height="30em">
             <span class="hidden-xs-down">&nbsp;<?=$this->session->userdata('user_name')?></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" style="width: 350px">
+          <div class="dropdown-menu dropdown-menu-right" style="width: 350px; top:125%">
             <div class="col-md-4 col-xs-4">
               <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
             </div>

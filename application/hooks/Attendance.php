@@ -9,6 +9,9 @@ class Attendance{
   }
   function index() {
     // $this->ci->MAttendance->test_model();
+    if(! $this->ci->session->userdata('user_id')){
+      return;
+    }
 
     // session user id
     $user_id = $this->ci->session->userdata('user_id');

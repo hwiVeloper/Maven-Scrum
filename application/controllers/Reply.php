@@ -24,6 +24,15 @@ class Reply extends CI_Controller {
         redirect($redirect_address, 'refresh');
       }
 
+      // 뻘댓글 체크
+      // 자기 글에는 상관 없다. (포인트가 오르지 않는다.)
+      if($this->input->post('user_id') != $this->input->post('write_user')) {
+        if($this->MReply->check_reply_fake($this->input->post('user_id'), $this->input->post('plan_date'), $this->input->post('write_user')) > 0) {
+          echo "<script>alert('그렇게 빠르게 댓글을 등록할 수 없습니다.')</script>";
+          redirect($redirect_address, 'refresh');
+        }
+      }
+
       $data = array(
           'user_id' => $this->input->post('user_id'),
           'write_user' => $this->input->post('write_user'),

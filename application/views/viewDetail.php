@@ -87,12 +87,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="scrum-items__chart-lists">
               <li class="is-actived"><a href="#"><span class="scrum-items__list-item">acheivement</span></a></li>
               <li><a href="#"><span class="scrum-items__list-item">trend</span></a></li>
-              <li><a href="#"><span class="scrum-items__list-item">chartItem3</span></a></li>
+              <li><a href="#"><span class="scrum-items__list-item">areaspline</span></a></li>
               <li><a href="#"><span class="scrum-items__list-item">chartItem4</span></a></li>
           </ul>
           <div class="scrum-items__chart">
               <div id="chart-acheivement" style="width: 100%;"></div>
               <div id="chart-trend" style="width: 100%;"></div>
+              <div id="chart-areaspline" style="width: 100%;"></div>
           </div>
           <dt class="col-sm-3">작성일</dt>
           <dd class="col-sm-9"><?=$plan_date?></dd>
@@ -150,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }else {
               foreach ($replies as $k=>$row) :
                 ?>
-                <div class="text-xs-left reply">
+                <div class="text-xs-left reply" style="padding-left:<?=$row['reply_level'] * 1?>em">
                   <div class="card-block-comment">
                     <h6>
                       <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="35px" height="35px">
@@ -236,6 +237,71 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   })();
   </script>
   <script>
+    (function() {
+        Highcharts.chart('chart-areaspline', {
+            chart: {
+                type: 'areaspline'
+            },
+            title: {
+                text: 'Scrum Ranking Top 5'
+            },
+            xAxis: {
+                categories: [
+                    ' ',
+                    'Monday',
+                    'Tuesday',
+                    'Wednesday',
+                    'Thursday',
+                    'Friday',
+                    'Saturday',
+                    'Sunday',
+                    ''
+                ],
+                min : 0.5,
+                max : 7.5,
+                plotBands: [{ // visualize the weekend
+                    from: 6.5,
+                    to: 8,
+                    color: 'rgba(68, 170, 213, .2)'
+                }]
+            },
+            yAxis: {
+                title: {
+                    text: 'text'
+                }
+            },
+            tooltip: {
+                shared: true,
+                valueSuffix: ' units'
+            },
+            credits: {
+                enabled: false
+            },
+            plotOptions: {
+                areaspline: {
+                    fillOpacity: 0.5
+                }
+            },
+            series: [{
+                name: 'user_1',
+                data: [0,23, 24, 23, 25, 24, 30, 52,0]
+            }, {
+                name: 'user_2',
+                data: [0,11, 13, 24, 13, 3, 35, 24,0]
+            }, {
+                name: 'user_3',
+                data: [0,1, 23, 14, 23, 3, 45, 34,0]
+            }, {
+                name: 'user_4',
+                data: [0,11, 33, 24, 63, 23, 35, 54,0]
+            }, {
+                name: 'user_5',
+                data: [0,61, 33, 34, 53, 23, 35, 54,0]
+            }]
+        })
+    })();
+  </script>
+  <script>
   (function() {
     Highcharts.chart('chart-acheivement', {
 
@@ -290,19 +356,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script>
   $(function() {
     $("#chart-trend").hide();
-    $("")
+    $("#chart-areaspline").hide();
       $(".scrum-items__chart-lists li").click(function() {
           let checkChart = $(this).text();
 
           $(".scrum-items__chart-lists li").removeClass('is-actived');
           $(this).addClass('is-actived');
-          console.log(checkChart);
+
           if (checkChart == "acheivement") {
-              $("#chart-trend").hide();
+              $(".scrum-items__chart > div").hide();
               $("#chart-acheivement").fadeIn();
           } else if (checkChart == "trend") {
-              $("#chart-acheivement").hide();
+              $(".scrum-items__chart > div").hide();
               $("#chart-trend").fadeIn();
+          } else if (checkChart == "areaspline") {
+              $(".scrum-items__chart > div").hide();
+              $("#chart-areaspline").fadeIn();
           }
       })
   })

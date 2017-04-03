@@ -58,7 +58,7 @@ class User extends CI_Controller {
       redirect('User', 'refresh');
     }
 
-    if($_FILES){
+    if($_FILES['user_img']['name'] != "" && $_FILES){
       // echo "<script>alert('파일 업로드 시작');</script>";
       // file upload
       $config['upload_path'] = './assets/img/member/';
