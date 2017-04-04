@@ -1,3 +1,4 @@
+      <!-- FLOATING ACTION BUTTON -->
       <div class="fab-container">
         <div class="fab-popup">
           <ul class="fab-popup-items">
@@ -32,9 +33,43 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <table>
-
+          <div class="modal-body" style="height: 100%;">
+            <table class="table" style="text-align:center;">
+              <thead>
+                <tr>
+                  <th>이름</th>
+                  <th>출석</th>
+                  <th>글작성</th>
+                  <th>댓글</th>
+                  <th>포인트</th>
+                  <th>순위</th>
+                </tr>
+              </thead>
+              <?php foreach ($this->session->userdata('rank') as $k => $row): ?>
+                <?php $trBackground = ""; ?>
+                <?php switch ($row['rank']) {
+                  case 1:
+                    $trBackground = "style='background-color:#FFD700;'";
+                    break;
+                  case 2:
+                    $trBackground = "style='background-color:#C0C0C0;color:#fff'";
+                    break;
+                  case 3:
+                    $trBackground = "style='background-color:#CD7F32;color:#fff'";
+                    break;
+                  default:
+                    $trBackground = "";
+                    break;
+                } ?>
+                <tr <?=$trBackground?>>
+                  <td><?=$row['user_name']?></td>
+                  <td><?=$row['attendance_count']?></td>
+                  <td><?=$row['plan_count']?></td>
+                  <td><?=$row['reply_count']?></td>
+                  <td><?=$row['point']?></td>
+                  <td><?=$row['rank']?></td>
+                </tr>
+              <?php endforeach; ?>
             </table>
           </div>
           <div class="modal-footer">
