@@ -100,6 +100,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- JQuery Area -->
 <script type="text/javascript">
+  /* Select box change Event (each row color change) */
+  $(function() {
+    $('.custom-select').change(function() {
+      if($(this).find('option:selected').attr('value') == '1') {
+        $(this).closest('tr').addClass('bg-success');
+      }else{
+        $(this).closest('tr').removeClass('bg-success');
+      }
+    });
+  });
+
+  /* Confirm delete button */
+  function confirm_delete(date, seq) {
+    if(confirm("일정을 삭제하시겠습니까?")){
+      location.href = "http://scrum.mismaven.kr/Plan/remove/"+date+"/"+seq;
+    }else{
+      return false;
+    }
+  }
   /* Confirm delete button */
   function confirm_delete(date, seq) {
     if(confirm("일정을 삭제하시겠습니까?")){
@@ -144,5 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           // appendTr.append(addedTr);
       $(appendTr).append(h);
     });
+
+
   });
 </script>

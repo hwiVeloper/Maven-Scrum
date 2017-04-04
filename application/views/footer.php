@@ -25,13 +25,13 @@
 
     <!-- RANKING MODAL -->
     <div class="modal fade" id="rankingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-dialog modal-lg" role="dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">준비중입니다..</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <h5 class="modal-title" id="exampleModalLabel"><?=date('Y년 m월')?> 성과 랭킹</h5>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+              <!-- <span aria-hidden="true">&times;</span> -->
+            <!-- </button> -->
           </div>
           <div class="modal-body" style="height: 100%;">
             <table class="table" style="text-align:center;">
@@ -42,12 +42,22 @@
                   <th>글작성</th>
                   <th>댓글</th>
                   <th>포인트</th>
-                  <th>순위</th>
+                  <th>종합순위</th>
                 </tr>
               </thead>
+              <?php
+              $prev_point = 0;
+              $private_rank = 0;
+              ?>
               <?php foreach ($this->session->userdata('rank') as $k => $row): ?>
-                <?php $trBackground = ""; ?>
-                <?php switch ($row['rank']) {
+                <?php
+                $trBackground = "";
+                // echo "<script>alert($prev_point)</script>";
+                if ( $prev_point != $row['point'] ) {
+                  $private_rank = $private_rank + 1;
+                }
+                ?>
+                <?php switch ($private_rank) {
                   case 1:
                     $trBackground = "style='background-color:#FFD700;'";
                     break;
@@ -67,8 +77,9 @@
                   <td><?=$row['plan_count']?></td>
                   <td><?=$row['reply_count']?></td>
                   <td><?=$row['point']?></td>
-                  <td><?=$row['rank']?></td>
+                  <td><?=$private_rank?></td>
                 </tr>
+                <?php $prev_point = $row['point'] ?>
               <?php endforeach; ?>
             </table>
           </div>
@@ -85,9 +96,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">개인 포인트 현황</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+              <!-- <span aria-hidden="true">&times;</span> -->
+            <!-- </button> -->
           </div>
           <div class="modal-body">
             <table class="table">
@@ -182,7 +193,9 @@
       $('.fab-btn').click(function() {
         $('.fab-popup').fadeToggle();
       });
-      $('[data-tooltip="tooltip"]').tooltip();
+      $('.fab-btn').hover(function() {
+        $('[data-tooltip="tooltip"]').tooltip();
+      });
     });
     </script>
   </body>

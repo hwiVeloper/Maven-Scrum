@@ -59,32 +59,34 @@ class MPoint extends CI_Model{
   }
 
   function get_rank_of_this_month() {
-    $sql = "SELECT user_id
-                 , user_name
-                 , attendance_count
-                 , plan_count
-                 , reply_count
-                 , (attendance_count * 10 + plan_count * 10 + reply_count) AS point
-                 , IFNULL(CASE WHEN @prev = (attendance_count * 10 + plan_count * 10 + reply_count) THEN @rank
-                          WHEN @prev := (attendance_count * 10 + plan_count * 10 + reply_count) THEN @rank := @rank + 1
-                          END, @rank) AS rank
-            FROM (SELECT u.user_id
-                       , u.user_name
-                       , count(p.plan_date) AS plan_count
-                       , count(r.reply_id) AS reply_count
-                       , (SELECT COUNT(*) AS count
-                          FROM scrum_attendance
-                          WHERE user_id = u.user_id
-                          AND DATE_FORMAT(attendance_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')) AS attendance_count
-                  FROM scrum_user u
-                  LEFT JOIN scrum_plan_info p ON u.user_id = p.user_id
-                  AND DATE_FORMAT(p.plan_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
-                  LEFT JOIN scrum_reply r ON u.user_id = r.write_user
-                  AND r.plan_date = p.plan_date
-                  AND DATE_FORMAT(r.plan_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
-                  GROUP BY u.user_id) a
-                , (SELECT @rank := 0, @prev := NULL) AS temp
-            ORDER BY point DESC";
+    $sql = "SELECT a.*
+            FROM (SELECT plan.user_id
+                       , (SELECT user_name FROM scrum_user WHERE user_id = plan.user_id) AS user_name
+                       , attendance.count AS attendance_count
+                       , plan.count AS plan_count
+                       , reply.count AS reply_count
+                       , (attendance.count * 10 + plan.count * 10 + reply.count) AS point
+                  FROM (SELECT u.user_id
+                             , count(p.plan_date) count
+                        FROM scrum_user u
+                        LEFT JOIN scrum_plan_info p ON u.user_id = p.user_id
+                        AND DATE_FORMAT(p.plan_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
+                        GROUP BY u.user_id) AS plan
+                     , (SELECT u.user_id
+                             , count(r.reply_timestamp) count
+                        FROM scrum_user u
+                        LEFT JOIN scrum_reply r ON u.user_id = r.write_user
+                        AND DATE_FORMAT(r.reply_timestamp, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
+                        GROUP BY u.user_id) AS reply
+                     , (SELECT u.user_id
+                             , count(a.user_id) count
+                        FROM scrum_user u
+                        LEFT JOIN scrum_attendance a ON u.user_id = a.user_id
+                        AND DATE_FORMAT(a.attendance_date, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m')
+                        GROUP BY u.user_id) AS attendance
+            WHERE plan.user_id = reply.user_id
+            AND plan.user_id = attendance.user_id) AS a
+ORDER BY point DESC";
     $query = $this->db->query($sql);
 
     return $query->result_array();
