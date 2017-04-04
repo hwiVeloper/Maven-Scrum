@@ -49,8 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <div class="card">
             <h4 class="card-header">
-              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>" width="50px" height="50px">
-              &nbsp;<?=$row['user_name']?>
+                <div class="scrum-items__image-wrapper">
+                  <img class="scrum-items__card-image" src="<?php echo base_url('assets/img/member/'.$row['user_img']);?>">
+                </div>
+                  <span class="scrum-items__card-name"><?=$row['user_name']?></span>
             </h4>
             <div class="card-block">
               <p class="card-text card-content"><?=$sts." "?><?=$row['plan_content']?></p>
