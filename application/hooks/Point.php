@@ -2,6 +2,7 @@
 class Point{
 
   private $ci;
+  // global $month_rank;
 
   function __construct() {
     $this->ci = &get_instance();
@@ -19,6 +20,11 @@ class Point{
     $this->ci->session->set_userdata('plan_count'             , $user_point_info->plan_count             );
     $this->ci->session->set_userdata('reply_count'            , $user_point_info->reply_count            );
     $this->ci->session->set_userdata('accml_point'            , $user_point_info->accml_point            );
+    $this->ci->session->set_userdata('rank'                   , $this->ci->MPoint->get_rank_of_this_month());
+  }
+
+  function rank() {
+
   }
 }
 ?>
