@@ -589,3 +589,11 @@ svg{
     padding-top: 15px;
     padding-left: 55px;
 }
+
+.nav-profile {
+  max-height: 70em!important;
+}
+
+.nav-profile-mobile {
+  max-height: 30em;
+}

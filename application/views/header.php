@@ -100,7 +100,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" style="width: 350px; top:125%">
             <div class="col-md-4 col-xs-4">
-              <img class="img-rounded" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
+              <img class="img-rounded nav-profile" src="<?php echo base_url('assets/img/member/'.$this->session->userdata('user_img'));?>" width="70em" height="70em">
             </div>
             <div class="col-md-8 col-xs-8" style="padding-left:0px;padding-top:5px;">
               <p class="text-left"><strong><?=$this->session->userdata('user_name')?>&nbsp;(<?=$this->session->userdata('user_id')?>)</strong></p>
