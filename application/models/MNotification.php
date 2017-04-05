@@ -37,7 +37,7 @@ class MNotification extends CI_Model{
   function count_notification() {
     $sql = "SELECT COUNT(*) count
             FROM scrum_alarm
-            WHERE alarm_to_user = '$this->user_id'
+            WHERE alarm_target_user = '$this->user_id'
             AND alarm_status = 0
             ORDER BY alarm_creation_dttm DESC
             ";
