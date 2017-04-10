@@ -59,7 +59,7 @@ class Forum extends CI_Controller{
     $data = array(
       'forum_ym' => $ym,
       'forum_title' => $title,
-      'forum_content' => nl2br($content),
+      'forum_content' => $content,
       'forum_writer' => $writer,
       'forum_type' => $type,
       'forum_dttm' => $dttm

@@ -14,7 +14,8 @@ class MForum extends CI_Model{
             FROM scrum_forum_detail d
                , scrum_user u
             WHERE forum_ym = '$ym'
-            AND u.user_id = d.forum_writer";
+            AND u.user_id = d.forum_writer
+            ORDER BY d.forum_dttm";
     $query = $this->db->query($sql);
 
     return $query->result_array();

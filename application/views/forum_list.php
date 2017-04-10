@@ -60,9 +60,7 @@ $close_date = date('Y-m-d', $date);
                 </form>
               </p>
             </div>
-            <div class="timeline-body">
-              <p style="text-align:justify"><?=$this->markdown->parse($row['forum_content'])?></p>
-            </div>
+            <div class="timeline-body"><?=$row['forum_content']?></div>
           </div>
         </li>
       <?php endforeach; ?>
@@ -125,7 +123,7 @@ $close_date = date('Y-m-d', $date);
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.6.4/dist/showdown.min.js"></script>
 <script type="text/javascript">
   $('#modify').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
@@ -142,5 +140,13 @@ $close_date = date('Y-m-d', $date);
     modal.find('#modUser').val(user);
     modal.find('#modType').val(type);
     modal.find('#modContent').html(content);
+  });
+  const converter = new showdown.Converter();
+  var result = "";
+  var text = "";
+  $('.timeline-body').each(function () {
+    text = $(this).html();
+    result = converter.makeHtml(text);
+    $(this).html(result);
   });
 </script>
