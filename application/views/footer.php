@@ -33,7 +33,7 @@
               <!-- <span aria-hidden="true">&times;</span> -->
             <!-- </button> -->
           </div>
-          <div class="modal-body" style="height: 100%;">
+          <div class="modal-body" style="height: auto">
             <table class="table" style="text-align:center;">
               <thead>
                 <tr>
