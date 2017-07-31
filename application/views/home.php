@@ -52,6 +52,10 @@ commenting - <i class="fa fa-commenting" aria-hidden="true"></i>
   .st-red {
     color: #d9534f;
   }
+
+  .timeline > li > .timeline-badge {
+      padding-top: 1rem;
+  }
 </style>
 <div class="container">
   <!-- PAGE TITLE AREA -->

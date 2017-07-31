@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
+<style media="screen">
+    .card-text {
+        height: 20px;
+    }
+</style>
 
 <!-- COUNT PLAN BY MEMBERS & MOVE OTHER DATE -->
 <div class="row">
